@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class EntityBase : MonoBehaviour, IDamagable
 {
-    [SerializeField] private int health;
+    public int health;
+    public int attackPower;
     public void TakeDamage(int intakeDamage, DamageType dt = DamageType.physical)
     {
         health -= intakeDamage;

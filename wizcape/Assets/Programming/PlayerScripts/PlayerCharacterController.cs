@@ -9,7 +9,7 @@ public class PlayerCharacterController : MonoBehaviour
     [Header("Camera Variables")]
     [SerializeField] private Transform cam;
     [SerializeField] private Vector2 mouseInput;
-    [SerializeField] private float sensx, sensy;
+    [SerializeField] private float sensX, sensY;
     [SerializeField] private Transform walkReference;
     private float _xRotation, _yRotation;
 
