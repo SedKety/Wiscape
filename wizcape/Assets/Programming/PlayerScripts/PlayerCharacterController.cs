@@ -70,8 +70,8 @@ public class PlayerCharacterController : MonoBehaviour
 
     private void HandleCameraRotation()
     {
-        float xPosition = mouseInput.x * Time.deltaTime * sensx;
-        float yPosition = mouseInput.y * Time.deltaTime * sensy;
+        float xPosition = mouseInput.x * Time.deltaTime * sensX;
+        float yPosition = mouseInput.y * Time.deltaTime * sensY;
 
         _yRotation += xPosition;
         _xRotation -= yPosition;

@@ -1,39 +1,40 @@
-using System.Runtime.CompilerServices;
+using System.Collections;
 using UnityEngine;
 
-public class WeaponHandler : EntityBase
+public class WeaponHandler : MonoBehaviour
 {
+    public int attackPower;
+    public Animator attackAnimator;
+    public float weaponDelay;
+    public bool isAttacking;
+   [SerializeField] private DamageInstance handslap;
 
-    [SerializeField] private float grabbingMoveSpeed;
-    [SerializeField] private float grabbingRotationSpeed;
-    private bool _isGrabbed;
-    private Transform _grabbedArm;
-    public void GetPickedUp(Transform handTransform)
+
+
+    public virtual void UseAttack()
     {
-        _grabbedArm = handTransform;
-        _isGrabbed = true;
+        if (isAttacking) return;
+        attackAnimator.SetTrigger("Attack");
+        AttackHandling();
+        StartCoroutine(AttackDelay());
 
-        GetComponent<WeaponFloating>().GetGrabbed();
     }
 
-    private void Update()
+    protected virtual void AttackHandling()
     {
-        if (_isGrabbed)
+        if (Physics.Raycast(ray: new Ray(transform.position, transform.forward), out RaycastHit hitInfo, maxDistance: 20f))
         {
-            MoveTowardsArm();
+            if (hitInfo.collider.gameObject.TryGetComponent(out IDamagable damagable))
+            {
+                handslap.Execute(hitInfo.collider.gameObject);
+            }
         }
     }
 
-    private void MoveTowardsArm()
+    private IEnumerator AttackDelay()
     {
-        transform.position = Vector3.Lerp(transform.position, _grabbedArm.position, grabbingMoveSpeed * Time.deltaTime);
-        transform.rotation = Quaternion.Lerp(transform.rotation, _grabbedArm.rotation, grabbingRotationSpeed * Time.deltaTime);
-
-        if (Vector3.Distance(transform.position, _grabbedArm.position) < 0.1f)
-        {
-            transform.parent = _grabbedArm;
-            _grabbedArm.GetComponent<AttackSystem>().HandleNewWeapon(transform);
-            _isGrabbed = false;
-        }
+        isAttacking = true;
+        yield return new WaitForSeconds(weaponDelay);
+        isAttacking = false;
     }
 }
