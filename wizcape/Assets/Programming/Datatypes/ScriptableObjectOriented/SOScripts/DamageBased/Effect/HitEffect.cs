@@ -21,49 +21,53 @@ public class DamageEffect : HitEffect
     {
         base.ApplyEffect(target);
 
-        if(target.TryGetComponent(out IDamagable damagable))
+        if (target.TryGetComponent(out IDamagable damagable))
         {
             damagable.TakeDamage(damageAmount);
             Debug.Log($"Dealt: {damageAmount} damage to: {target.name}");
         }
-
-    }
-}
-
-[Serializable]
-public class FireEffect : HitEffect
-{
-    public float burnDuration;
-    public float burnTickInterval;
-
-    public int damageAmount;
-    public override void ApplyEffect(GameObject target)
-    {
-        base.ApplyEffect(target);
-
-        if(CoroutineStarter.coroutineHost == null)
-        {
-            Debug.LogError("CoroutineHost is null. Please ensure CoroutineStarter is initialized.");
-            return;
-        }
-        CoroutineStarter.coroutineHost.StartCoroutine(BurnTarget(target));
-    }
-
-    private IEnumerator BurnTarget(GameObject target)
-    {
-        var damagable = target.GetComponent<IDamagable>();
-        if (damagable == null)
+        else
         {
             Debug.Log($"{target} has no IDamagable component.");
-            yield return null;
+
+        }
+    }
+
+    [Serializable]
+    public class FireEffect : HitEffect
+    {
+        public float burnDuration;
+        public float burnTickInterval;
+
+        public int damageAmount;
+        public override void ApplyEffect(GameObject target)
+        {
+            base.ApplyEffect(target);
+
+            if (CoroutineStarter.coroutineHost == null)
+            {
+                Debug.LogError("CoroutineHost is null. Please ensure CoroutineStarter is initialized.");
+                return;
+            }
+            CoroutineStarter.coroutineHost.StartCoroutine(BurnTarget(target));
         }
 
-        var curTick = 0f;
-        while(curTick < burnDuration)
+        private IEnumerator BurnTarget(GameObject target)
         {
-            damagable.TakeDamage(damageAmount, DamageType.fire);
-            curTick += burnTickInterval;
-            yield return new WaitForSeconds(burnTickInterval);
+            var damagable = target.GetComponent<IDamagable>();
+            if (damagable == null)
+            {
+                Debug.Log($"{target} has no IDamagable component.");
+                yield return null;
+            }
+
+            var curTick = 0f;
+            while (curTick < burnDuration)
+            {
+                damagable.TakeDamage(damageAmount, DamageType.fire);
+                curTick += burnTickInterval;
+                yield return new WaitForSeconds(burnTickInterval);
+            }
         }
     }
 }

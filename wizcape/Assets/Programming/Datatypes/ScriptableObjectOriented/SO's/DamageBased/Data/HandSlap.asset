@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eaf3121f5fc27eb41be30d06293d4a8a, type: 3}
-  m_Name: BasicBlunt
+  m_Name: HandSlap
   m_EditorClassIdentifier: 
   hitEffects:
   - rid: 6277675065782829292
@@ -20,5 +20,5 @@ MonoBehaviour:
     - rid: 6277675065782829292
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
-        effectName: 'Blunt hit '
+        effectName: Hand slap
         damageAmount: 5
