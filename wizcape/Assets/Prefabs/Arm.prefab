@@ -148,4 +148,4 @@ MonoBehaviour:
   attackAnimator: {fileID: 8095744182150658448}
   weaponDelay: 0.5
   isAttacking: 0
-  handslap: {fileID: 0}
+  handslap: {fileID: 11400000, guid: f20e92313a06864498e803d61431eee3, type: 2}

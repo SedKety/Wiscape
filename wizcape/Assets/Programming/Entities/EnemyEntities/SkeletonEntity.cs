@@ -168,6 +168,7 @@ public class SkeletonEntity : EnemyEntity
     protected override void OnDrawGizmos()
     {
         base.OnDrawGizmos();
+        if(!debugMode) return;
         if (!playerGO) return;
 
         Gizmos.color = Color.blue;

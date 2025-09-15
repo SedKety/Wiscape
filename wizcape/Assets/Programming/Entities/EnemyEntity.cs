@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class EnemyEntity : EntityBase
 {
     [Header("Enemy Settings")]
-    [SerializeField] protected GameObject playerGO; // the player game object
+    [SerializeField] protected GameObject playerGO; // The player game object, used for distance calculations
 
     [Header("Combat variables")]
     [SerializeField] protected DamageInstance damageInstance; // The effects that the enemy will apply to other entities
@@ -12,13 +13,13 @@ public class EnemyEntity : EntityBase
 
     [Header("Movement variables")]
     [SerializeField] protected float detectionRange; // From how far away the enemy is able to detect other entities
-    protected float _curMoveSpeed;
+    protected float _curMoveSpeed; // The current movespeed set by the method that invokes GoTo
     [SerializeField] protected float moveSpeed; // How fast the enemy moves
     [SerializeField] protected float runningSpeed; // How fast the enemy moves when running
     protected Vector3 currentDirection; // Currnt direction the enemy is moving in
 
     [Header("Raycasting settings")]
-    [Range(5, 100)]
+    [Min(3)]
     [SerializeField] protected int rays = 5; // Amount of raycasts sent out for collision checks
     [SerializeField] protected float rayDistance = 3f; // How far the raycasts reach
     [SerializeField] protected Transform rayOrigin; // The origin of the ray
@@ -27,36 +28,48 @@ public class EnemyEntity : EntityBase
     protected float angleStep; // For symmetrical results
 
     [Tooltip("Whether or not to view the raycasts with gizmos")]
-    [SerializeField] private bool debugMode;
+    [SerializeField] protected bool debugMode;
+
+    [SerializeField] protected Rigidbody rb;
+
+    private Vector3 fp = Vector3.zero; // For debug gizmos
+    private Vector3 futurePos { get { return fp + Vector3.forward; } set { fp = value; } }
 
     protected void Awake()
     {
         _curMoveSpeed = moveSpeed;
         angleStep = fov / (rays - 1);
         currentDirection = rayOrigin.forward;
+
+        if (rb == null) rb = GetComponent<Rigidbody>();
+
+        rb.interpolation = RigidbodyInterpolation.Interpolate;
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
     }
+
     protected virtual void Update()
     {
-
+        
     }
 
-    [Tooltip("Moves toward an direction, no collision checks in itself")]
     protected virtual void MoveInDirection(Vector3 desiredDirection)
     {
         desiredDirection.y = 0;
         currentDirection = Vector3.Slerp(currentDirection, desiredDirection, Time.deltaTime * 5f).normalized;
 
         Vector3 moveXZ = new Vector3(currentDirection.x, 0, currentDirection.z);
-        transform.Translate(moveXZ * _curMoveSpeed * Time.deltaTime, Space.World);
+        Vector3 targetPos = rb.position + moveXZ * _curMoveSpeed * Time.deltaTime;
+        futurePos = targetPos; // Just for debug
+
+        rb.MovePosition(targetPos);
 
         if (moveXZ != Vector3.zero)
         {
             Quaternion targetRotation = Quaternion.LookRotation(moveXZ);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+            rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, Time.deltaTime * rotationSpeed));
         }
     }
 
-    [Tooltip("Calculates where to steer to based on raycasts")]
     protected Vector3 CalculateAvoidance()
     {
         if (rayOrigin == null) return Vector3.zero;
@@ -68,19 +81,17 @@ public class EnemyEntity : EntityBase
 
         for (int i = 0; i < hits.Length; i++)
         {
-            float angle = -fov / 2f + i * angleStep;
+            float angle = -fov * .5f + i * angleStep;
             Vector3 rayDir = Quaternion.Euler(0, angle, 0) * rayOrigin.forward;
 
             if (hits[i].collider != null)
             {
                 rayDir.y = 0;
 
-                // Steers away from the obstacle
+                // Steer away from obstacle
                 Vector3 awayFromObstacle = Vector3.Cross(Vector3.up, rayDir).normalized;
 
-                // Weight avoidance by proximity (steer away steeper fron closer obstacles)
                 float weight = 1f - (hits[i].distance / rayDistance);
-
                 steering += awayFromObstacle * weight;
                 hitCount++;
             }
@@ -89,9 +100,6 @@ public class EnemyEntity : EntityBase
         return hitCount > 0 ? steering.normalized : Vector3.zero;
     }
 
-
-
-    [Tooltip("Wanders around, avoiding obstacles")]
     protected void Wander()
     {
         if (rayOrigin == null) return;
@@ -99,26 +107,13 @@ public class EnemyEntity : EntityBase
         Vector3 avoidance = CalculateAvoidance();
         Vector3 forwardBias = currentDirection.normalized;
 
-        Vector3 desiredDirection;
-
-        if (avoidance != Vector3.zero)
-        {
-            // Blend avoidance with some forward movement
-            desiredDirection = (avoidance * 0.7f + forwardBias * 0.3f).normalized;
-        }
-        else
-        {
-            // No obstacles, go straight
-            desiredDirection = forwardBias;
-        }
+        Vector3 desiredDirection = avoidance != Vector3.zero
+            ? (avoidance * 0.7f + forwardBias * 0.3f).normalized
+            : forwardBias;
 
         MoveInDirection(desiredDirection);
     }
 
-
-
-
-    [Tooltip("Finds obstacles, and moves to a position steering away from other obstacles")]
     protected virtual void GoTo(Vector3 targetPosition)
     {
         if (rayOrigin == null) return;
@@ -135,10 +130,6 @@ public class EnemyEntity : EntityBase
         MoveInDirection(desiredDirection);
     }
 
-
-
-
-    // Check where nearby colliders are
     protected RaycastHit[] FireRays()
     {
         if (rayOrigin == null) return new RaycastHit[rays];
@@ -146,17 +137,19 @@ public class EnemyEntity : EntityBase
         var hits = new RaycastHit[rays];
         for (int i = 0; i < rays; i++)
         {
-            float angle = -fov / 2f + i * angleStep; // From left to right
+            float angle = -fov / 2f + i * angleStep;
             Vector3 direction = Quaternion.Euler(0, angle, 0) * rayOrigin.forward;
             Physics.Raycast(rayOrigin.position, direction, out hits[i], rayDistance);
         }
         return hits;
     }
 
-    // To see where the rays and such go(Only works if debugmode is set to true)
     protected virtual void OnDrawGizmos()
     {
         if (!debugMode || rayOrigin == null) return;
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(futurePos, .5f);
 
         for (int i = 0; i < rays; i++)
         {
@@ -166,7 +159,8 @@ public class EnemyEntity : EntityBase
 
             Gizmos.color = hit.collider != null ? Color.green : Color.red;
             Gizmos.DrawRay(rayOrigin.position, direction * rayDistance);
+
+
         }
     }
-
 }
