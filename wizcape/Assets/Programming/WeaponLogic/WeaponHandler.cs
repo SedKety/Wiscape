@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class WeaponHandler : MonoBehaviour
@@ -7,7 +8,8 @@ public class WeaponHandler : MonoBehaviour
     public Animator attackAnimator;
     public float weaponDelay;
     public bool isAttacking;
-   [SerializeField] private DamageInstance handslap;
+    [SerializeField] private DamageInstance handslap;
+    [SerializeField] private GameObject overworldWeapon;
 
 
 
@@ -36,5 +38,10 @@ public class WeaponHandler : MonoBehaviour
         isAttacking = true;
         yield return new WaitForSeconds(weaponDelay);
         isAttacking = false;
+    }
+    
+    public GameObject ReturnOverworldWeapon()
+    {
+        return overworldWeapon;
     }
 }

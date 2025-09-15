@@ -6,17 +6,11 @@ public class WeaponFloating : MonoBehaviour
     public float amplitude;
 
     private bool _grabbed;
-    private Vector3 _startPosition;
-
-    private void Start()
-    {
-        _startPosition = transform.position;
-    }
     private void Update()
     {
         if (!_grabbed)
         {
-            transform.position = new Vector3(transform.position.x, Mathf.Sin(Time.time * frequency) * amplitude, transform.position.z);
+            transform.localPosition = new Vector3(transform.localPosition.x, Mathf.Sin(Time.time * frequency) * amplitude, transform.localPosition.z);
         }
     }
 

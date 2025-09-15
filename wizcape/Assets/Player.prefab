@@ -213,7 +213,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3800a8c49a0be1e4f8fa2d915d473b3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handWeapon: {fileID: 0}
+  cam: {fileID: 5449436475582683140}
+  maxDistance: 5
+  weaponLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  handWeapon: {fileID: 7196537858096940631, guid: 981e79d7336518b4f8db0be3cb27a213, type: 3}
+  dropDistance: 2
 --- !u!1 &5943984597182795383
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,7 +264,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3800a8c49a0be1e4f8fa2d915d473b3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handWeapon: {fileID: 0}
+  cam: {fileID: 5449436475582683140}
+  maxDistance: 5
+  weaponLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  handWeapon: {fileID: 7196537858096940631, guid: 981e79d7336518b4f8db0be3cb27a213, type: 3}
+  dropDistance: 2
 --- !u!1 &6784167163987289833
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,6 +288,8 @@ GameObject:
   - component: {fileID: 6630174357653544684}
   - component: {fileID: 2433240811294954264}
   - component: {fileID: 4972989813100995942}
+  - component: {fileID: 1892096721800227105}
+  - component: {fileID: 8664701524452620028}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -500,9 +514,21 @@ MonoBehaviour:
     m_ActionName: 'Player/Attack[/Mouse/leftButton,/Touchscreen/primaryTouch/tap,/Keyboard/enter]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: WeaponSwitch, Assembly-CSharp
-        m_MethodName: RightHandInteract
+      - m_Target: {fileID: 449904414438889377}
+        m_TargetAssemblyTypeName: WeaponManager, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8664701524452620028}
+        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+        m_MethodName: InteractInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -592,9 +618,9 @@ MonoBehaviour:
     m_ActionName: 'Player/OtherAttack[/Mouse/rightButton]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: WeaponSwitch, Assembly-CSharp
-        m_MethodName: LeftHandInteract
+      - m_Target: {fileID: 47202027398647147}
+        m_TargetAssemblyTypeName: WeaponManager, Assembly-CSharp
+        m_MethodName: Interact
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -606,6 +632,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 36e73005-8aab-451b-a88e-06a93ab60073
     m_ActionName: Player/OtherInteract
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8664701524452620028}
+        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+        m_MethodName: InventoryInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e8e6bafc-3519-43ff-881f-2c9dd9b0c568
+    m_ActionName: 'Player/Inventory[/Keyboard/f]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -636,6 +678,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e9b710888c9ad43aaf0bb5d6c89cf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1892096721800227105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6784167163987289833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54b367a4079d9104da5c566b78763333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 5449436475582683140}
+  panel: {fileID: 0}
+  weaponLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  maxDistance: 5
+--- !u!114 &8664701524452620028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6784167163987289833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b82edd4e973aa8458efce91a28b7431, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryItems: []
+  inventoryObjects: []
+  radiusAcceleration: 10
+  _currentRadiusSpeed: 0
+  endRadius: 10
+  startSpeed: 1000
+  endSpeed: 5
+  deceleration: 750
+  _currentRotatingSpeed: 0
+  cam: {fileID: 5449436475582683140}
+  maxDistance: 5
+  itemLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &7213924744938512899
 GameObject:
   m_ObjectHideFlags: 0

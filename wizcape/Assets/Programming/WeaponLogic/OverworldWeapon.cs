@@ -1,12 +1,15 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class OverworldWeapon : EntityBase
+public class OverworldWeapon : MonoBehaviour
 {
 
     [SerializeField] private float grabbingMoveSpeed;
     [SerializeField] private float grabbingRotationSpeed;
     [SerializeField] private GameObject weapon;
+    [SerializeField] private Rigidbody rb;
+
+    [SerializeField] private float throwSpeed;
     private bool _isGrabbed;
     private Transform _grabbedArm;
     public void GetPickedUp(Transform handTransform)
@@ -14,7 +17,8 @@ public class OverworldWeapon : EntityBase
         _grabbedArm = handTransform;
         _isGrabbed = true;
 
-        GetComponent<WeaponFloating>().GetGrabbed();
+        GetComponent<Collider>().isTrigger = true;
+        rb.useGravity = false;
     }
 
     private void Update()
@@ -39,6 +43,16 @@ public class OverworldWeapon : EntityBase
     private void HandleWeaponChange()
     {
         GameObject weaponClone = Instantiate(weapon, _grabbedArm.position, _grabbedArm.rotation, _grabbedArm);
+
+        _grabbedArm.GetComponent<WeaponManager>().HandleNewWeapon(weaponClone.GetComponent<WeaponHandler>(), false);
         Destroy(gameObject);
+    }
+
+    public void HandleDrop()
+    {
+        rb.useGravity = true;
+        GetComponent<Collider>().isTrigger = false;
+
+        rb.AddForce(transform.forward * throwSpeed, ForceMode.Impulse);
     }
 }

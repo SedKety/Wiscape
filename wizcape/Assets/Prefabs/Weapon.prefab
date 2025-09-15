@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6719834897764278363}
   - component: {fileID: 810944002974645893}
   - component: {fileID: 9090882251973819160}
+  - component: {fileID: 6365106042323110428}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -86,6 +87,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &6365106042323110428
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945497642288332724}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fb0024ea80a729d4981b724913aac3c4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3199044789962815311
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,6 +119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5812638651682883597}
   - component: {fileID: 8278172171944473827}
+  - component: {fileID: 6669961843686548355}
   m_Layer: 6
   m_Name: Weapon
   m_TagString: Untagged
@@ -140,3 +164,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.29687583, y: 0.24314085, z: 0.888625}
   m_Center: {x: 0, y: 0, z: -0.28}
+--- !u!114 &6669961843686548355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3199044789962815311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 295a1ff05ca263248850ab3037bb72c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackPower: 0
+  attackAnimator: {fileID: 6365106042323110428}
+  weaponDelay: 1
+  isAttacking: 0
+  handslap: {fileID: 0}
+  overworldWeapon: {fileID: 493417775293368516, guid: 8ef56c5b369f6c54ab631a675b4fa5fb, type: 3}
