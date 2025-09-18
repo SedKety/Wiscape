@@ -176,6 +176,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 295a1ff05ca263248850ab3037bb72c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  overWorldPickUp: {fileID: 493417775293368516, guid: 8ef56c5b369f6c54ab631a675b4fa5fb, type: 3}
+  inventoryPickUp: {fileID: 493417775293368516, guid: 9a46a5d9738619f45a4418a89e450e70, type: 3}
   attackPower: 0
   attackAnimator: {fileID: 6365106042323110428}
   weaponDelay: 1

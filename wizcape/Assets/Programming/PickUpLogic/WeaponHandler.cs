@@ -2,7 +2,7 @@ using System.Collections;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class WeaponHandler : MonoBehaviour
+public class WeaponHandler : PickUpHandler
 {
     public int attackPower;
     public Animator attackAnimator;
@@ -13,7 +13,7 @@ public class WeaponHandler : MonoBehaviour
 
 
 
-    public virtual void UseAttack()
+    public override void UsePickUp() //Is triggered by the attack input.
     {
         if (isAttacking) return;
         attackAnimator.SetTrigger("Attack");
@@ -22,9 +22,10 @@ public class WeaponHandler : MonoBehaviour
 
     }
 
+    //Handles the attacking 
     protected virtual void AttackHandling()
     {
-        if (Physics.Raycast(ray: new Ray(transform.position, transform.forward), out RaycastHit hitInfo, maxDistance: 20f))
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, maxDistance: 20f))
         {
             if (hitInfo.collider.gameObject.TryGetComponent(out IDamagable damagable))
             {
@@ -38,10 +39,12 @@ public class WeaponHandler : MonoBehaviour
         isAttacking = true;
         yield return new WaitForSeconds(weaponDelay);
         isAttacking = false;
+
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, 5f))
+        {
+
+        }
     }
     
-    public GameObject ReturnOverworldWeapon()
-    {
-        return overworldWeapon;
-    }
+    
 }

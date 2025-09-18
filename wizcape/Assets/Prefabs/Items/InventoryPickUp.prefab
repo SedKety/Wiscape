@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6890188215116471274}
   - component: {fileID: 8580732744158350189}
   m_Layer: 9
-  m_Name: OverworldPotion
+  m_Name: InventoryPickUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,8 +127,8 @@ MonoBehaviour:
   pickUp: {fileID: 2210047717571839461, guid: f87cb8c1d449025489d4d07314d97445, type: 3}
   rb: {fileID: 8580732744158350189}
   throwSpeed: 2
-  inventoryObject: {fileID: 2210047717571839461, guid: 9b57b7f380fe5044e811aca9a12b86bd, type: 3}
-  isInInventory: 0
+  inventoryObject: {fileID: 0}
+  isInInventory: 1
 --- !u!54 &8580732744158350189
 Rigidbody:
   m_ObjectHideFlags: 0

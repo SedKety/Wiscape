@@ -1,19 +1,29 @@
+using JetBrains.Annotations;
+using NUnit.Framework.Internal.Filters;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class OverworldWeapon : MonoBehaviour
+public class OverworldPickUp : MonoBehaviour
 {
-
+    [Header("PickUp Variables")]
     [SerializeField] private float grabbingMoveSpeed;
     [SerializeField] private float grabbingRotationSpeed;
-    [SerializeField] private GameObject weapon;
+    [SerializeField] private GameObject pickUp;
     [SerializeField] private Rigidbody rb;
 
     [SerializeField] private float throwSpeed;
+
+    [SerializeField] private GameObject inventoryObject;
     private bool _isGrabbed;
     private Transform _grabbedArm;
+    
+
+    [Header("Inventory Variables")]
+    [SerializeField] private bool isInInventory;
+
     public void GetPickedUp(Transform handTransform)
     {
+        if (_isGrabbed) return;
         _grabbedArm = handTransform;
         _isGrabbed = true;
 
@@ -42,9 +52,8 @@ public class OverworldWeapon : MonoBehaviour
 
     private void HandleWeaponChange()
     {
-        GameObject weaponClone = Instantiate(weapon, _grabbedArm.position, _grabbedArm.rotation, _grabbedArm);
-
-        _grabbedArm.GetComponent<WeaponManager>().HandleNewWeapon(weaponClone.GetComponent<WeaponHandler>(), false);
+        GameObject weaponClone = Instantiate(pickUp, _grabbedArm.position, _grabbedArm.rotation, _grabbedArm);
+        _grabbedArm.GetComponent<PickUpManager>().HandleNewPickUp(weaponClone.GetComponent<PickUpHandler>(), false);
         Destroy(gameObject);
     }
 
@@ -54,5 +63,22 @@ public class OverworldWeapon : MonoBehaviour
         GetComponent<Collider>().isTrigger = false;
 
         rb.AddForce(transform.forward * throwSpeed, ForceMode.Impulse);
+    }
+
+    public void PutInInventory()
+    {
+        Inventory.Instance.AddPickUp(inventoryObject);
+        Destroy(gameObject);
+
+    }
+
+    public bool IsInInventory()
+    {
+        return isInInventory;
+    }
+
+    public GameObject ReturnInventoryPrefab()
+    {
+        return inventoryObject;
     }
 }

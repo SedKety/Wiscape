@@ -59,7 +59,8 @@ public class PlayerCharacterController : MonoBehaviour
         Vector3 walkPosition = walkReference.forward * _yInput * walkSpeed * Time.deltaTime
             + walkReference.right * _xInput * walkSpeed * Time.deltaTime;
 
-        _rb.linearVelocity = walkPosition;
+        Vector3 newVelocity = new Vector3(walkPosition.x, _rb.linearVelocity.y, walkPosition.z);
+        _rb.linearVelocity = newVelocity;
     }
 
     private void LateUpdate()

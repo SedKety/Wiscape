@@ -9,7 +9,7 @@ public class Inventory : MonoBehaviour
 
     public static Inventory Instance;
     [Header("Inventory")]
-    [SerializeField] private List<Item> inventoryItems;
+    [SerializeField] private List<GameObject> inventoryPickUps;
     private Transform inventoryOrbit;
 
     [Header("CircleStuff")]
@@ -29,7 +29,9 @@ public class Inventory : MonoBehaviour
     [Header("Interacting")]
     [SerializeField] private Transform cam;
     [SerializeField] private float maxDistance;
-    [SerializeField] private LayerMask itemLayer;
+    [SerializeField] private LayerMask overworldPickUpLayer;
+
+
 
     private void Awake()
     {
@@ -55,14 +57,14 @@ public class Inventory : MonoBehaviour
     {
         if (context.started)
         {
-            CheckForItem();
+            CheckForPickUp();
         }        
     }
     private void OpenInventory()
     {
-        if (inventoryItems.Count > 0)
+        if (inventoryPickUps.Count > 0)
         {
-            SpawnItems();
+            SpawnPickUps();
             SetValuesToDefault();
             _isInventoryOpened = true;
             
@@ -78,10 +80,11 @@ public class Inventory : MonoBehaviour
 
     private void CloseInventory()
     {
-        DespawnItems();
+        CircleAroundPlayer(-1);
+        DespawnPickUps();
     }
 
-    private void DespawnItems()
+    private void DespawnPickUps()
     {
         _isInventoryOpened = false;
         foreach (Transform item in inventoryObjects)
@@ -96,24 +99,24 @@ public class Inventory : MonoBehaviour
     {
         if (_isInventoryOpened)
         {
-            CircleAroundPlayer();
+            CircleAroundPlayer(1);
         }
     }
-    private void SpawnItems()
+    private void SpawnPickUps()
     {
         inventoryOrbit = new GameObject().transform;
         inventoryOrbit.position = transform.position;
 
-        for (int i = 0; i < inventoryItems.Count; i++)
+        for (int i = 0; i < inventoryPickUps.Count; i++)
         {
-            GameObject itemObject = Instantiate(inventoryItems[i].gameObject, inventoryOrbit.position, Quaternion.identity);
+            GameObject itemObject = Instantiate(inventoryPickUps[i], inventoryOrbit.position, Quaternion.identity);
             inventoryObjects.Add(itemObject.transform);
         }
 
         _isInventoryOpened = true;
     }
 
-    private void CircleAroundPlayer()
+    private void CircleAroundPlayer(int sign)
     {
 
         if (_currentRotatingSpeed > endSpeed)
@@ -128,7 +131,7 @@ public class Inventory : MonoBehaviour
 
         if (_currentRadius < endRadius)
         {
-            _currentRadius += radiusAcceleration * Time.deltaTime;
+            _currentRadius += sign * (radiusAcceleration * Time.deltaTime);
         }
         for (int i = 0; i < inventoryObjects.Count; i++)
         {
@@ -150,19 +153,44 @@ public class Inventory : MonoBehaviour
     
     //Interacting
 
-    private void CheckForItem()
+    private void CheckForPickUp()
     {
-        if (Physics.Raycast(cam.position, cam.forward, out RaycastHit hitInfo, maxDistance, itemLayer))
+        if (Physics.Raycast(cam.position, cam.forward, out RaycastHit hitInfo, maxDistance, overworldPickUpLayer))
         {
-            hitInfo.transform.GetComponent<OverworldItem>().HandleGettingAdded();
+            if (hitInfo.transform.GetComponent<OverworldPickUp>().IsInInventory()) return;
+            hitInfo.transform.GetComponent<OverworldPickUp>().PutInInventory();
         
         }
     }
 
-
-    public void AddItem(Item item)
+    public void HandlePickUp(GameObject inventoryPickUp)
     {
-        inventoryItems.Add(item);
+        int index = inventoryObjects.IndexOf(inventoryPickUp.transform);
+        inventoryObjects.Remove(inventoryPickUp.transform);
+
+        inventoryPickUps.RemoveAt(index);
+    }
+
+    public void HandlePickUpSwitch(GameObject currentPickUpPrefab, GameObject currentPickUp,  GameObject inventoryPickUp)
+    {
+        int index = inventoryObjects.IndexOf(inventoryPickUp.transform);
+        inventoryObjects.Remove(inventoryPickUp.transform);
+
+        inventoryPickUps.RemoveAt(index);
+
+        inventoryObjects.Insert(index, currentPickUp.transform);
+        inventoryPickUps.Insert(index, currentPickUpPrefab);
+
+    }
+    public void AddPickUp(GameObject pickUp)
+    {
+        inventoryPickUps.Add(pickUp);
+
+    }
+
+    public void RemovePickUp(GameObject pickUp)
+    {
+        inventoryPickUps.Remove(pickUp);
 
     }
 }

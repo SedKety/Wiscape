@@ -121,4 +121,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8d626cb90522f47a75489da9b24abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemObject: {fileID: 2210047717571839461}
+  overWorldPickUp: {fileID: 2210047717571839461, guid: e59385e0e24e1d34e809c703acbdbabe, type: 3}
+  inventoryPickUp: {fileID: 2210047717571839461, guid: 9b57b7f380fe5044e811aca9a12b86bd, type: 3}

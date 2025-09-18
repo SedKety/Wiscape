@@ -113,6 +113,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "PuttingInInventory",
+                    "type": "Button",
+                    "id": "2a2ade60-9da9-4908-a33b-c5a815deb934",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -526,11 +535,22 @@
                 {
                     "name": "",
                     "id": "eeece227-8b84-4d32-aa5e-acf5673a8866",
-                    "path": "<Keyboard>/f",
+                    "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "eebff772-45e0-4402-aa08-a056373d5605",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "PuttingInInventory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
