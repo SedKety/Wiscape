@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class EntityBase : MonoBehaviour, IDamagable
 {
+    // Peak
     [Header("Entity Settings")]
-    public int health; // The hitpoints of the entity
+    [SerializeField] protected int health; // The hitpoints of the entity
 
     // Implementation of the IDamagable interface
     public void TakeDamage(int intakeDamage, DamageType dt = DamageType.physical)
