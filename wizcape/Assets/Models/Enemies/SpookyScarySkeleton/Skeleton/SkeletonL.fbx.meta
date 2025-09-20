@@ -31,18 +31,18 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: rig|SkeletonRun (1)
-      takeName: rig|SkeletonRun
+      name: rig|Action
+      takeName: rig|Action
       internalID: -518154144676478023
       firstFrame: 0
-      lastFrame: 20
+      lastFrame: 0
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -93,7 +93,7 @@ ModelImporter:
       takeName: rig|SkeletonAttack
       internalID: -5472826887497193744
       firstFrame: 0
-      lastFrame: 10
+      lastFrame: 35
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
