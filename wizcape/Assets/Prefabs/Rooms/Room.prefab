@@ -129,9 +129,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleEnemies:
   - {fileID: 6332800990859907687, guid: 110e20892e696fe41a015fecddfa2caa, type: 3}
-  spawnTiles: []
-  minEnemyAmount: 2
-  maxEnemyAmount: 4
+  enemySpawnTiles: []
+  minEnemyAmount: 1
+  maxEnemyAmount: 2
+  chest: {fileID: 0}
+  key: {fileID: 0}
 --- !u!114 &5327722341499631131
 MonoBehaviour:
   m_ObjectHideFlags: 0

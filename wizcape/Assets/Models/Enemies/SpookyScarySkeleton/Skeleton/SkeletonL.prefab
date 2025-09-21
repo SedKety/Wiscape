@@ -186,17 +186,27 @@ MonoBehaviour:
   health: 10
   playerGO: {fileID: 0}
   damageInstance: {fileID: 11400000, guid: 759c5094a20716d428980610c2f0192e, type: 2}
-  attackRange: 1
-  detectionRange: 10
-  moveSpeed: 2
-  runningSpeed: 8
-  wanderRadius: 15
-  randomWanderPointInterval: 3
+  attackRange: 2
+  detectionRange: 50
+  moveSpeed:
+    min: 2
+    max: 4
+  runningSpeed:
+    min: 4
+    max: 8
   rotationSpeed: 3
+  wanderRadius: 15
+  randomWanderPointInterval:
+    min: 3
+    max: 7
   retreatDistance: 10
-  retreatTime: 5
+  retreatTime:
+    min: 3
+    max: 7
   chaseTime: 5
-  idleTime: 8
+  idleTime:
+    min: 0
+    max: 0
   attackDelay: 3
   distanceToPlayer: 0
   moveAction: 4

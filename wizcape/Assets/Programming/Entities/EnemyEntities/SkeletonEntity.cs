@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using Unity.Collections;
 using UnityEngine;
 
@@ -6,16 +6,15 @@ public class SkeletonEntity : EnemyEntity
 {
     [Header("Movement variables")]
     [SerializeField] private float retreatDistance; // Multiplier used to calculate how far away the enemy retreats
-    [SerializeField] private float retreatTime; // Time the enemy will retreat for
+    [SerializeField] private RandomFloatV2 retreatTime; // Time the enemy will retreat for
+    private float _curRetreatTime;
     private float _timeSpentRetreating; // Time spent retreating
 
     [Space]
 
     [SerializeField] private float chaseTime; // Time the enemy will chase the player for
     private float _timeSpentChasing; // Time spent chasing the player
-
-    [SerializeField] private float idleTime; // Time the skeleton will idle for
-
+    [SerializeField] private RandomFloatV2 idleTime; // Time the skeleton will idle for
     private float _pDistance; // Distance to player
 
     [Header("Combat variables")]
@@ -29,21 +28,27 @@ public class SkeletonEntity : EnemyEntity
 
     protected void Start()
     {
+        _curRetreatTime = retreatTime.GetRandom();
         playerGO = PlayerLocation.GetPlayer();
         _timeSinceLastHit = attackDelay; // So the enemy can attack immediately
+       _timeSpentRetreating = _curRetreatTime; // So the enemy doesn't retreat immediately
     }
-
 
     protected void Update()
     {
+        agent.speed = _curMoveSpeed;
         _timeSinceLastHit += Time.deltaTime;
         _timeSpentChasing += Time.deltaTime;
         _timeSpentRetreating += Time.deltaTime;
+
+        if(_timeSpentRetreating >= _curRetreatTime) { _curRetreatTime = retreatTime.GetRandom(); }
+
         Fuzzify();
         Defuzzify();
     }
 
     private float _timeSpentRetreatingPrev;
+
     private void Defuzzify()
     {
         _timeSpentRetreatingPrev = _timeSpentRetreating;
@@ -57,7 +62,6 @@ public class SkeletonEntity : EnemyEntity
                 Run();
                 break;
             case MoveActions.Await:
-                // Circle around the player
                 break;
             case MoveActions.Retreat:
                 _timeSpentRetreating = _timeSpentRetreatingPrev;
@@ -67,19 +71,15 @@ public class SkeletonEntity : EnemyEntity
                 Wander();
                 break;
             case MoveActions.StrafeLeft:
-                // Strafe left
                 break;
             case MoveActions.StrafeRight:
-                // Strafe right
                 break;
             case MoveActions.Idle:
-                // Stand still
                 break;
             case MoveActions.Strike:
                 Strike(playerGO);
                 break;
             default:
-                // Default action
                 break;
         }
     }
@@ -91,11 +91,9 @@ public class SkeletonEntity : EnemyEntity
         moveAction = CalculateMoveAction();
     }
 
-    //c#8 is ass, c#9 makes this so much cleaner
     private Distance CalculateDistance()
     {
         _pDistance = Vector3.Distance(transform.position, playerGO.transform.position);
-
         Distance d = _pDistance switch
         {
             var p when p <= attackRange => Distance.WithinRange,
@@ -104,45 +102,41 @@ public class SkeletonEntity : EnemyEntity
             var p when p <= detectionRange / 2 => Distance.Far,
             _ => Distance.OutOfRange
         };
-
         return d;
     }
 
     private bool CanStrikePlayer()
     {
-        if (attackDelay >= _timeSinceLastHit) { return false; }
-        if (_pDistance <= attackRange) { return true; } // Fixed logic to allow striking when within range
+        if (attackDelay >= _timeSinceLastHit)
+        {
+            return false;
+        }
+        if (_pDistance <= attackRange)
+        {
+            return true;
+        }
         return false;
     }
 
-    //c#8 is ass, c#9 makes this so much cleaner
     private MoveActions CalculateMoveAction()
     {
         MoveActions ma = distanceToPlayer switch
         {
-            var d when d == Distance.WithinRange =>
-                CanStrikePlayer() ? MoveActions.Strike : MoveActions.Retreat,
-
-            var d when d == Distance.Close =>
-                _timeSinceLastHit >= attackDelay ? MoveActions.Advance : MoveActions.Await,
-
-            var d when d == Distance.Medium =>
-                MoveActions.Advance,
-
-            var d when d == Distance.Far =>
-                MoveActions.Run,
-
-            var d when d == Distance.OutOfRange =>
-                MoveActions.Wander,
-
+            var d when d == Distance.WithinRange => CanStrikePlayer() ? MoveActions.Strike : MoveActions.Retreat,
+            var d when d == Distance.Close => _timeSinceLastHit >= attackDelay ? MoveActions.Advance : MoveActions.Await,
+            var d when d == Distance.Medium => MoveActions.Advance,
+            var d when d == Distance.Far => MoveActions.Run,
+            var d when d == Distance.OutOfRange => MoveActions.Wander,
             _ => MoveActions.Unknown
         };
 
-        if (_timeSpentRetreating < retreatTime)
+        //Checks whether the skeleton has run far away but not quite out of range,
+        //If so, it will start running to the player again
+        //Additionally checks if the skeleton is retreating, if so it will continue to retreat until the time is up
+        if (distanceToPlayer != Distance.Far && moveAction == MoveActions.Retreat && _timeSpentRetreating < _curRetreatTime)
         {
             ma = MoveActions.Retreat;
         }
-
         return ma;
     }
     #endregion
@@ -150,40 +144,45 @@ public class SkeletonEntity : EnemyEntity
     #region Defuzzified actions
     private void Run()
     {
-        _curMoveSpeed = runningSpeed;
+        _curMoveSpeed = runningSpeed.Last;
         GoTo(playerGO.transform.position);
     }
 
     private void Advance()
     {
-        _curMoveSpeed = moveSpeed;
+        _curMoveSpeed = moveSpeed.Last;
         GoTo(playerGO.transform.position);
     }
 
     private void Idle()
     {
-        // Stand still
     }
 
     private void Retreat()
     {
-        _curMoveSpeed = runningSpeed;
+        _curMoveSpeed = runningSpeed.Last;
 
         Vector3 directionAwayFromPlayer = (transform.position - playerGO.transform.position).normalized;
-        Vector3 retreatPos = transform.position + directionAwayFromPlayer * retreatDistance;
-        retreatPos.y = transform.position.y; // Flat y for 2D movement
+
+        //Fov(180 degrees)
+        float randomAngle = Random.Range(-90f, 90f);
+
+        Vector3 retreatDir = Quaternion.Euler(0, randomAngle, 0) * directionAwayFromPlayer;
+
+        Vector3 retreatPos = transform.position + retreatDir * retreatDistance;
+        retreatPos.y = transform.position.y;
 
         GoTo(retreatPos);
     }
 
+
     private void Strike(GameObject target)
     {
-        _timeSinceLastHit = 0; // Reset the time since last hit
-        damageInstance.Execute(target); // Attacks the target
+        _timeSinceLastHit = 0;
+        damageInstance.Execute(target);
     }
     #endregion
 }
-
 public enum MoveActions
 {
     Advance, // Move close

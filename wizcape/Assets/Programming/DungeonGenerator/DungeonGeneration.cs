@@ -67,7 +67,7 @@ public class DungeonGeneration : MonoBehaviour
     private void SpawnRandomRoom(int i)
     {
 
-        Transform chosenRoom = Instantiate(rooms.RandomThing()).transform;
+        Transform chosenRoom = Instantiate(rooms.RandomItem()).transform;
 
         if (spawnedRooms.Count == 0)
         {
