@@ -27,6 +27,12 @@ public class PlayerCharacterController : MonoBehaviour
     [SerializeField] private Transform hands;
     private Vector3 _startHandPosition;
 
+    //Chest Interact
+    [Header("Misc Interact Variables")]
+    [SerializeField] private float maxDistance;
+    [SerializeField] private LayerMask objectLayer;
+
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
@@ -47,6 +53,14 @@ public class PlayerCharacterController : MonoBehaviour
     public void MouseMovement(InputAction.CallbackContext context)
     {
         mouseInput = context.ReadValue<Vector2>();
+    }
+
+    public void InteractInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            ChestCheck();
+        }
     }
 
     private void FixedUpdate()
@@ -107,5 +121,13 @@ public class PlayerCharacterController : MonoBehaviour
     private void StopHeadBop()
     {
         hands.localPosition = Vector3.Lerp(hands.localPosition, _startHandPosition, 3 * Time.deltaTime);
+    }
+
+    private void ChestCheck()
+    {
+        if (Physics.Raycast(cam.position, cam.forward, out RaycastHit hit, maxDistance, objectLayer))
+        {
+            hit.transform.GetComponent<ChestBehaviour>().OpenChest();
+        }
     }
 }

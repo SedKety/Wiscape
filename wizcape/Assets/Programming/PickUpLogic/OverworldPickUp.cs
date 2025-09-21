@@ -28,7 +28,12 @@ public class OverworldPickUp : MonoBehaviour
         _isGrabbed = true;
 
         GetComponent<Collider>().isTrigger = true;
-        rb.useGravity = false;
+
+        if (rb != null)
+        {
+            rb.useGravity = false;
+
+        }
     }
 
     private void Update()

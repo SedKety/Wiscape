@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grabbingMoveSpeed: 20
   grabbingRotationSpeed: 20
-  pickUp: {fileID: 3199044789962815311, guid: ae7503c55eb1e3a4b891dc1438597233, type: 3}
+  pickUp: {fileID: 3649881440507829487, guid: 4cd7d00fa3cd5a046a767feb92d36c18, type: 3}
   rb: {fileID: 5395149494784017002}
   throwSpeed: 2
   inventoryObject: {fileID: 0}

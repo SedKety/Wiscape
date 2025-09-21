@@ -29,7 +29,7 @@ public class PickUpManager : MonoBehaviour
     }
 
     //Makes the hands for you.
-    private void MakeDefaultWeapon()
+    public void MakeDefaultWeapon()
     {
         _isUsingHand = true;
         Transform handWeaponClone = Instantiate(handWeapon).transform;
@@ -98,7 +98,7 @@ public class PickUpManager : MonoBehaviour
         _currentPickUp = pickUp;
     }
 
-    private void DropWeapon() //Drops the weapon and makes the default hands again.
+    public void DropWeapon() //Drops the weapon and makes the default hands again.
     {
 
         if (_isUsingHand) return;

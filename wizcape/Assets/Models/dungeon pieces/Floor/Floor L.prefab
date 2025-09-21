@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor L
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 624ffc8f170bb3b4785a92c87f804c21, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -105,3 +109,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ead2e2d11dcea2049af6247fceccbd87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEnemyTile: 0
