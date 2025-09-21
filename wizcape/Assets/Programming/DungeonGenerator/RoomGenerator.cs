@@ -9,17 +9,22 @@ public class RoomGenerator : MonoBehaviour
     [SerializeField] private List<Transform> enemySpawnTiles = new List<Transform>();
     [SerializeField] private int minEnemyAmount, maxEnemyAmount;
 
+    private List<GameObject> _spawnedEnemies = new List<GameObject>();
+
     [Header("Item Handling")]
     [SerializeField] private GameObject chest;
 
 
     [Header("Key Handling")]
     [SerializeField] private GameObject key;
+    [SerializeField] private GameObject door;
+    private Transform _doorFrame;
    
     public void GenerateRoom()
     {
         HandleEnemyPlacements();
         HandleKeyPlacement();
+        DoorPlacement();
     }
 
     private void HandleEnemyPlacements()
@@ -40,14 +45,27 @@ public class RoomGenerator : MonoBehaviour
             int randomTileIndex = Random.Range(0, enemySpawnTiles.Count);
             Transform randomTile = enemySpawnTiles[randomTileIndex];
 
-            GameObject enemy = Instantiate(possibleEnemies[randomEnemy], new Vector3(randomTile.position.x, randomTile.position.y + 5, randomTile.position.z), Quaternion.identity);
-
+            GameObject enemy = Instantiate(possibleEnemies[randomEnemy], new Vector3(randomTile.position.x, randomTile.position.y, randomTile.position.z), Quaternion.identity);
+            _spawnedEnemies.Add(enemy);
         }
     }
 
     private void HandleKeyPlacement()
     {
-        
+        int randomKeyEnemy = Random.Range(0, _spawnedEnemies.Count);
+
+        _spawnedEnemies[randomKeyEnemy].GetComponent<EnemyRoomStats>().SetKey();
+    }
+
+    private void DoorPlacement()
+    {
+
+        if (transform.childCount <= 3) return;
+        _doorFrame = transform.GetChild(3);
+        GameObject doorClone = Instantiate(door, _doorFrame.position, _doorFrame.rotation, transform);
+
+
+
     }
 
     

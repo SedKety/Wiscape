@@ -2,14 +2,24 @@ using UnityEngine;
 
 public class EnemyRoomStats : MonoBehaviour
 {
+    [SerializeField] private GameObject key;
     private bool _hasKey;
 
     public void SetKey()
     {
         _hasKey = true;
     }
-    public bool CheckIfKey()
+
+    private void OnDestroy()
     {
-        return _hasKey;
+        if (_hasKey)
+        {
+            SpawnKey();
+        }
+    }
+
+    private void SpawnKey()
+    {
+        Instantiate(key, transform.position, Quaternion.identity);
     }
 }

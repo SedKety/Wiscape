@@ -99,7 +99,7 @@ public class DungeonGeneration : MonoBehaviour
         Transform previousRoomWall = ChooseRandomWall(_allWalls);
 
         _disabledWall = previousRoomWall.gameObject;
-        _spawnedDoor = Instantiate(doorPrefab, previousRoomWall.position, previousRoomWall.rotation);
+        _spawnedDoor = Instantiate(doorPrefab, previousRoomWall.position, previousRoomWall.rotation, previousRoom);
 
         _disabledWall.SetActive(false);
 
