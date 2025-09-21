@@ -5,12 +5,17 @@ public class EnemyRoomStats : MonoBehaviour
     [SerializeField] private GameObject key;
     private bool _hasKey;
 
+    private bool _isQuitting;
     public void SetKey()
     {
         _hasKey = true;
     }
 
-    private void OnDestroy()
+    private void OnApplicationQuit()
+    {
+        _isQuitting = true;
+    }
+    private void OnDisable()
     {
         if (_hasKey)
         {
@@ -20,6 +25,10 @@ public class EnemyRoomStats : MonoBehaviour
 
     private void SpawnKey()
     {
-        Instantiate(key, transform.position, Quaternion.identity);
+        if (!_isQuitting)
+        {
+            Instantiate(key, transform.position, Quaternion.identity);
+
+        }
     }
 }

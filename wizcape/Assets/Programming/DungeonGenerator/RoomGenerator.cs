@@ -1,8 +1,19 @@
+using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RoomGenerator : MonoBehaviour
 {
+
+    public enum RoomKind
+    {
+        Nothing,
+        ChestKey,
+        EnemyKey
+    }
+
+    public RoomKind roomKind;
     [Header("Enemy Handling")]
 
     [SerializeField] private List<GameObject> possibleEnemies = new List<GameObject>();
@@ -23,8 +34,31 @@ public class RoomGenerator : MonoBehaviour
     public void GenerateRoom()
     {
         HandleEnemyPlacements();
-        HandleKeyPlacement();
-        DoorPlacement();
+
+        ChooseRandomState();
+    }
+
+    private void ChooseRandomState()
+    {
+
+        roomKind = (RoomKind)UnityEngine.Random.Range(0, Enum.GetNames(typeof(RoomKind)).Length);
+
+        switch(roomKind)
+        {
+            case RoomKind.Nothing:
+                //Nothing happens here.
+                break;
+            case RoomKind.ChestKey:
+                //Gotta write the stuff here.
+                break;
+            case RoomKind.EnemyKey:
+                HandleKeyPlacement();
+                DoorPlacement();
+                break;
+        }
+
+
+        
     }
 
     private void HandleEnemyPlacements()
@@ -37,12 +71,12 @@ public class RoomGenerator : MonoBehaviour
                 enemySpawnTiles.Add(transform.GetChild(1).GetChild(i));
             }
         }
-        int enemyAmount = Random.Range(minEnemyAmount, maxEnemyAmount + 1);
+        int enemyAmount = UnityEngine.Random.Range(minEnemyAmount, maxEnemyAmount + 1);
 
         for (int i = 0; i < enemyAmount; i++)
         {
-            int randomEnemy = Random.Range(0, possibleEnemies.Count);
-            int randomTileIndex = Random.Range(0, enemySpawnTiles.Count);
+            int randomEnemy = UnityEngine.Random.Range(0, possibleEnemies.Count);
+            int randomTileIndex = UnityEngine.Random.Range(0, enemySpawnTiles.Count);
             Transform randomTile = enemySpawnTiles[randomTileIndex];
 
             GameObject enemy = Instantiate(possibleEnemies[randomEnemy], new Vector3(randomTile.position.x, randomTile.position.y, randomTile.position.z), Quaternion.identity);
@@ -52,7 +86,7 @@ public class RoomGenerator : MonoBehaviour
 
     private void HandleKeyPlacement()
     {
-        int randomKeyEnemy = Random.Range(0, _spawnedEnemies.Count);
+        int randomKeyEnemy = UnityEngine.Random.Range(0, _spawnedEnemies.Count);
 
         _spawnedEnemies[randomKeyEnemy].GetComponent<EnemyRoomStats>().SetKey();
     }
