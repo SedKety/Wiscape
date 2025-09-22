@@ -24,6 +24,8 @@ public class RoomGenerator : MonoBehaviour
 
     [Header("Item Handling")]
     [SerializeField] private GameObject chest;
+    [SerializeField] private List<Transform> chestSpawnTiles = new List<Transform>();
+    
 
 
     [Header("Key Handling")]
@@ -41,7 +43,7 @@ public class RoomGenerator : MonoBehaviour
     private void ChooseRandomState()
     {
 
-        roomKind = (RoomKind)UnityEngine.Random.Range(0, Enum.GetNames(typeof(RoomKind)).Length);
+        //roomKind = (RoomKind)UnityEngine.Random.Range(0, Enum.GetNames(typeof(RoomKind)).Length);
 
         switch(roomKind)
         {
@@ -49,10 +51,11 @@ public class RoomGenerator : MonoBehaviour
                 //Nothing happens here.
                 break;
             case RoomKind.ChestKey:
-                //Gotta write the stuff here.
+                HandleKeyChestPlacement();
+                DoorPlacement();
                 break;
             case RoomKind.EnemyKey:
-                HandleKeyPlacement();
+                HandleKeyEnemyPlacement();
                 DoorPlacement();
                 break;
         }
@@ -61,12 +64,32 @@ public class RoomGenerator : MonoBehaviour
         
     }
 
+    private void HandleKeyChestPlacement()
+    {
+        for (int i = 0; i < transform.GetChild(1).childCount; i++)
+        {
+            if (transform.GetChild(1).GetChild(i).GetComponent<TileChecker>().IsChestTile())
+            {
+                chestSpawnTiles.Add(transform.GetChild(1).GetChild(i));
+            }
+        }
+        int randomChestTileIndex = UnityEngine.Random.Range(0, chestSpawnTiles.Count);
+
+        Transform randomTile = chestSpawnTiles[randomChestTileIndex];
+
+        Transform randomChest = Instantiate(chest, randomTile.position, Quaternion.identity).transform;
+
+        randomChest.eulerAngles = CalculateRotation(randomTile);
+
+        
+
+    }
     private void HandleEnemyPlacements()
     {
 
         for (int i = 0; i < transform.GetChild(1).childCount; i++)
         {
-            if (transform.GetChild(1).GetChild(i).GetComponent<EnemyTileChecker>().CheckIfEnemyTile())
+            if (transform.GetChild(1).GetChild(i).GetComponent<TileChecker>().CheckIfEnemyTile())
             {
                 enemySpawnTiles.Add(transform.GetChild(1).GetChild(i));
             }
@@ -84,7 +107,7 @@ public class RoomGenerator : MonoBehaviour
         }
     }
 
-    private void HandleKeyPlacement()
+    private void HandleKeyEnemyPlacement()
     {
         int randomKeyEnemy = UnityEngine.Random.Range(0, _spawnedEnemies.Count);
 
@@ -100,6 +123,20 @@ public class RoomGenerator : MonoBehaviour
 
 
 
+    }
+
+    private Vector3 CalculateRotation(Transform tile)
+    {
+        Vector3 direction = tile.position - transform.position;
+
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+
+        float yRotation = lookRotation.eulerAngles.y;
+
+        float ySnapped = Mathf.Ceil(yRotation / 90f) * 90f;
+
+        Vector3 rotation = new Vector3(0, ySnapped + 180f, 0);
+        return rotation;
     }
 
     

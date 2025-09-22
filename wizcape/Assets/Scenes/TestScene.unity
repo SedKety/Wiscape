@@ -1257,7 +1257,7 @@ MonoBehaviour:
   - {fileID: 2998083263613640489, guid: 20f4f1391d055a2499696d55989a4781, type: 3}
   spawnedRooms: []
   doorPrefab: {fileID: 8755499519921190392, guid: 03eb4f047b2e26b44ae62e1548a1c308, type: 3}
-  roomAmount: 20
+  roomAmount: 10
   roomOffset: 0.49989
 --- !u!4 &1256107356
 Transform:

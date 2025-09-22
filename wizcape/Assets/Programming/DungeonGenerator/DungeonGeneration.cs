@@ -17,6 +17,8 @@ public class DungeonGeneration : MonoBehaviour
     private GameObject _spawnedDoor;
     private bool _isCollidingWithAnotherRoom;
 
+    
+
 
     private void Awake()
     {
@@ -40,9 +42,9 @@ public class DungeonGeneration : MonoBehaviour
                 i--;
             }
             SpawnRandomRoom(i);
-            yield return null;
-            yield return null;
-            yield return null;
+            yield return new WaitForEndOfFrame();
+            yield return new WaitForEndOfFrame();
+            yield return new WaitForEndOfFrame();
         }
 
 
