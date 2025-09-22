@@ -315,9 +315,25 @@ PrefabInstance:
       value: DungeonGeneration
       objectReference: {fileID: 0}
     - target: {fileID: 6088782055311043774, guid: af6d4804b2add464f95dfc7ee6b2dacc, type: 3}
+      propertyPath: roomAmount
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088782055311043774, guid: af6d4804b2add464f95dfc7ee6b2dacc, type: 3}
+      propertyPath: rooms.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088782055311043774, guid: af6d4804b2add464f95dfc7ee6b2dacc, type: 3}
       propertyPath: 'rooms.Array.data[0]'
       value: 
-      objectReference: {fileID: 2998083263613640489, guid: 20f4f1391d055a2499696d55989a4781, type: 3}
+      objectReference: {fileID: 11400000, guid: 672807c5cc375914782630ca10e96d60, type: 2}
+    - target: {fileID: 6088782055311043774, guid: af6d4804b2add464f95dfc7ee6b2dacc, type: 3}
+      propertyPath: 'rooms.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 5f116bbbb6fd0ce4992cdbc1cb42fdeb, type: 2}
+    - target: {fileID: 6088782055311043774, guid: af6d4804b2add464f95dfc7ee6b2dacc, type: 3}
+      propertyPath: 'rooms.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: da9c38daf61f8b44893a6a6c71259f2c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
