@@ -18,6 +18,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 6277675065782829294
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:

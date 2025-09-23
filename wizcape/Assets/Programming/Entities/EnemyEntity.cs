@@ -26,7 +26,7 @@ public class EnemyEntity : EntityBase
     [Header("Wandering variables")]
     [SerializeField] protected float wanderRadius; // From how far away wander points can be chosen
     [SerializeField] protected RandomFloatV2 randomWanderPointInterval; // Time between wander destination changes
-    private float wanderTimer; // For how long the enemy has been wandering toward the current destination
+    private float _wanderTimer; // For how long the enemy has been wandering toward the current destination
 
     protected float minDistanceToWanderPoint = .5f; // How far away the current point has to be for the enemy to pick a new one
     protected float _curMoveSpeed; // The current movespeed set by the method that invokes GoTo
@@ -39,7 +39,7 @@ public class EnemyEntity : EntityBase
         
         _curMoveSpeed = moveSpeed.GetRandom();
         runningSpeed.GetRandom(); // To pre-calculate the runningspeed of this entity
-        wanderTimer = randomWanderPointInterval.GetRandom(); // To pre-calculate how long it takes for the entity to find a new point
+        _wanderTimer = randomWanderPointInterval.GetRandom(); // To pre-calculate how long it takes for the entity to find a new point
 
         currentDirection = transform.forward;
         agent = GetComponent<NavMeshAgent>();
@@ -68,8 +68,8 @@ public class EnemyEntity : EntityBase
     protected virtual void Wander()
     {
         if (agent == null) return;
-        wanderTimer -= Time.deltaTime;
-        if (wanderTimer <= 0f)
+        _wanderTimer -= Time.deltaTime;
+        if (_wanderTimer <= 0f)
         {
             Vector3 randomDirection = Random.insideUnitSphere * wanderRadius;
             randomDirection.y = 0;
@@ -80,7 +80,7 @@ public class EnemyEntity : EntityBase
                 agent.SetDestination(hit.position);
             }
 
-            wanderTimer = randomWanderPointInterval.GetRandom();
+            _wanderTimer = randomWanderPointInterval.GetRandom();
         }
         else if (Vector3.Distance(agent.destination, transform.position) <= minDistanceToWanderPoint)
         {

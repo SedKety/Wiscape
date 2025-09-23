@@ -2,34 +2,31 @@ using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+public enum RoomKind
+{
+    Nothing,
+    ChestKey,
+    EnemyKey
+}
 
 public class RoomInitialiser : MonoBehaviour
 {
+    [SerializeField] private RoomKind roomKind;
 
-    public enum RoomKind
-    {
-        Nothing,
-        ChestKey,
-        EnemyKey
-    }
-
-    public RoomKind roomKind;
-    [Header("Enemy Handling")]
-
+    [Header("Enemy Spawning")]
+    [SerializeField] private bool spawnEnemies;
     [SerializeField] private List<GameObject> possibleEnemies = new List<GameObject>();
-    [SerializeField] private List<Transform> enemySpawnTiles = new List<Transform>();
-    [SerializeField] private int minEnemyAmount, maxEnemyAmount;
+    [SerializeField] private RandomIntV2 enemyAmount;
+    [SerializeField] private SpawnBox[] enemySpawnBoxes;
+    [SerializeField] private LayerMask groundLayer;
 
     private List<GameObject> _spawnedEnemies = new List<GameObject>();
 
     [Header("Item Handling")]
     [SerializeField] private GameObject chest;
 
-
     [Header("Key Handling")]
     [SerializeField] private GameObject key;
-
-
 
     [Header("Door randomisation variables")]
     [SerializeField] private bool randomizedDoor;
@@ -37,73 +34,36 @@ public class RoomInitialiser : MonoBehaviour
     [SerializeField] private GameObject[] possibleDoorWalls;
 
     private Transform _doorFrame;
-
+    
     public Transform GetDoorFramePos() => randomizedDoor == true ? SpawnRandomDoor() : _doorFrame = door.transform;
+    private void HandleKeyPlacement() => _spawnedEnemies.RandomItem().GetComponent<EnemyRoomStats>().SetKey();
+
+    private void Start() { if(spawnEnemies) { SpawnEnemies(); } }
+
+    private void SpawnEnemies()
+    {
+        for (int i = 0; i < enemyAmount.GetRandom(); i++)
+        {
+            enemySpawnBoxes.RandomItem()
+                .SpawnItem(possibleEnemies.RandomItem(),transform.position, groundLayer);
+        }
+    }
 
     public Transform SpawnRandomDoor()
     {
         var wall = possibleDoorWalls.RandomItem();
-        var spawnedDoor = Instantiate(door, wall.transform.position, Quaternion.identity).transform;
+        var hesselFuckupRotationFix = new Vector3(0, 90, 0);
+
+        var spawnedDoor = Instantiate(door, wall.transform.position, Quaternion.Euler(hesselFuckupRotationFix)).transform;
+
         Destroy(wall);
         return spawnedDoor;
     }
 
-    public void GenerateRoom()
+    private void OnDrawGizmos()
     {
-        HandleEnemyPlacements();
-
-        ChooseRandomState();
+        Gizmos.color = Color.red;
+        foreach (var box in enemySpawnBoxes) { Gizmos.DrawWireCube(box.BoxPos + transform.position, box.BoxSize); }
     }
-
-    private void ChooseRandomState()
-    {
-
-        roomKind = (RoomKind)UnityEngine.Random.Range(0, Enum.GetNames(typeof(RoomKind)).Length);
-
-        switch (roomKind)
-        {
-            case RoomKind.Nothing:
-                //Nothing happens here.
-                break;
-            case RoomKind.ChestKey:
-                //Gotta write the stuff here.
-                break;
-            case RoomKind.EnemyKey:
-                HandleKeyPlacement();
-                //DoorPlacement();
-                break;
-        }
-
-
-
-    }
-
-    private void HandleEnemyPlacements()
-    {
-
-        for (int i = 0; i < transform.GetChild(1).childCount; i++)
-        {
-            if (transform.GetChild(1).GetChild(i).GetComponent<EnemyTileChecker>().CheckIfEnemyTile())
-            {
-                enemySpawnTiles.Add(transform.GetChild(1).GetChild(i));
-            }
-        }
-
-        int enemyAmount = UnityEngine.Random.Range(minEnemyAmount, maxEnemyAmount + 1);
-
-        for (int i = 0; i < enemyAmount; i++)
-        {
-            int randomEnemy = UnityEngine.Random.Range(0, possibleEnemies.Count);
-            int randomTileIndex = UnityEngine.Random.Range(0, enemySpawnTiles.Count);
-            Transform randomTile = enemySpawnTiles[randomTileIndex];
-
-            GameObject enemy = Instantiate(possibleEnemies[randomEnemy], new Vector3(randomTile.position.x, randomTile.position.y, randomTile.position.z), Quaternion.identity);
-            _spawnedEnemies.Add(enemy);
-        }
-    }
-
-    private void HandleKeyPlacement() => _spawnedEnemies.RandomItem().GetComponent<EnemyRoomStats>().SetKey();
-
-
-
 }
+

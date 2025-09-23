@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Unity.Collections;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class SkeletonEntity : EnemyEntity
@@ -156,6 +157,7 @@ public class SkeletonEntity : EnemyEntity
 
     private void Idle()
     {
+        // IdleOnline
     }
 
     private void Retreat()
@@ -164,7 +166,7 @@ public class SkeletonEntity : EnemyEntity
 
         Vector3 directionAwayFromPlayer = (transform.position - playerGO.transform.position).normalized;
 
-        //Fov(180 degrees)
+        //Fov(179 degrees)
         float randomAngle = Random.Range(-90f, 90f);
 
         Vector3 retreatDir = Quaternion.Euler(0, randomAngle, 0) * directionAwayFromPlayer;
@@ -185,7 +187,7 @@ public class SkeletonEntity : EnemyEntity
 }
 public enum MoveActions
 {
-    Advance, // Move close
+    Advance, // Move close   //SOSAGEOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
     Run, // Advance, but faster
     Await, // Stay close to the player and await the time till next attack
     Retreat, // Move back
@@ -205,3 +207,5 @@ public enum Distance
     Close, // Close to the player, one quarter of the detection range
     WithinRange, // Within striking distance
 }
+
+// Signed and aprroved by CANPAI
