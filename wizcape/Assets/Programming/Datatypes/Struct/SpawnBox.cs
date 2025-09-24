@@ -11,8 +11,11 @@ public struct SpawnBox
     [Tooltip("The size of the box in each dimension")]
     public Vector3 BoxSize;
 
+    [Tooltip("The color of the gizmo when drawn in the editor")]
+    public Color GizmoColor;
+
     [Tooltip("Spawns an GO at a random position within the box on a surface with the specified layer")]
-    public Transform SpawnItem(GameObject item, Vector3 origin, LayerMask spawnLayer)
+    public GameObject SpawnItem(GameObject item, Vector3 origin, LayerMask spawnLayer)
     {
         if (item == null) { Console.WriteLine("No item found to spawn"); return null; };
 
@@ -30,8 +33,7 @@ public struct SpawnBox
         if (Physics.Raycast(rayPos, Vector3.down, out RaycastHit hit, rayPos.y + 10, spawnLayer))
         {
             //cant call due to it being a struct, but this. sure, yeah why the fuck not..... stupid ass game engine
-            GameObject enemy = UnityEngine.Object.Instantiate(item, hit.point, Quaternion.identity);
-            return enemy.transform;
+            return UnityEngine.Object.Instantiate(item, hit.point, Quaternion.identity);
             //Anyways, we just spawn an item at the random position 
         }
         else

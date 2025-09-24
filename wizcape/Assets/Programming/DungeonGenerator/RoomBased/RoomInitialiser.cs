@@ -55,7 +55,7 @@ public class RoomInitialiser : MonoBehaviour
     {
         for (int i = 0; i < enemyAmount.GetRandom(); i++)
         {
-            Transform enemy = enemySpawnBoxes.RandomItem()
+            GameObject enemy = enemySpawnBoxes.RandomItem()
                 .SpawnItem(possibleEnemies.RandomItem(),transform.position, groundLayer);
 
             _spawnedEnemies.Add(enemy.gameObject);
@@ -65,9 +65,8 @@ public class RoomInitialiser : MonoBehaviour
     public Transform SpawnRandomDoor()
     {
         var wall = possibleDoorWalls.RandomItem();
-        var hesselFuckupRotationFix = new Vector3(0, 90, 0);
 
-        var spawnedDoor = Instantiate(door, wall.transform.position, Quaternion.Euler(hesselFuckupRotationFix)).transform;
+        var spawnedDoor = Instantiate(door, wall.transform.position, Quaternion.identity).transform;
 
         Destroy(wall);
         return spawnedDoor;
@@ -75,8 +74,11 @@ public class RoomInitialiser : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        foreach (var box in enemySpawnBoxes) { Gizmos.DrawWireCube(box.BoxPos + transform.position, box.BoxSize); }
+        foreach (var box in enemySpawnBoxes)
+        {
+            Gizmos.color = box.GizmoColor == null ? Color.red : box.GizmoColor;
+            Gizmos.DrawWireCube(box.BoxPos + transform.position, box.BoxSize);
+        }
     }
 }
 
