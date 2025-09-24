@@ -187,7 +187,7 @@ public class SkeletonEntity : EnemyEntity
 }
 public enum MoveActions
 {
-    Advance, // Move close   //SOSAGEOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+    Advance, // Move close
     Run, // Advance, but faster
     Await, // Stay close to the player and await the time till next attack
     Retreat, // Move back
@@ -208,4 +208,4 @@ public enum Distance
     WithinRange, // Within striking distance
 }
 
-// Signed and aprroved by CANPAI
+// Signed and aprroved by CANPAI (Goat of python programming)

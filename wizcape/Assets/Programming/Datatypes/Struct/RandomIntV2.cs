@@ -16,8 +16,5 @@ public struct RandomIntV2
     private int last;
 
     [Tooltip("Returns a random float between the set min and max values")]
-    public int GetRandom()
-    {
-        return Last = Random.Range(min, max);
-    }
+    public int GetRandom() => Last = Random.Range(min, max);
 }
