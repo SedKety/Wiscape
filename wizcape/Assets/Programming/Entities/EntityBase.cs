@@ -7,7 +7,7 @@ public class EntityBase : MonoBehaviour, IDamagable
     [SerializeField] protected int health; // The hitpoints of the entity
 
     // Implementation of the IDamagable interface
-    public void TakeDamage(int intakeDamage, DamageType dt = DamageType.physical)
+    public virtual void TakeDamage(int intakeDamage, DamageType dt = DamageType.physical)
     {
         health -= intakeDamage;
         if(health <= 0)

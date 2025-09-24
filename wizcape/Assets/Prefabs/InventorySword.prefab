@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9135524216218593069}
   - component: {fileID: 5395149494784017002}
   m_Layer: 9
-  m_Name: OverworldWeapon
+  m_Name: InventorySword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,8 +52,8 @@ MonoBehaviour:
   pickUp: {fileID: 3649881440507829487, guid: 4cd7d00fa3cd5a046a767feb92d36c18, type: 3}
   rb: {fileID: 5395149494784017002}
   throwSpeed: 2
-  inventoryObject: {fileID: 493417775293368516, guid: e2c4319062d018a4b91da8737dc546b8, type: 3}
-  isInInventory: 0
+  inventoryObject: {fileID: 493417775293368516, guid: 9a46a5d9738619f45a4418a89e450e70, type: 3}
+  isInInventory: 1
 --- !u!65 &9135524216218593069
 BoxCollider:
   m_ObjectHideFlags: 0

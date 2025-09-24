@@ -27,6 +27,7 @@ public class RoomInitialiser : MonoBehaviour
 
     [Header("Key Handling")]
     [SerializeField] private GameObject key;
+    [SerializeField] private bool shouldSpawnKey;
 
     [Header("Door randomisation variables")]
     [SerializeField] private bool randomizedDoor;
@@ -38,14 +39,26 @@ public class RoomInitialiser : MonoBehaviour
     public Transform GetDoorFramePos() => randomizedDoor == true ? SpawnRandomDoor() : _doorFrame = door.transform;
     private void HandleKeyPlacement() => _spawnedEnemies.RandomItem().GetComponent<EnemyRoomStats>().SetKey();
 
-    private void Start() { if(spawnEnemies) { SpawnEnemies(); } }
+    private void Start() 
+    { 
+        if(spawnEnemies) 
+        {
+            SpawnEnemies(); 
+        } 
 
+        if (shouldSpawnKey)
+        {
+            HandleKeyPlacement();
+        }
+    }
     private void SpawnEnemies()
     {
         for (int i = 0; i < enemyAmount.GetRandom(); i++)
         {
-            enemySpawnBoxes.RandomItem()
+            Transform enemy = enemySpawnBoxes.RandomItem()
                 .SpawnItem(possibleEnemies.RandomItem(),transform.position, groundLayer);
+
+            _spawnedEnemies.Add(enemy.gameObject);
         }
     }
 

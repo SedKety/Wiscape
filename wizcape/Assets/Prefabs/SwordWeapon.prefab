@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overWorldPickUp: {fileID: 493417775293368516, guid: 8ef56c5b369f6c54ab631a675b4fa5fb, type: 3}
-  inventoryPickUp: {fileID: 493417775293368516, guid: 9a46a5d9738619f45a4418a89e450e70, type: 3}
+  inventoryPickUp: {fileID: 493417775293368516, guid: e2c4319062d018a4b91da8737dc546b8, type: 3}
   attackPower: 0
   attackAnimator: {fileID: 1858230885065153874}
   weaponDelay: 1

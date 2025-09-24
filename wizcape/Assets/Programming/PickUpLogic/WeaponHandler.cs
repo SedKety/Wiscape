@@ -25,7 +25,7 @@ public class WeaponHandler : PickUpHandler
     //Handles the attacking 
     protected virtual void AttackHandling()
     {
-        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, maxDistance: 20f))
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, maxDistance: 5f))
         {
             if (hitInfo.collider.gameObject.TryGetComponent(out IDamagable damagable))
             {

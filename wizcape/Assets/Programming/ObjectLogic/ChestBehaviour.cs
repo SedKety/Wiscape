@@ -10,6 +10,10 @@ public class ChestBehaviour : MonoBehaviour
     private Transform _itemClone;
     private bool _hasOpened;
 
+    public void PutItemInChest(GameObject item)
+    {
+        this.item = item;
+    }
     public void OpenChest()
     {
         if (_hasOpened) return;

@@ -1,4 +1,4 @@
-using NUnit.Framework.Constraints;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
@@ -30,6 +30,8 @@ public class Inventory : MonoBehaviour
     [SerializeField] private Transform cam;
     [SerializeField] private float maxDistance;
     [SerializeField] private LayerMask overworldPickUpLayer;
+
+    private bool _hasPressedInput;
 
 
 
@@ -80,10 +82,23 @@ public class Inventory : MonoBehaviour
 
     private void CloseInventory()
     {
-        CircleAroundPlayer(-1);
-        DespawnPickUps();
+        StartCoroutine(WaitForDespawn());
     }
 
+    private IEnumerator WaitForDespawn()
+    {
+        _hasPressedInput = true;
+        float timer = 0;
+        float endTimer = 1;
+        while (timer < endTimer)
+        {
+            _currentRadius -= radiusAcceleration * Time.deltaTime;
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        DespawnPickUps();
+        _hasPressedInput = false;
+    }
     private void DespawnPickUps()
     {
         _isInventoryOpened = false;
@@ -129,7 +144,7 @@ public class Inventory : MonoBehaviour
             }
         }
 
-        if (_currentRadius < endRadius)
+        if (_currentRadius < endRadius && !_hasPressedInput)
         {
             _currentRadius += sign * (radiusAcceleration * Time.deltaTime);
         }
@@ -193,4 +208,6 @@ public class Inventory : MonoBehaviour
         inventoryPickUps.Remove(pickUp);
 
     }
+
+
 }
