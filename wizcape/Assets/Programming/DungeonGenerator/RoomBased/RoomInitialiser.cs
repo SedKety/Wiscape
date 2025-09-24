@@ -11,6 +11,7 @@ public enum RoomKind
 
 public class RoomInitialiser : MonoBehaviour
 {
+    [SerializeField] private LootTable lootTable;
     [SerializeField] private RoomKind roomKind;
 
     [Header("Enemy Spawning")]
@@ -18,12 +19,14 @@ public class RoomInitialiser : MonoBehaviour
     [SerializeField] private List<GameObject> possibleEnemies = new List<GameObject>();
     [SerializeField] private RandomIntV2 enemyAmount;
     [SerializeField] private SpawnBox[] enemySpawnBoxes;
+    [SerializeField] private SpawnBox[] chestSpawnBoxes;
     [SerializeField] private LayerMask groundLayer;
 
     private List<GameObject> _spawnedEnemies = new List<GameObject>();
 
     [Header("Item Handling")]
     [SerializeField] private GameObject chest;
+    
 
     [Header("Key Handling")]
     [SerializeField] private GameObject key;
@@ -50,6 +53,9 @@ public class RoomInitialiser : MonoBehaviour
         {
             HandleKeyPlacement();
         }
+
+        if (chestSpawnBoxes.Length <= 0) { return; }
+        SpawnChest();
     }
     private void SpawnEnemies()
     {
@@ -72,11 +78,25 @@ public class RoomInitialiser : MonoBehaviour
         return spawnedDoor;
     }
 
+    private void SpawnChest()
+    {
+        GameObject chestClone = chestSpawnBoxes.RandomItem().SpawnItem(chest, transform.position, groundLayer);
+        if(chestClone == null) { print("The fuck?"); }
+        var cb = chestClone.GetComponent<ChestBehaviour>();
+            cb.PutItemInChest(lootTable
+            .GetRandomItem());
+    }
+
     private void OnDrawGizmos()
     {
         foreach (var box in enemySpawnBoxes)
         {
-            Gizmos.color = box.GizmoColor == null ? Color.red : box.GizmoColor;
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireCube(box.BoxPos + transform.position, box.BoxSize);
+        }
+        foreach(var box in chestSpawnBoxes)
+        {
+            Gizmos.color = Color.yellow;
             Gizmos.DrawWireCube(box.BoxPos + transform.position, box.BoxSize);
         }
     }

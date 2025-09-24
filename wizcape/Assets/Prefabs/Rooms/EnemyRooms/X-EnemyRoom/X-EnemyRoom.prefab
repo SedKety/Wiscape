@@ -233,6 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aa36a2f7d016aa42a0b05e45a9b924a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lootTable: {fileID: 0}
   roomKind: 0
   spawnEnemies: 1
   possibleEnemies:
@@ -243,13 +244,17 @@ MonoBehaviour:
   enemySpawnBoxes:
   - BoxPos: {x: 0, y: 1, z: 10}
     BoxSize: {x: 5, y: 1, z: 15}
+    GizmoColor: {r: 1, g: 0, b: 0, a: 0}
   - BoxPos: {x: 0, y: 1, z: 10}
     BoxSize: {x: 15, y: 1, z: 5}
+    GizmoColor: {r: 0, g: 0, b: 0, a: 0}
+  chestSpawnBoxes: []
   groundLayer:
     serializedVersion: 2
     m_Bits: 4096
   chest: {fileID: 0}
   key: {fileID: 0}
+  shouldSpawnKey: 0
   randomizedDoor: 1
   door: {fileID: 2519073204123487914, guid: 38e2d75d82d669240a388064e5bbad9e, type: 3}
   possibleDoorWalls:

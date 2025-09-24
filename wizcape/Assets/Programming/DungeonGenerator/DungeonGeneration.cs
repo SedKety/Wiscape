@@ -33,11 +33,21 @@ public class DungeonGeneration : MonoBehaviour
                 GetComponent<RoomInitialiser>().
                 GetDoorFramePos();
         }
+        var randomRoom = rooms.Where(x => x.roomType == RoomType.End).FirstOrDefault();
+        _lastRoomType = randomRoom.roomType;
+        var room = Instantiate(randomRoom.roomGO,
+            doorPos.position,
+            Quaternion.identity);
+        room.transform.Rotate(0, 180, 0);
     }
 
     private SpawnableRoom RandomRoom()
     {
         //We want interchanging rooms, so never enemy -> enemy. 
-        return rooms.Where(x => x.roomType != RoomType.Start && x.roomType != _lastRoomType).ToList().RandomItem();
+        return rooms.Where(x => x.roomType != RoomType.Start &&
+        x.roomType != RoomType.End &&
+        x.roomType != _lastRoomType).
+        ToList().
+        RandomItem();
     }
 }

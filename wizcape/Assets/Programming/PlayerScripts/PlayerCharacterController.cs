@@ -31,6 +31,7 @@ public class PlayerCharacterController : MonoBehaviour
     [Header("Misc Interact Variables")]
     [SerializeField] private float maxDistance;
     [SerializeField] private LayerMask objectLayer;
+    [SerializeField] private LayerMask doorLayer;
 
 
     private void Awake()
@@ -60,6 +61,7 @@ public class PlayerCharacterController : MonoBehaviour
         if (context.started)
         {
             ChestCheck();
+            DoorCheck();
         }
     }
 
@@ -128,6 +130,14 @@ public class PlayerCharacterController : MonoBehaviour
         if (Physics.Raycast(cam.position, cam.forward, out RaycastHit hit, maxDistance, objectLayer))
         {
             hit.transform.GetComponent<ChestBehaviour>().OpenChest();
+        }
+    }
+
+    private void DoorCheck()
+    {
+        if (Physics.Raycast(cam.position, cam.forward, out RaycastHit hit, maxDistance, doorLayer))
+        {
+            hit.transform.GetComponent<DoorBehaviour>().UseDoor();
         }
     }
 }

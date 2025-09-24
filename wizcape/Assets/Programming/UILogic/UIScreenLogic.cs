@@ -42,6 +42,7 @@ public class UIScreenLogic : MonoBehaviour
 
     private IEnumerator BlackScreenHandling(GameObject uiScreen)
     {
+        Cursor.lockState = CursorLockMode.None;
         yield return StartCoroutine(StartBlackScreen());
         uiScreen.SetActive(true);
         yield return new WaitForSeconds(interval);

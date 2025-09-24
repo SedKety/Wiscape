@@ -274,6 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aa36a2f7d016aa42a0b05e45a9b924a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lootTable: {fileID: 0}
   roomKind: 0
   spawnEnemies: 1
   possibleEnemies:
@@ -284,6 +285,8 @@ MonoBehaviour:
   enemySpawnBoxes:
   - BoxPos: {x: 0, y: 1, z: 10}
     BoxSize: {x: 15, y: 1, z: 15}
+    GizmoColor: {r: 1, g: 0, b: 0, a: 0}
+  chestSpawnBoxes: []
   groundLayer:
     serializedVersion: 2
     m_Bits: 4096

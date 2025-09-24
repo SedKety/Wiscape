@@ -3,11 +3,13 @@ using UnityEditor;
 using System;
 using System.Linq;
 using System.Collections.Generic;
+
+#if UNITY_EDITOR
 [CustomPropertyDrawer(typeof(HitEffect), true)]
 public class HitEffectDrawer : PropertyDrawer
 {
     static Dictionary<string, Type> typeMap;
-    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+    public override void OnGUI(Rect position, UnityEditor.SerializedProperty property, GUIContent label)
     {
         if (typeMap == null) BuildTypeMap();
         var typeName = property.managedReferenceFullTypename;
@@ -74,3 +76,4 @@ public class HitEffectDrawer : PropertyDrawer
         return parts.Length > 1 ? parts[1].Split('.').Last() : fullTypeName;
     }
 }
+#endif
