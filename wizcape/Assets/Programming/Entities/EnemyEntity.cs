@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
+using EditorAttributes; 
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyEntity : EntityBase
 {
-    [Header("Enemy Settings")]
+    [GUIColor(GUIColor.Red)]
+    [Header("Enemy Entity Settings")]
     [SerializeField] protected GameObject playerGO; // The player game object, used for distance calculations
 
     [Header("Combat variables")]

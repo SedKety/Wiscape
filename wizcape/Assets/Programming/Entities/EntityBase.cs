@@ -1,8 +1,10 @@
+using EditorAttributes;
 using UnityEngine;
 
 public class EntityBase : MonoBehaviour, IDamagable
 {
     // Peak
+    [GUIColor(GUIColor.Blue)]
     [Header("Entity Settings")]
     [SerializeField] protected int health; // The hitpoints of the entity
 

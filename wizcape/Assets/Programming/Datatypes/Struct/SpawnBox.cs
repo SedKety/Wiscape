@@ -43,4 +43,19 @@ public struct SpawnBox
 
         return null;
     }
+
+    [Tooltip("Spawns an item within the bounds of the box")]
+    public GameObject SpawnItem(GameObject item)
+    {
+        if (item == null) { Console.WriteLine("No item found to spawn"); return null; };
+
+        //Position within the confines of the box
+        var randomPos = new Vector3(
+            UnityEngine.Random.Range(BoxPos.x - BoxSize.x / 2, BoxPos.x + BoxSize.x / 2),
+            UnityEngine.Random.Range(BoxPos.y - BoxSize.y / 2, BoxPos.y + BoxSize.y / 2),
+            UnityEngine.Random.Range(BoxPos.z - BoxSize.z / 2, BoxPos.z + BoxSize.z / 2)
+        );
+
+        return UnityEngine.Object.Instantiate(item, randomPos + BoxPos, Quaternion.identity);
+    }
 }

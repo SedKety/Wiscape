@@ -1,3 +1,4 @@
+using EditorAttributes;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,12 +16,12 @@ public class PlayerEntity : EntityBase
         {
             Instance = this;
         }
-        hpSlider.value = hpSlider.maxValue;
+        WriteToSlider();
     }
     public override void TakeDamage(int intakeDamage, DamageType dt = DamageType.physical)
     {
         base.TakeDamage(intakeDamage, dt);
-        hpSlider.value = health;
+        WriteToSlider();
 
         if (health <= 0)
         {
@@ -28,10 +29,16 @@ public class PlayerEntity : EntityBase
         }
     }
 
+    public void WriteToSlider()
+    {
+        if (!hpSlider) { return; }
+        hpSlider.value = health;
+    }
+
     public void GetHealth(int hpUp)
     {
         health += hpUp;
-        hpSlider.value = health;
+        WriteToSlider();
     }
 
 
