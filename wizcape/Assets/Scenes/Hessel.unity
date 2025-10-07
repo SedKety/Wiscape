@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.053
@@ -5362,14 +5362,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 13625712328522558, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13625712328522558, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 290918307, guid: 6c9f6b63c1be3af4584dd7139fb04b18, type: 3}
     - target: {fileID: 1031678487919496093, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
       propertyPath: m_Name
       value: Main Menu
       objectReference: {fileID: 0}
     - target: {fileID: 1031678487919496093, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1137420289227059520, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
+      propertyPath: m_Type
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1137420289227059520, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 290918307, guid: 6c9f6b63c1be3af4584dd7139fb04b18, type: 3}
+    - target: {fileID: 1933010507311298876, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933010507311298876, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 290918307, guid: 6c9f6b63c1be3af4584dd7139fb04b18, type: 3}
+    - target: {fileID: 2118145786992354590, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118145786992354590, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 290918307, guid: 6c9f6b63c1be3af4584dd7139fb04b18, type: 3}
     - target: {fileID: 3395584219252354585, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -5450,6 +5482,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5506995057527706242, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5506995057527706242, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 290918307, guid: 6c9f6b63c1be3af4584dd7139fb04b18, type: 3}
+    - target: {fileID: 6016820492804502739, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6016820492804502739, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 290918307, guid: 6c9f6b63c1be3af4584dd7139fb04b18, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
