@@ -55,8 +55,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b1fac9e2848ea79478aadb9ebb8a305f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8135705020314613961}
   m_SourcePrefab: {fileID: 100100000, guid: b1fac9e2848ea79478aadb9ebb8a305f, type: 3}
+--- !u!1 &5160404011271919146 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b1fac9e2848ea79478aadb9ebb8a305f, type: 3}
+  m_PrefabInstance: {fileID: 5430243608514014075}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8135705020314613961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5160404011271919146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7f9af7059661df4393e9556601cf49d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upInterval: 1
+  downInterval: 1
+  yUpPosition: {x: 0, y: 1, z: 0}
+  yDownPosition: {x: 0, y: 0, z: 0}
+  upSpeed: 20
+  downSpeed: 5
 --- !u!4 &5536789503763369104 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b1fac9e2848ea79478aadb9ebb8a305f, type: 3}

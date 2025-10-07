@@ -10,7 +10,7 @@ public class WeaponHandler : PickUpHandler
     public bool isAttacking;
     [SerializeField] private DamageInstance handslap;
     [SerializeField] private GameObject overworldWeapon;
-
+    private DamageLayer _damageLayer = DamageLayer.Friendly;
 
 
     public override void UsePickUp() //Is triggered by the attack input.
@@ -29,7 +29,7 @@ public class WeaponHandler : PickUpHandler
         {
             if (hitInfo.collider.gameObject.TryGetComponent(out IDamagable damagable))
             {
-                handslap.Execute(hitInfo.collider.gameObject);
+                handslap.Execute(hitInfo.collider.gameObject, _damageLayer);
             }
         }
     }
@@ -39,11 +39,6 @@ public class WeaponHandler : PickUpHandler
         isAttacking = true;
         yield return new WaitForSeconds(weaponDelay);
         isAttacking = false;
-
-        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, 5f))
-        {
-
-        }
     }
     
     

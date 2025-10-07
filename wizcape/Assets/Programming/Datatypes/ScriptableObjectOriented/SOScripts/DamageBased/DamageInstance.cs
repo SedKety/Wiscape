@@ -8,11 +8,11 @@ public class DamageInstance : ScriptableObject
 {
     [SerializeReference] private List<HitEffect> hitEffects;
 
-    public void Execute(GameObject target)
+    public void Execute(GameObject target, DamageLayer dl)
     {
         foreach (var effect in hitEffects)
         {
-            effect.ApplyEffect(target);
+            effect.ApplyEffect(target,  dl);
         }
     }
 

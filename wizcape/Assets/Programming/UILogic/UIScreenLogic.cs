@@ -43,28 +43,10 @@ public class UIScreenLogic : MonoBehaviour
     private IEnumerator BlackScreenHandling(GameObject uiScreen)
     {
         Cursor.lockState = CursorLockMode.None;
-        yield return StartCoroutine(StartBlackScreen());
+        yield return StartCoroutine(BlackScreenManager.StartBlackScreen(blackScreen, alphaSpeed));
         uiScreen.SetActive(true);
         yield return new WaitForSeconds(interval);
-        yield return StartCoroutine(StopBlackScreen());
+        yield return StartCoroutine(BlackScreenManager.StopBlackScreen(blackScreen, alphaSpeed));
         
-    }
-
-    private IEnumerator StartBlackScreen()
-    {
-        while (blackScreen.color.a < 0.99f)
-        {
-            blackScreen.color  += new Color(0, 0, 0, alphaSpeed * Time.deltaTime);
-            yield return null;
-        }
-    }
-
-    private IEnumerator StopBlackScreen()
-    {
-        while (blackScreen.color.a > 0f)
-        {
-            blackScreen.color -= new Color(0, 0, 0, alphaSpeed * Time.deltaTime);
-            yield return null;
-        }
     }
 }

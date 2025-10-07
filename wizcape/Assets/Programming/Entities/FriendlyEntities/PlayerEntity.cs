@@ -18,9 +18,9 @@ public class PlayerEntity : EntityBase
         }
         WriteToSlider();
     }
-    public override void TakeDamage(int intakeDamage, DamageType dt = DamageType.physical)
+    public override void TakeDamage(int intakeDamage, DamageLayer dl, DamageType dt = DamageType.physical)
     {
-        base.TakeDamage(intakeDamage, dt);
+        base.TakeDamage(intakeDamage,dl, dt);
         WriteToSlider();
 
         if (health <= 0)

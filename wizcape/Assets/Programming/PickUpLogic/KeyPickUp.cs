@@ -20,9 +20,11 @@ public class KeyPickUp : PickUpHandler
     {
         if (Physics.Raycast(_cam.position, _cam.forward, out RaycastHit hit, maxDistance, doorLayer)) 
         {
-
-            transform.parent.GetComponent<PickUpManager>().MakeDefaultWeapon();
-            hit.transform.GetComponent<DoorBehaviour>().UseDoor();
+            if (hit.transform.TryGetComponent(out LockBehaviour lockBehaviour))
+            {
+                transform.parent.GetComponent<PickUpManager>().MakeDefaultWeapon();
+                lockBehaviour.UnlockDoor();
+            }
 
         }
     }

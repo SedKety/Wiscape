@@ -6,6 +6,7 @@ public class BallLogic : MonoBehaviour
     [SerializeField] private float destroyTime;
     [SerializeField] private DamageInstance staffHit;
     private Rigidbody _rb;
+    private DamageLayer _damageLayer = DamageLayer.Friendly;
 
     private void Awake()
     {
@@ -24,9 +25,9 @@ public class BallLogic : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.TryGetComponent(out IDamagable damageable)) 
+        if (other.transform.TryGetComponent(out IDamagable damageable) && !other.CompareTag("Player")) 
         {
-            staffHit.Execute(other.gameObject);
+            staffHit.Execute(other.gameObject, _damageLayer);
             Destroy(gameObject);
         }
     }

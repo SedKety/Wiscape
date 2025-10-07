@@ -72,7 +72,7 @@ MonoBehaviour:
   overWorldPickUp: {fileID: 5248236451462971961, guid: 95dbb764baa46774a993f12a68f8d58d, type: 3}
   inventoryPickUp: {fileID: 493417775293368516, guid: e2c4319062d018a4b91da8737dc546b8, type: 3}
   spawnBall: {fileID: 4215642400053282989, guid: b7e7784b1b9bb3f4db3246153d08c430, type: 3}
-  attackInterval: 1
+  attackInterval: 0.2
 --- !u!1001 &3897773006123992614
 PrefabInstance:
   m_ObjectHideFlags: 0

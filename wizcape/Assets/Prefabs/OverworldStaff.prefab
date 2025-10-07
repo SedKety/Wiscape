@@ -75,7 +75,7 @@ MonoBehaviour:
   pickUp: {fileID: 8913702647404829631, guid: da4008c63faa13544aaf73aa0618b511, type: 3}
   rb: {fileID: 1008122638627939837}
   throwSpeed: 2
-  inventoryObject: {fileID: 493417775293368516, guid: e2c4319062d018a4b91da8737dc546b8, type: 3}
+  inventoryObject: {fileID: 5248236451462971961, guid: 902a61fd16d4e9048ae20894b4e2b927, type: 3}
   isInInventory: 0
 --- !u!54 &1008122638627939837
 Rigidbody:

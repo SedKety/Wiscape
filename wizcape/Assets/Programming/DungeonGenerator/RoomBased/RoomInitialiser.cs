@@ -64,7 +64,7 @@ public class RoomInitialiser : MonoBehaviour
             GameObject enemy = enemySpawnBoxes.RandomItem()
                 .SpawnItem(possibleEnemies.RandomItem(),transform.position, groundLayer);
 
-            _spawnedEnemies.Add(enemy.gameObject);
+            _spawnedEnemies.Add(enemy);
         }
     }
 

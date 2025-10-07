@@ -137,6 +137,11 @@ public class PlayerCharacterController : MonoBehaviour
     {
         if (Physics.Raycast(cam.position, cam.forward, out RaycastHit hit, maxDistance, doorLayer))
         {
+            if (hit.transform.TryGetComponent(out LockBehaviour lockBehaviour))
+            {
+                if (lockBehaviour.isLocked) return;
+                
+            }
             hit.transform.GetComponent<DoorBehaviour>().UseDoor();
         }
     }

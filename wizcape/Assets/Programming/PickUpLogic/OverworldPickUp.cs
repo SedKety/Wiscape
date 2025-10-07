@@ -3,7 +3,7 @@ using NUnit.Framework.Internal.Filters;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class OverworldPickUp : MonoBehaviour
+public class OverworldPickUp : MonoBehaviour, IPickupable
 {
     [Header("PickUp Variables")]
     [SerializeField] private float grabbingMoveSpeed;

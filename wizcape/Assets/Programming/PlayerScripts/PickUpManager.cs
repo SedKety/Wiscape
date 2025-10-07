@@ -6,10 +6,10 @@ using UnityEngine.InputSystem;
 public class PickUpManager : MonoBehaviour
 {
     [Header("Raycast")]
-    [SerializeField] private Transform cam; //Camera
-    [SerializeField] private float maxDistance; //Max Distance
-    [SerializeField] private LayerMask pickUpLayer;
-    [SerializeField] private float inputInterval;//The layer that can be picked up
+    [SerializeField] private Transform cam; //The camera gameobject
+    [SerializeField] private float maxDistance; //The distance the ray uses to check if the player is facing a holdable object
+    [SerializeField] private LayerMask pickUpLayer; //The layer of which items can be picked up
+    [SerializeField] private float inputInterval;
     private bool _hasPressedInput;
 
     [Header("Weapons")]
@@ -19,6 +19,10 @@ public class PickUpManager : MonoBehaviour
 
     [Header("Drop Logic")]
     [SerializeField] private float dropDistance; //The distance that something is dropped from you.
+    [SerializeField] private float endTime;
+    private float timer;
+    private bool _isDropping;
+
 
 
 
@@ -52,6 +56,27 @@ public class PickUpManager : MonoBehaviour
             StartCoroutine(HandleInputInterval());
             FindWeapon();
         }
+
+        if (context.started)
+        {
+            _isDropping = true;
+        }
+
+        if (context.canceled)
+        {
+            _isDropping = false;
+            timer = 0;
+        }
+    }
+
+    private void HandleDropInterval()
+    {
+        timer += Time.deltaTime;
+
+        if (timer > endTime)
+        {
+            DropWeapon();
+        }
     }
 
     //Checks if there is a weapon.
@@ -59,7 +84,7 @@ public class PickUpManager : MonoBehaviour
     {
         if (Physics.Raycast(cam.position, cam.forward, out RaycastHit hit, maxDistance, pickUpLayer))
         {     
-            if (hit.transform.GetComponent<OverworldPickUp>() != null)
+            if (hit.transform.TryGetComponent(out IPickupable pickup))
             {
                 
                 if (!_isUsingHand && !hit.transform.GetComponent<OverworldPickUp>().IsInInventory()) //If holding a weapon, it drops the current one.
@@ -71,13 +96,8 @@ public class PickUpManager : MonoBehaviour
                 {
                     HandleInventoryPickUpSwitch(hit.transform.GetComponent<OverworldPickUp>());
                 }
-                hit.transform.GetComponent<OverworldPickUp>().GetPickedUp(transform); //Handles the pick up
+                hit.transform.GetComponent<IPickupable>().GetPickedUp(transform); //Handles the pick up
             }
-        }
-
-        else
-        {
-            DropWeapon(); //Drops the weapon.
         }
     }
     public void HandleNewPickUp(PickUpHandler pickUp, bool isHands) //Gets a new pick up
@@ -97,6 +117,13 @@ public class PickUpManager : MonoBehaviour
         _currentPickUp = pickUp;
     }
 
+    private void Update()
+    {
+        if (_isDropping)
+        {
+            HandleDropInterval();
+        }
+    }
     public void DropWeapon() //Drops the weapon and makes the default hands again.
     {
 

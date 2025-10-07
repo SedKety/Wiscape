@@ -26,6 +26,7 @@ public class SkeletonEntity : EnemyEntity
     [SerializeField] private Distance distanceToPlayer = Distance.OutOfRange; //Fuziffied version of _pDistance
     [SerializeField] private MoveActions moveAction = MoveActions.Wander; //Fuzzified result of distance and other variables
 
+    private DamageLayer _damageLayer = DamageLayer.Enemy;
     protected void Start()
     {
         _curRetreatTime = retreatTime.GetRandom();
@@ -180,7 +181,7 @@ public class SkeletonEntity : EnemyEntity
     private void Strike(GameObject target)
     {
         _timeSinceLastHit = 0;
-        damageInstance.Execute(target);
+        damageInstance.Execute(target, _damageLayer);
     }
     #endregion
 }
