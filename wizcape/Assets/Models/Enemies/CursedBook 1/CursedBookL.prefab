@@ -56,12 +56,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: CursedBookL
       objectReference: {fileID: 0}
+    - target: {fileID: 2321523695958950486, guid: 73e6875eb64e8f948acdc4551f52eafd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b5966e54fd33d9a45be2b91b644f58bc, type: 2}
     - target: {fileID: 2803436535603912181, guid: 73e6875eb64e8f948acdc4551f52eafd, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: b5966e54fd33d9a45be2b91b644f58bc, type: 2}
+    - target: {fileID: 3669217518363294672, guid: 73e6875eb64e8f948acdc4551f52eafd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: fef814a36f87f764a84cc305f8f6379f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 73e6875eb64e8f948acdc4551f52eafd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8392766577304877769}
   m_SourcePrefab: {fileID: 100100000, guid: 73e6875eb64e8f948acdc4551f52eafd, type: 3}
+--- !u!1 &6512292173458059981 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 73e6875eb64e8f948acdc4551f52eafd, type: 3}
+  m_PrefabInstance: {fileID: 6242313351629311900}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8392766577304877769
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6512292173458059981}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d1a71bdff829ed54c84bbd88d87bb6e4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
