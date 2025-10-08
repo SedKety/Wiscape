@@ -133,7 +133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1507636620937791777, guid: 7097ba7ba649e1f41bba232312bdcbd8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.35
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1507636620937791777, guid: 7097ba7ba649e1f41bba232312bdcbd8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5999,6 +5999,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1516131996506699344, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3345175527188854707, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -6099,6 +6103,66 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3972279366973129922, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.5999985
+      objectReference: {fileID: 0}
+    - target: {fileID: 4304859804381005290, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4705500768718507386, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4705500768718507386, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4705500768718507386, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734198799245088044, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5071924473834975993, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5203068275902812129, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5415590664736335672, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105655067383210547, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6226226686424166203, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7248871647537878886, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7939140198727372066, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8725510396634952100, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8725510396634952100, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8906840120324275286, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -6110,6 +6174,10 @@ PrefabInstance:
     - target: {fileID: 8906840120324275286, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9052479033572913228, guid: d1708a194b23ace4ea48d7832a27363a, type: 3}
+      propertyPath: m_text
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
