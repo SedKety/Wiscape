@@ -35,7 +35,7 @@ ModelImporter:
       takeName: rig|GoblinAttack
       internalID: 6882438217663783377
       firstFrame: 0
-      lastFrame: 0
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -93,7 +93,7 @@ ModelImporter:
       takeName: rig|GoblinWalk
       internalID: -127510068673881291
       firstFrame: 0
-      lastFrame: 30
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
