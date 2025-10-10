@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2418685398358753678}
   - component: {fileID: 4401843691134681352}
+  - component: {fileID: 5740541312504010781}
+  - component: {fileID: 2027228922211195041}
   - component: {fileID: 3385142357763015741}
   m_Layer: 0
   m_Name: SkeletonBoss
@@ -61,6 +63,67 @@ MonoBehaviour:
   randomWanderPointInterval:
     min: 0
     max: 0
+  attackType: 0
+  bonePrefabs: []
+  smallBonePrefabs: []
+  numberOfBonesPerRow:
+    min: 5
+    max: 10
+  numberOfRows:
+    min: 4
+    max: 8
+  boneSpawnBox:
+    BoxPos: {x: 0, y: 0, z: 0}
+    BoxSize: {x: 0, y: 0, z: 0}
+    GizmoColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &5740541312504010781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2684159995257800279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc6f49938af892498d30edf56531588, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orbitRadius:
+    min: 0
+    max: 0
+  orbitSpeed:
+    min: 0
+    max: 0
+--- !u!114 &2027228922211195041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2684159995257800279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89cb58ede9d396f44889c9acd9706d3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smallBoneCount: 3
+  rainSpeed: 5
+  rainRadius: 10
+  smallBoneRadius: 2
+  rainWaitTime: 2
+  boneMoveSpeed: 5
+  arrivalDistance: 2
+  bigBoneHeight: 10
+  smallBoneVerticalSpread: 1
+  warningPrefab: {fileID: 0}
+  bigWarningScale: 1.5
+  emergeSpeed: 5
+  loweringTime: 1
+  loweringSpeed: 10
+  impactDelay: 2
+  bigWarningDelay: 1.5
+  poolSize: 50
+  undergroundOffset: 1
 --- !u!195 &3385142357763015741
 NavMeshAgent:
   m_ObjectHideFlags: 0

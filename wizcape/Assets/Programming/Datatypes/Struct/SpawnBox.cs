@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.AI;
 
 [Serializable]
 [Tooltip("A box area in which items can be spawned")]
@@ -57,5 +58,21 @@ public struct SpawnBox
         );
 
         return UnityEngine.Object.Instantiate(item, randomPos + BoxPos, Quaternion.identity);
+    }
+    public Vector3 SpawnPointNavmesh(Vector3 origin, LayerMask spawnLayer)
+    {
+        Vector3 min = origin + BoxPos - BoxSize * 0.5f;
+        Vector3 max = origin + BoxPos + BoxSize * 0.5f;
+        Vector3 randomPoint = new Vector3(
+            UnityEngine.Random.Range(min.x, max.x),
+            origin.y,
+            UnityEngine.Random.Range(min.z, max.z)
+        );
+
+        if (NavMesh.SamplePosition(randomPoint, out NavMeshHit hit, BoxSize.magnitude, spawnLayer))
+        {
+            return hit.position;
+        }
+        return randomPoint; // Fallback to random point if NavMesh fails
     }
 }

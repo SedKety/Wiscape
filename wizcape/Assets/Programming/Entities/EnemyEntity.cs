@@ -17,8 +17,13 @@ public class EnemyEntity : EntityBase
     [SerializeField] protected float detectionRange; // From how far away the enemy is able to detect other entities
 
     [Header("Movement speeds")]
-    [SerializeField] protected RandomFloatV2 moveSpeed; // How fast the enemy moves
+    [SerializeField] protected RandomFloatV2 moveSpeed; // How fast the enemy normally moves
     [SerializeField] protected RandomFloatV2 runningSpeed; // How fast the enemy moves when running
+
+#if UNITY_EDITOR
+    [SerializeField, ReadOnly] protected float debugRunningSpeed; // To show the running speed in the inspector
+    [SerializeField, ReadOnly] protected float debugMoveSpeed; // To show the normal movement speed in the inspector
+#endif
 
     [Space]
 
@@ -35,11 +40,15 @@ public class EnemyEntity : EntityBase
 
     protected NavMeshAgent agent;
 
-    protected void Awake()
+    protected virtual void Awake()
     {
         
         _curMoveSpeed = moveSpeed.GetRandom();
-        runningSpeed.GetRandom(); // To pre-calculate the runningspeed of this entity
+        runningSpeed.GetRandom();
+#if UNITY_EDITOR
+        debugMoveSpeed = _curMoveSpeed;
+        debugRunningSpeed = runningSpeed.GetRandom();
+#endif
         _wanderTimer = randomWanderPointInterval.GetRandom(); // To pre-calculate how long it takes for the entity to find a new point
 
         currentDirection = transform.forward;
