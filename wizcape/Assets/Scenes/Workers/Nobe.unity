@@ -192,6 +192,11 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 90e531d52f978c94888910d0700f9a11, type: 2}
   m_BuildHeightMesh: 0
+--- !u!4 &227642783 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5754374500889685748, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+  m_PrefabInstance: {fileID: 829102794}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &315089126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -365,27 +370,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1323099618413748803, guid: 7b9e07f878792d04dbe0d86ebcb25957, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1323099618413748803, guid: 7b9e07f878792d04dbe0d86ebcb25957, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1323099618413748803, guid: 7b9e07f878792d04dbe0d86ebcb25957, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1323099618413748803, guid: 7b9e07f878792d04dbe0d86ebcb25957, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -106.08
       objectReference: {fileID: 0}
     - target: {fileID: 1323099618413748803, guid: 7b9e07f878792d04dbe0d86ebcb25957, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.45
+      value: 1.025
       objectReference: {fileID: 0}
     - target: {fileID: 1323099618413748803, guid: 7b9e07f878792d04dbe0d86ebcb25957, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -60.77
       objectReference: {fileID: 0}
     - target: {fileID: 1323099618413748803, guid: 7b9e07f878792d04dbe0d86ebcb25957, type: 3}
       propertyPath: m_LocalRotation.w
@@ -417,7 +422,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1323099618413748803, guid: 7b9e07f878792d04dbe0d86ebcb25957, type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5112426216860847432, guid: 7b9e07f878792d04dbe0d86ebcb25957, type: 3}
       propertyPath: sensX
@@ -443,10 +448,399 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1144024077}
   m_SourcePrefab: {fileID: 100100000, guid: 7b9e07f878792d04dbe0d86ebcb25957, type: 3}
+--- !u!4 &641765349 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1906393411124970266, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+  m_PrefabInstance: {fileID: 829102794}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &663212158 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6408468078344226572, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+  m_PrefabInstance: {fileID: 829102794}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &829102794
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 92267620868063652, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 172694039448563454, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 351874692229582018, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Name
+      value: GemSpawnPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 426701762487630657, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 705085384183195794, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 785436532295180485, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 883196401253654085, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1156194358465304253, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1559154471188493710, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1574184096534213910, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1650045266320989748, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825485410474098925, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1894015322444136394, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Name
+      value: GemSpawnPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 2500455348850865681, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2524106418362439957, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683799053591656717, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2890317701251045167, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -102.60491
+      objectReference: {fileID: 0}
+    - target: {fileID: 2890317701251045167, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2890317701251045167, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -62.97318
+      objectReference: {fileID: 0}
+    - target: {fileID: 2890317701251045167, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2890317701251045167, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2890317701251045167, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2890317701251045167, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2890317701251045167, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2890317701251045167, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2890317701251045167, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3226189875531899259, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3617250367804168043, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746011990780391312, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750018252671163268, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3938493543360713321, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3970254627209063371, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4155971284618831159, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4170362528124230003, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272520465572480121, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335629642440433998, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Name
+      value: GemSpawnPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427973054340039564, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532808378908433589, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4600843877919610432, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Name
+      value: GemSpawnPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692820676194147792, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721381684814680928, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5087422356647791723, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Name
+      value: GemSpawnPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477314974584898718, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503073702379976723, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5694177567966403399, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6010603179020433633, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462199089196100118, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681406582753225852, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6950193035571109888, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Name
+      value: GemSpawnPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 6973333023311690836, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6994472418182605368, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7022891381557634117, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7219826616213081613, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: gemLayer.m_Bits
+      value: 32768
+      objectReference: {fileID: 0}
+    - target: {fileID: 7219826616213081613, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: gemSpawnLocation.BoxSize.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7219826616213081613, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: gemSpawnLocation.BoxSize.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7219826616213081613, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: gemSpawnLocation.BoxSize.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7219826616213081613, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: gemSpawnLocations.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7219826616213081613, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: gemSpawnLocation.GizmoColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7219826616213081613, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: gemSpawnLocation.GizmoColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7219826616213081613, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: gemSpawnLocation.GizmoColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7219826616213081613, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: gemSpawnLocation.GizmoColor.r
+      value: 0.47405696
+      objectReference: {fileID: 0}
+    - target: {fileID: 7219826616213081613, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: 'gemSpawnLocations.Array.data[0]'
+      value: 
+      objectReference: {fileID: 641765349}
+    - target: {fileID: 7219826616213081613, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: 'gemSpawnLocations.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1693263482}
+    - target: {fileID: 7219826616213081613, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: 'gemSpawnLocations.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2112882051}
+    - target: {fileID: 7219826616213081613, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: 'gemSpawnLocations.Array.data[3]'
+      value: 
+      objectReference: {fileID: 227642783}
+    - target: {fileID: 7219826616213081613, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: 'gemSpawnLocations.Array.data[4]'
+      value: 
+      objectReference: {fileID: 995040184}
+    - target: {fileID: 7219826616213081613, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: 'gemSpawnLocations.Array.data[5]'
+      value: 
+      objectReference: {fileID: 663212158}
+    - target: {fileID: 7219826616213081613, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: 'gemSpawnLocations.Array.data[6]'
+      value: 
+      objectReference: {fileID: 663212158}
+    - target: {fileID: 7219826616213081613, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: 'gemSpawnLocations.Array.data[7]'
+      value: 
+      objectReference: {fileID: 663212158}
+    - target: {fileID: 7219826616213081613, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: gemSpawnLocations.Array.data[0].BoxPos.x
+      value: 2.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7219826616213081613, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: gemSpawnLocations.Array.data[0].BoxSize.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7219826616213081613, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: gemSpawnLocations.Array.data[0].BoxSize.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7219826616213081613, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: gemSpawnLocations.Array.data[0].BoxSize.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7219826616213081613, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: gemSpawnLocations.Array.data[0].GizmoColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7219826616213081613, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: gemSpawnLocations.Array.data[0].GizmoColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7219826616213081613, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: gemSpawnLocations.Array.data[0].GizmoColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7219826616213081613, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: gemSpawnLocations.Array.data[0].GizmoColor.r
+      value: 0.1484611
+      objectReference: {fileID: 0}
+    - target: {fileID: 7282457232054675420, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Name
+      value: GemSpawnPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446813314514247315, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520311102481277432, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7530506584944718585, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7757806622811110074, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7925943398999846333, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7985759013174874315, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Name
+      value: P-Room1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041843570890500446, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8079869673209718701, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8301223216846666501, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8369676470598955981, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8387450747618011740, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8622228465721455953, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 4335629642440433998, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
 --- !u!4 &923563921 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2418685398358753678, guid: 6a6778f0a0b95c9409f06a90ff2f6dac, type: 3}
   m_PrefabInstance: {fileID: 4636336580153561202}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &995040184 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3610344315402378257, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+  m_PrefabInstance: {fileID: 829102794}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &999114716 stripped
 GameObject:
@@ -831,6 +1225,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5850403879994006524, guid: 9acc33b327146f94eaf01cdcaedccd28, type: 3}
   m_PrefabInstance: {fileID: 8681448934024890431}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1693263482 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5310701739534033134, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+  m_PrefabInstance: {fileID: 829102794}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1763300780
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,6 +1428,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1763300781}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &2112882051 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5589138262000784322, guid: 00453c66ad07263488f42d54eccf7381, type: 3}
+  m_PrefabInstance: {fileID: 829102794}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4636336580153561202
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1336,3 +1740,4 @@ SceneRoots:
   - {fileID: 1175505057}
   - {fileID: 430152975}
   - {fileID: 1375905649}
+  - {fileID: 829102794}
