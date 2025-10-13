@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2465839129779941451}
   - component: {fileID: 8710925331809680761}
   - component: {fileID: 5177935011272847956}
+  - component: {fileID: 473725761019618255}
   m_Layer: 0
   m_Name: CursedBook
   m_TagString: Untagged
@@ -122,6 +123,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.6971798, z: 0.26594484}
   m_Center: {x: 0, y: 1.4314728, z: 0.015829027}
+--- !u!114 &473725761019618255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376097959623440521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abcac58e9bd8ba645860265711e41cf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeInterval: 0.5
 --- !u!1001 &4242541376512700866
 PrefabInstance:
   m_ObjectHideFlags: 0

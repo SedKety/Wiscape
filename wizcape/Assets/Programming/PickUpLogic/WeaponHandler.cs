@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Runtime.CompilerServices;
+using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 
 public class WeaponHandler : PickUpHandler
@@ -10,6 +11,7 @@ public class WeaponHandler : PickUpHandler
     public bool isAttacking;
     [SerializeField] private DamageInstance handslap;
     [SerializeField] private GameObject overworldWeapon;
+    [SerializeField] private LayerMask enemyLayer;
     private DamageLayer _damageLayer = DamageLayer.Friendly;
 
 
@@ -25,10 +27,12 @@ public class WeaponHandler : PickUpHandler
     //Handles the attacking 
     protected virtual void AttackHandling()
     {
-        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, maxDistance: 5f))
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, maxDistance: 5f, enemyLayer))
         {
             if (hitInfo.collider.gameObject.TryGetComponent(out IDamagable damagable))
             {
+                if (hitInfo.transform.GetComponent<HitIndicatorManagement>().CheckIfBeingHit()) return;
+                hitInfo.transform.GetComponent<HitIndicatorManagement>().StartHitIndicator();
                 handslap.Execute(hitInfo.collider.gameObject, _damageLayer);
             }
         }

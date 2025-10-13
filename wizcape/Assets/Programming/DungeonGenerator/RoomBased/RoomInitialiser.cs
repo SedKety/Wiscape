@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 public enum RoomKind
@@ -13,6 +14,7 @@ public class RoomInitialiser : MonoBehaviour
 {
     [SerializeField] private LootTable lootTable;
     [SerializeField] private RoomKind roomKind;
+    [SerializeField] private Transform spawnedDoor;
 
     [Header("Enemy Spawning")]
     [SerializeField] private bool spawnEnemies;
@@ -20,7 +22,9 @@ public class RoomInitialiser : MonoBehaviour
     [SerializeField] private RandomIntV2 enemyAmount;
     [SerializeField] private SpawnBox[] enemySpawnBoxes;
     [SerializeField] private SpawnBox[] chestSpawnBoxes;
+    [SerializeField] private List<SpawnBox> trapSpawnBoxes;
     [SerializeField] private LayerMask groundLayer;
+    
 
     private List<GameObject> _spawnedEnemies = new List<GameObject>();
 
@@ -37,10 +41,30 @@ public class RoomInitialiser : MonoBehaviour
     [SerializeField] private GameObject door;
     [SerializeField] private GameObject[] possibleDoorWalls;
 
+    [Header("Locked room randomisation variables")]
+    [SerializeField] private int lockedRoomChance;
+
+    [Header("Trap Variables")]
+    [SerializeField] private int minTrapAmount;
+    [SerializeField] private int maxTrapAmount;
+    [SerializeField] private GameObject[] possibleTraps;
+
+
     private Transform _doorFrame;
     
     public Transform GetDoorFramePos() => randomizedDoor == true ? SpawnRandomDoor() : _doorFrame = door.transform;
-    private void HandleKeyPlacement() => _spawnedEnemies.RandomItem().GetComponent<EnemyRoomStats>().SetKey();
+    private void HandleKeyPlacement()
+    {
+        if (_spawnedEnemies.Count > 0)
+        {
+            _spawnedEnemies.RandomItem().GetComponent<EnemyRoomStats>().SetKey();
+        }
+
+        else
+        {
+            SpawnChest(key);
+        }
+    } 
 
     private void Start() 
     { 
@@ -54,8 +78,9 @@ public class RoomInitialiser : MonoBehaviour
             HandleKeyPlacement();
         }
 
+        SpawnTraps();
         if (chestSpawnBoxes.Length <= 0) { return; }
-        SpawnChest();
+        SpawnChest(null);
     }
     private void SpawnEnemies()
     {
@@ -63,7 +88,6 @@ public class RoomInitialiser : MonoBehaviour
         {
             GameObject enemy = enemySpawnBoxes.RandomItem()
                 .SpawnItem(possibleEnemies.RandomItem(),transform.position, groundLayer);
-
             _spawnedEnemies.Add(enemy);
         }
     }
@@ -72,21 +96,69 @@ public class RoomInitialiser : MonoBehaviour
     {
         var wall = possibleDoorWalls.RandomItem();
 
-        var spawnedDoor = Instantiate(door, wall.transform.position, Quaternion.identity).transform;
+        spawnedDoor = Instantiate(door, wall.transform.position, Quaternion.identity).transform;
 
+        HandleLockedRoom();
         Destroy(wall);
         return spawnedDoor;
     }
 
-    private void SpawnChest()
+    private void SpawnChest(GameObject obj)
     {
+
+        if (chestSpawnBoxes.Length == 0) return;
         GameObject chestClone = chestSpawnBoxes.RandomItem().SpawnItem(chest, transform.position, groundLayer);
-        if(chestClone == null) { print("The fuck?"); }
+
+       
         var cb = chestClone.GetComponent<ChestBehaviour>();
-            cb.PutItemInChest(lootTable
-            .GetRandomItem());
+
+        if (obj == null)
+        {
+            cb.PutItemInChest(lootTable.GetRandomItem());
+        }
+
+        else
+        {
+            cb.PutItemInChest(obj);
+        }
     }
 
+    private void HandleLockedRoom()
+    {
+        int lockedRoomNumber = UnityEngine.Random.Range(0, lockedRoomChance);
+
+        if (lockedRoomNumber == 0) 
+        {
+            HandleKeyPlacement();
+            LockRoom();
+        }
+    }
+
+    private void LockRoom()
+    {
+        print(spawnedDoor.parent);
+        spawnedDoor.GetComponentInChildren<LockBehaviour>().LockDoor();
+        print("LOCKED");
+    }
+
+    private void SpawnTraps()
+    {
+
+        int trapAmount = UnityEngine.Random.Range(minTrapAmount, maxTrapAmount + 1);
+        if (trapSpawnBoxes.Count == 0) return;
+
+        for (int i = 0; i < trapAmount; i++)
+        {
+            SpawnBox spawnBox = trapSpawnBoxes.RandomItem();
+            spawnBox.SpawnItem(possibleTraps.RandomItem(), transform.position, groundLayer);
+
+            if (spawnBox.hasToBeRemoved)
+            {
+                trapSpawnBoxes.Remove(spawnBox);
+            }
+        }
+
+    }
     private void OnDrawGizmos()
     {
         foreach (var box in enemySpawnBoxes)
@@ -97,6 +169,12 @@ public class RoomInitialiser : MonoBehaviour
         foreach(var box in chestSpawnBoxes)
         {
             Gizmos.color = Color.yellow;
+            Gizmos.DrawWireCube(box.BoxPos + transform.position, box.BoxSize);
+        }
+
+        foreach (var box in trapSpawnBoxes)
+        {
+            Gizmos.color = Color.black;
             Gizmos.DrawWireCube(box.BoxPos + transform.position, box.BoxSize);
         }
     }

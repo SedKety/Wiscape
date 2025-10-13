@@ -4,13 +4,16 @@ using UnityEngine;
 public class LockBehaviour : MonoBehaviour
 {
     [SerializeField] private Animator animator;
+    [SerializeField] private GameObject doorLock;
     public bool isLocked;
     private bool _hasInteracted;
 
-    private void Awake()
+    public void LockDoor()
     {
         isLocked = true;
+        doorLock.SetActive(true);
     }
+    
     public void UnlockDoor()
     {
         if (_hasInteracted) return;

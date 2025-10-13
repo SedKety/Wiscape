@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +6,6 @@ using UnityEngine;
 public class DamageInstance : ScriptableObject
 {
     [SerializeReference] private List<HitEffect> hitEffects;
-
     public void Execute(GameObject target, DamageLayer dl)
     {
         foreach (var effect in hitEffects)
@@ -15,5 +13,4 @@ public class DamageInstance : ScriptableObject
             effect.ApplyEffect(target,  dl);
         }
     }
-
 }

@@ -2,6 +2,8 @@ using System;
 using UnityEngine;
 using UnityEngine.AI;
 
+
+
 [Serializable]
 [Tooltip("A box area in which items can be spawned")]
 public struct SpawnBox
@@ -14,6 +16,9 @@ public struct SpawnBox
 
     [Tooltip("The color of the gizmo when drawn in the editor")]
     public Color GizmoColor;
+
+    [Tooltip("Boolean if this Spawnbox will get removed")]
+    public bool hasToBeRemoved;
 
     [Tooltip("Spawns an GO at a random position within the box on a surface with the specified layer")]
     public GameObject SpawnItem(GameObject item, Vector3 origin, LayerMask spawnLayer)

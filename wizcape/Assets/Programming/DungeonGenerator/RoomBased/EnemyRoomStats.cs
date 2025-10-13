@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyRoomStats : MonoBehaviour
 {
     [SerializeField] private GameObject key;
+    [SerializeField] private float yPositionAdder;
     private bool _hasKey;
 
     private bool _isQuitting;
@@ -27,7 +28,8 @@ public class EnemyRoomStats : MonoBehaviour
     {
         if (!_isQuitting)
         {
-            Instantiate(key, transform.position, Quaternion.identity);
+            Vector3 position = transform.position + new Vector3(0, yPositionAdder, 0);
+            Instantiate(key, position, Quaternion.identity);
 
         }
     }

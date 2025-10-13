@@ -31,6 +31,8 @@ public class RoomGenerator : MonoBehaviour
     [Header("Key Handling")]
     [SerializeField] private GameObject key;
     [SerializeField] private GameObject door;
+    [SerializeField] private int lockedRoomChance;
+    private Transform _doorClone;
     private Transform _doorFrame;
    
     public void GenerateRoom()
@@ -44,7 +46,6 @@ public class RoomGenerator : MonoBehaviour
     {
 
         //roomKind = (RoomKind)UnityEngine.Random.Range(0, Enum.GetNames(typeof(RoomKind)).Length);
-
         switch(roomKind)
         {
             case RoomKind.Nothing:
@@ -58,10 +59,7 @@ public class RoomGenerator : MonoBehaviour
                 HandleKeyEnemyPlacement();
                 DoorPlacement();
                 break;
-        }
-
-
-        
+        }    
     }
 
     private void HandleKeyChestPlacement()
@@ -119,10 +117,12 @@ public class RoomGenerator : MonoBehaviour
 
         if (transform.childCount <= 3) return;
         _doorFrame = transform.GetChild(3);
-        GameObject doorClone = Instantiate(door, _doorFrame.position, _doorFrame.rotation, transform);
+        _doorClone = Instantiate(door, _doorFrame.position, _doorFrame.rotation, transform).transform;
+    }
 
-
-
+    private void HandleLockedDoor()
+    {
+        _doorClone.GetComponent<LockBehaviour>().LockDoor();
     }
 
     private Vector3 CalculateRotation(Transform tile)

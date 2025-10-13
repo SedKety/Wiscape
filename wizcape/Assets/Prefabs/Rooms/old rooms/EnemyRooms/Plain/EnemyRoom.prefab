@@ -277,9 +277,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootTable: {fileID: 0}
   roomKind: 0
+  spawnedDoor: {fileID: 0}
   spawnEnemies: 1
   possibleEnemies:
   - {fileID: 6332800990859907687, guid: 110e20892e696fe41a015fecddfa2caa, type: 3}
+  - {fileID: 7288389050831397181, guid: e07927ceac72d5e4f8ad18783c211eeb, type: 3}
+  - {fileID: 7027034083633487980, guid: 5c573aa58c0321d47ac1e6d24b748ff8, type: 3}
+  - {fileID: 376097959623440521, guid: 2d3f1fbd5aa222449b8cc1ebb0ba3bd2, type: 3}
   enemyAmount:
     min: 3
     max: 6
@@ -287,7 +291,9 @@ MonoBehaviour:
   - BoxPos: {x: 0, y: 1, z: 10}
     BoxSize: {x: 15, y: 1, z: 15}
     GizmoColor: {r: 1, g: 0, b: 0, a: 0}
+    hasToBeRemoved: 0
   chestSpawnBoxes: []
+  trapSpawnBoxes: []
   groundLayer:
     serializedVersion: 2
     m_Bits: 4096
@@ -307,6 +313,10 @@ MonoBehaviour:
   - {fileID: 8584811659624101874}
   - {fileID: 823963306053744261}
   - {fileID: 6005343080739047542}
+  lockedRoomChance: 0
+  minTrapAmount: 0
+  maxTrapAmount: 0
+  possibleTraps: []
 --- !u!114 &3337222236898547963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,7 +347,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 4eafce1e0e610ef4397998936c8157c2, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 42dbebf168230114185ad7959ce6eeb2, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1001 &26378856674683655
 PrefabInstance:

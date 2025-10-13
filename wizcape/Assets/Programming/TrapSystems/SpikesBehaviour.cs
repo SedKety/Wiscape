@@ -7,6 +7,8 @@ public class SpikesBehaviour : MonoBehaviour
     [SerializeField] private float downInterval;
     [SerializeField] private Vector3 yUpPosition;
     [SerializeField] private Vector3 yDownPosition;
+    [SerializeField] private DamageInstance damageInstance;
+    private DamageLayer _dl = DamageLayer.Enemy;
 
     [SerializeField] private float upSpeed;
     [SerializeField] private float downSpeed;
@@ -37,6 +39,14 @@ public class SpikesBehaviour : MonoBehaviour
         {
             transform.localPosition = Vector3.Lerp(transform.localPosition, position, speed * Time.deltaTime);
             yield return null;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            damageInstance.Execute(other.gameObject, _dl);
         }
     }
 }

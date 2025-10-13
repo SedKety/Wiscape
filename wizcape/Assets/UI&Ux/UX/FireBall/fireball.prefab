@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6750887688143056951}
   - component: {fileID: 5054342115969784384}
   - component: {fileID: 4135961355553648483}
+  - component: {fileID: 3721143155531523534}
   m_Layer: 0
   m_Name: fireball
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.02102964, z: 0, w: 0.99977887}
   m_LocalPosition: {x: -0.038, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1614063977667335354}
@@ -66,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e066d6450048cac4db379cb6fe3918cb, type: 2}
+  - {fileID: 2100000, guid: 8c0b203a99023064c9088632a9bdcdac, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -109,6 +110,20 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3721143155531523534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8055347555678625871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 457db69de951aff4987161df7f0685b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireballSpeed: 5
+  damageInstance: {fileID: 11400000, guid: 2a0937bb7e0d17d4cb7a931c0472c93b, type: 2}
 --- !u!1001 &7622396187761150289
 PrefabInstance:
   m_ObjectHideFlags: 0

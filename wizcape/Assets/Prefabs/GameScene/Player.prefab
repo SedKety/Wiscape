@@ -220,7 +220,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   inputInterval: 1
-  handWeapon: {fileID: 7196537858096940631, guid: 981e79d7336518b4f8db0be3cb27a213, type: 3}
+  handWeapon: {fileID: 7196537858096940631, guid: 6147674c476d96648bbb327a675c0c8a, type: 3}
   dropDistance: 2
   endTime: 1
 --- !u!1 &5943984597182795383
@@ -295,6 +295,7 @@ GameObject:
   - component: {fileID: 4972989813100995942}
   - component: {fileID: 1892096721800227105}
   - component: {fileID: 8664701524452620028}
+  - component: {fileID: 1809434212614278978}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -676,6 +677,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 2a2ade60-9da9-4908-a33b-c5a815deb934
     m_ActionName: 'Player/PuttingInInventory[/Keyboard/f]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1809434212614278978}
+        m_TargetAssemblyTypeName: PauseMenuLogic, Assembly-CSharp
+        m_MethodName: PauseInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ba928162-9516-41ed-a90d-22df7a7a88c8
+    m_ActionName: Player/Pause
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -755,6 +772,19 @@ MonoBehaviour:
     m_Bits: 512
   endPosition: {fileID: 2279260862650140365}
   moveSpeed: 5
+--- !u!114 &1809434212614278978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6784167163987289833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a2224a57a586ad4892c7d51e96204fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 0}
 --- !u!1 &7213924744938512899
 GameObject:
   m_ObjectHideFlags: 0
