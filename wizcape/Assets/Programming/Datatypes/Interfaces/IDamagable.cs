@@ -3,6 +3,7 @@ using UnityEngine;
 
 public interface IDamagable
 {
+    public DamageLayer damageLayer { get; set; }
     public void TakeDamage(int intakeDamage, DamageLayer dl, DamageType dt = DamageType.physical);
 }
 

@@ -48,38 +48,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4d25bd21512d744586428afc6ebc6b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 30
+  health: 20
   playerGO: {fileID: 0}
-  damageInstance: {fileID: 0}
-  attackRange: 0
-  attackDelay: 0
-  detectionRange: 0
-  retreatDistance: 0
+  damageInstance: {fileID: 11400000, guid: 6132bb027d65ef846b1bd8ec229c1cbf, type: 2}
+  attackRange: 10
+  attackDelay: 2
+  detectionRange: 50
+  retreatDistance: 10
   retreatTime:
-    min: 0
-    max: 0
+    min: 1
+    max: 1
   moveSpeed:
-    min: 0
-    max: 0
+    min: 1
+    max: 1
   runningSpeed:
-    min: 0
-    max: 0
+    min: 1
+    max: 1
   debugRunningSpeed: 0
   debugMoveSpeed: 0
-  rotationSpeed: 0
-  wanderRadius: 0
+  rotationSpeed: 10
+  wanderRadius: 10
   randomWanderPointInterval:
-    min: 0
-    max: 0
+    min: 6
+    max: 10
   distanceToPlayer: 0
   moveAction: 4
-  _animator: {fileID: 0}
+  _animator: {fileID: 5663716728268950283}
   cursedBookGO: {fileID: 7767327759010486709}
   hoverHeight:
     min: 1
     max: 2
   hoverFrequency: 3
   hoverRange: 0.2
+  projectilePrefab: {fileID: 5103988431777956973, guid: dc5cc069232329640893cd96e0716155, type: 3}
+  projectileSpeed: 10
+  projectileSpawnPoint: {fileID: 6939191913199066073}
+  fireBallLifetime: 5
 --- !u!195 &8710925331809680761
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -88,7 +92,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 376097959623440521}
   m_Enabled: 1
-  m_AgentTypeID: -1372625422
+  m_AgentTypeID: -1923039037
   m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
@@ -136,6 +140,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeInterval: 0.5
+--- !u!1 &8138139253122032936
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6939191913199066073}
+  m_Layer: 0
+  m_Name: SpitPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6939191913199066073
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8138139253122032936}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.038999557, z: 0.06400001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7767327759010486709}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4242541376512700866
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -190,9 +225,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5848944011728283767, guid: e4423cfe97b66e44ba7f18d16abc0cce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6939191913199066073}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4423cfe97b66e44ba7f18d16abc0cce, type: 3}
+--- !u!95 &5663716728268950283 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8392766577304877769, guid: e4423cfe97b66e44ba7f18d16abc0cce, type: 3}
+  m_PrefabInstance: {fileID: 4242541376512700866}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7767327759010486709 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5848944011728283767, guid: e4423cfe97b66e44ba7f18d16abc0cce, type: 3}

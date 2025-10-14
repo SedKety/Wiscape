@@ -8,6 +8,8 @@ public class EntityBase : MonoBehaviour, IDamagable
     [Header("Entity Settings")]
     [SerializeField] protected int health; // The hitpoints of the entity
 
+    protected DamageLayer _damageLayer;
+    public DamageLayer damageLayer { get => _damageLayer; set => _damageLayer = value; }
     // Implementation of the IDamagable interface
     public virtual void TakeDamage(int intakeDamage, DamageLayer dl, DamageType dt = DamageType.physical)
     {

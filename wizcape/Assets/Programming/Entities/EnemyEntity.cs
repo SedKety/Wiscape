@@ -8,12 +8,13 @@ public enum MoveActions
     Advance, // Move close
     Run, // Advance, but faster
     Await, // Stay close to the player and await the time till next attack
-    Retreat, // Move back
+    Retreat, // Move back 
     Wander, // Walk around
     StrafeLeft, // Dodge left
     StrafeRight, // Dodge right
     Idle, // Stand still
     Strike, // Attack the player
+    MoveAway, // Move away from the player, not retreating however
     Unknown,
 }
 
@@ -38,7 +39,6 @@ public abstract class EnemyEntity : EntityBase
     [SerializeField] protected float attackRange; // From how far away the enemy is able to hit other entities
     [SerializeField] protected float attackDelay = 0; // Time till the next attack action can be performed
     protected float _timeSinceLastHit = 0; // Time since the enemy last attacked something
-    protected DamageLayer _damageLayer = DamageLayer.Enemy;
 
     [Header("Movement variables")]
     [SerializeField] protected float detectionRange; // From how far away the enemy is able to detect other entities
@@ -76,6 +76,7 @@ public abstract class EnemyEntity : EntityBase
     [SerializeField] protected Animator _animator;
     protected virtual void Awake()
     {
+        damageLayer = DamageLayer.Enemy;
         _curMoveSpeed = moveSpeed.GetRandom();
         runningSpeed.GetRandom();
 #if UNITY_EDITOR
