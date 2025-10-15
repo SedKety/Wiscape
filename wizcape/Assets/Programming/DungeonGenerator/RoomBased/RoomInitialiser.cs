@@ -73,11 +73,6 @@ public class RoomInitialiser : MonoBehaviour
             SpawnEnemies(); 
         } 
 
-        if (shouldSpawnKey)
-        {
-            HandleKeyPlacement();
-        }
-
         SpawnTraps();
         if (chestSpawnBoxes.Length <= 0) { return; }
         SpawnChest(null);
@@ -98,7 +93,11 @@ public class RoomInitialiser : MonoBehaviour
 
         spawnedDoor = Instantiate(door, wall.transform.position, Quaternion.identity).transform;
 
-        HandleLockedRoom();
+        if (shouldSpawnKey)
+        {
+            HandleLockedRoom();
+        }
+        
         Destroy(wall);
         return spawnedDoor;
     }

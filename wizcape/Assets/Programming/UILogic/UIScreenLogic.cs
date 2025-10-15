@@ -32,12 +32,18 @@ public class UIScreenLogic : MonoBehaviour
     }
     public void ResetGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        StartCoroutine(BlackScreenScenes("Main Scene"));
     }
 
     public void MainMenu()
     {
-        Application.Quit();
+        StartCoroutine(BlackScreenScenes("Menu"));
+    }
+
+    private IEnumerator BlackScreenScenes(string scene)
+    {
+        yield return StartCoroutine(BlackScreenManager.StartBlackScreen(blackScreen, alphaSpeed));
+        SceneManager.LoadScene(scene);
     }
 
     private IEnumerator BlackScreenHandling(GameObject uiScreen)

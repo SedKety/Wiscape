@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &100491694 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1809434212614278978, guid: 7b9e07f878792d04dbe0d86ebcb25957, type: 3}
+  m_PrefabInstance: {fileID: 1914430202}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a2224a57a586ad4892c7d51e96204fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &269811274
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -130,6 +141,14 @@ PrefabInstance:
     - target: {fileID: 1031678487919496093, guid: ba017f4a191957247b5a2ac0245388a0, type: 3}
       propertyPath: m_Name
       value: PauseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 2716089411467378355, guid: ba017f4a191957247b5a2ac0245388a0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 100491694}
+    - target: {fileID: 2716089411467378355, guid: ba017f4a191957247b5a2ac0245388a0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ContinueGame
       objectReference: {fileID: 0}
     - target: {fileID: 3395584219252354585, guid: ba017f4a191957247b5a2ac0245388a0, type: 3}
       propertyPath: m_Pivot.x
@@ -376,11 +395,11 @@ PrefabInstance:
     - target: {fileID: 5425234330471512068, guid: 094319c124510544f93502aa43a140e1, type: 3}
       propertyPath: 'rooms.Array.data[2]'
       value: 
-      objectReference: {fileID: 11400000, guid: 445817cbb41548f4094bad04206d17b4, type: 2}
+      objectReference: {fileID: 11400000, guid: 94e657030f4b790409767991fdf087a9, type: 2}
     - target: {fileID: 5425234330471512068, guid: 094319c124510544f93502aa43a140e1, type: 3}
       propertyPath: 'rooms.Array.data[3]'
       value: 
-      objectReference: {fileID: 11400000, guid: b42656ec2d8bc2b49974d734bf434495, type: 2}
+      objectReference: {fileID: 11400000, guid: 445817cbb41548f4094bad04206d17b4, type: 2}
     - target: {fileID: 6724504946705878080, guid: 094319c124510544f93502aa43a140e1, type: 3}
       propertyPath: m_Name
       value: DungeonGeneration
@@ -390,10 +409,26 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 094319c124510544f93502aa43a140e1, type: 3}
+--- !u!114 &1108760908 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3645129973423011202, guid: 776aa1e47f61ff64590539285876c7f0, type: 3}
+  m_PrefabInstance: {fileID: 445388569}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1710721253 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1031678487919496093, guid: ba017f4a191957247b5a2ac0245388a0, type: 3}
   m_PrefabInstance: {fileID: 269811274}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1832124081 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 317293556640201579, guid: 776aa1e47f61ff64590539285876c7f0, type: 3}
+  m_PrefabInstance: {fileID: 445388569}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1854849398
 GameObject:
@@ -568,6 +603,14 @@ PrefabInstance:
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 1710721253}
+    - target: {fileID: 1892096721800227105, guid: 7b9e07f878792d04dbe0d86ebcb25957, type: 3}
+      propertyPath: panel
+      value: 
+      objectReference: {fileID: 1832124081}
+    - target: {fileID: 2433240811294954264, guid: 7b9e07f878792d04dbe0d86ebcb25957, type: 3}
+      propertyPath: hpSlider
+      value: 
+      objectReference: {fileID: 1108760908}
     - target: {fileID: 6784167163987289833, guid: 7b9e07f878792d04dbe0d86ebcb25957, type: 3}
       propertyPath: m_Name
       value: Player

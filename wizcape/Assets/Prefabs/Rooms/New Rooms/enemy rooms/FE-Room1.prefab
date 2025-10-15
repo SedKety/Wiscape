@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5286506449437794456}
-  - component: {fileID: 8954710572617792914}
   - component: {fileID: 5918646393467833452}
+  - component: {fileID: 8954710572617792914}
   m_Layer: 0
   m_Name: FE-Room1
   m_TagString: Untagged
@@ -73,6 +73,55 @@ Transform:
   - {fileID: 373885315900103623}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5918646393467833452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888162665043699457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa36a2f7d016aa42a0b05e45a9b924a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootTable: {fileID: 11400000, guid: 9f2c06a8c55f4c3459a0a2e6f91e6e10, type: 2}
+  roomKind: 0
+  spawnedDoor: {fileID: 3732618787528025007}
+  spawnEnemies: 1
+  possibleEnemies:
+  - {fileID: 376097959623440521, guid: 2d3f1fbd5aa222449b8cc1ebb0ba3bd2, type: 3}
+  enemyAmount:
+    min: 3
+    max: 6
+  enemySpawnBoxes:
+  - BoxPos: {x: 0.27, y: 0.5, z: 2.18}
+    BoxSize: {x: 5.59, y: 1, z: 2.78}
+    GizmoColor: {r: 0, g: 0, b: 0, a: 0}
+    hasToBeRemoved: 0
+  - BoxPos: {x: 0.27, y: 0.5, z: 10.31}
+    BoxSize: {x: 5.59, y: 1, z: 2.78}
+    GizmoColor: {r: 0, g: 0, b: 0, a: 0}
+    hasToBeRemoved: 0
+  - BoxPos: {x: 4.04, y: 0.5, z: 17.87}
+    BoxSize: {x: 5.59, y: 1, z: 2.78}
+    GizmoColor: {r: 0, g: 0, b: 0, a: 0}
+    hasToBeRemoved: 0
+  chestSpawnBoxes: []
+  trapSpawnBoxes: []
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 4096
+  chest: {fileID: 0}
+  key: {fileID: 0}
+  shouldSpawnKey: 0
+  randomizedDoor: 0
+  door: {fileID: 0}
+  possibleDoorWalls: []
+  lockedRoomChance: 0
+  minTrapAmount: 0
+  maxTrapAmount: 0
+  possibleTraps: []
 --- !u!114 &8954710572617792914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,47 +154,6 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 4b73a60c8b7f38641a1584c0363c3289, type: 2}
   m_BuildHeightMesh: 0
---- !u!114 &5918646393467833452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 888162665043699457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3aa36a2f7d016aa42a0b05e45a9b924a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lootTable: {fileID: 11400000, guid: 9f2c06a8c55f4c3459a0a2e6f91e6e10, type: 2}
-  roomKind: 0
-  spawnedDoor: {fileID: 3732618787528025007}
-  spawnEnemies: 1
-  possibleEnemies:
-  - {fileID: 376097959623440521, guid: 2d3f1fbd5aa222449b8cc1ebb0ba3bd2, type: 3}
-  enemyAmount:
-    min: 3
-    max: 6
-  enemySpawnBoxes:
-  - BoxPos: {x: 5, y: 0, z: 10}
-    BoxSize: {x: 25, y: 10, z: 25}
-    GizmoColor: {r: 1, g: 0, b: 0, a: 1}
-    hasToBeRemoved: 0
-  chestSpawnBoxes: []
-  trapSpawnBoxes: []
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 4096
-  chest: {fileID: 0}
-  key: {fileID: 0}
-  shouldSpawnKey: 0
-  randomizedDoor: 0
-  door: {fileID: 0}
-  possibleDoorWalls: []
-  lockedRoomChance: 0
-  minTrapAmount: 0
-  maxTrapAmount: 0
-  possibleTraps: []
 --- !u!1 &1749043096557134427
 GameObject:
   m_ObjectHideFlags: 0

@@ -54,10 +54,65 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 21cce6d437bf9564eb9bf503bc1d42d6, type: 2}
     - target: {fileID: 919132149155446097, guid: b2928fd97b4d30f40b4b3c9b1181f0d0, type: 3}
       propertyPath: m_Name
-      value: crystal green
+      value: OverworldGreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b2928fd97b4d30f40b4b3c9b1181f0d0, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b2928fd97b4d30f40b4b3c9b1181f0d0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1094614520821002603}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b2928fd97b4d30f40b4b3c9b1181f0d0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -2936041352233866721}
   m_SourcePrefab: {fileID: 100100000, guid: b2928fd97b4d30f40b4b3c9b1181f0d0, type: 3}
+--- !u!1 &2864135009474916577 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b2928fd97b4d30f40b4b3c9b1181f0d0, type: 3}
+  m_PrefabInstance: {fileID: 3133971304962461104}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1094614520821002603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2864135009474916577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf108f41a95f054bb85aa954b6e9eba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabbingMoveSpeed: 20
+  grabbingRotationSpeed: 20
+  pickUp: {fileID: 2864135009474916577, guid: 7ec8a9c5d382ff5478747bf9ea6736d4, type: 3}
+  rb: {fileID: 6577039385834975920, guid: 8e95706deb2f1034e9dd0670ef375488, type: 3}
+  throwSpeed: 2
+  inventoryObject: {fileID: 6298991139343303037, guid: 473387619880ba04a800dd02e82b4fa5, type: 3}
+  isInInventory: 0
+--- !u!65 &-2936041352233866721
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2864135009474916577}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.07924928, y: 0.15810977, z: 0.10358457}
+  m_Center: {x: 0.003197657, y: 0.079054885, z: 0}

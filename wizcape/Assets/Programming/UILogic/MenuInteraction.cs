@@ -17,7 +17,7 @@ public class MenuInteraction : MonoBehaviour
     private IEnumerator HandlePlayGame()
     {
         yield return StartCoroutine(HandleBlackScreen());
-        SceneManager.LoadScene("TestScene");
+        SceneManager.LoadScene("Main Scene");
     }
 
 

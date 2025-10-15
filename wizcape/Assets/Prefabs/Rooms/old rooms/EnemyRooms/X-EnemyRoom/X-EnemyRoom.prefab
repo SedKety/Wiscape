@@ -235,6 +235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootTable: {fileID: 0}
   roomKind: 0
+  spawnedDoor: {fileID: 0}
   spawnEnemies: 1
   possibleEnemies:
   - {fileID: 6332800990859907687, guid: 110e20892e696fe41a015fecddfa2caa, type: 3}
@@ -245,21 +246,28 @@ MonoBehaviour:
   - BoxPos: {x: 0, y: 1, z: 10}
     BoxSize: {x: 5, y: 1, z: 15}
     GizmoColor: {r: 1, g: 0, b: 0, a: 0}
+    hasToBeRemoved: 0
   - BoxPos: {x: 0, y: 1, z: 10}
     BoxSize: {x: 15, y: 1, z: 5}
     GizmoColor: {r: 0, g: 0, b: 0, a: 0}
+    hasToBeRemoved: 0
   chestSpawnBoxes: []
+  trapSpawnBoxes: []
   groundLayer:
     serializedVersion: 2
     m_Bits: 4096
   chest: {fileID: 0}
-  key: {fileID: 0}
+  key: {fileID: 471492894514995593, guid: 8e95706deb2f1034e9dd0670ef375488, type: 3}
   shouldSpawnKey: 0
   randomizedDoor: 1
   door: {fileID: 2519073204123487914, guid: 38e2d75d82d669240a388064e5bbad9e, type: 3}
   possibleDoorWalls:
   - {fileID: 4010258616582924180}
   - {fileID: 4765336469608973589}
+  lockedRoomChance: 0
+  minTrapAmount: 0
+  maxTrapAmount: 0
+  possibleTraps: []
 --- !u!114 &3736444179932004297
 MonoBehaviour:
   m_ObjectHideFlags: 0

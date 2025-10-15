@@ -54,10 +54,65 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d1610bd7469b1a04d963c267a929d97c, type: 2}
     - target: {fileID: 919132149155446097, guid: d7ec03afebb97414a872bdcffc99716e, type: 3}
       propertyPath: m_Name
-      value: crystal blue
+      value: CrystalBlue
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d7ec03afebb97414a872bdcffc99716e, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d7ec03afebb97414a872bdcffc99716e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8288741771705007084}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d7ec03afebb97414a872bdcffc99716e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8059420874528871028}
   m_SourcePrefab: {fileID: 100100000, guid: d7ec03afebb97414a872bdcffc99716e, type: 3}
+--- !u!1 &1255217710475128774 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d7ec03afebb97414a872bdcffc99716e, type: 3}
+  m_PrefabInstance: {fileID: 2137525416564036247}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &8288741771705007084
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255217710475128774}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.078063846, y: 0.07820972, z: 0.10507602}
+  m_Center: {x: -0.0000000018626451, y: 0.039104816, z: 0}
+--- !u!114 &8059420874528871028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255217710475128774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9561daaf09cc17b48ba757314034815e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overWorldPickUp: {fileID: 1255217710475128774, guid: f33119dece1eb8245b4a05a1080f7766, type: 3}
+  inventoryPickUp: {fileID: 0}
+  kind: 0
+  maxDistance: 5
+  stoolLayer:
+    serializedVersion: 2
+    m_Bits: 65536

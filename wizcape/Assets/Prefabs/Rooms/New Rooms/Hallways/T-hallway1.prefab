@@ -102,6 +102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7666267823925705207}
+  - component: {fileID: 2245071799150896021}
   m_Layer: 0
   m_Name: T-hallway1
   m_TagString: Untagged
@@ -130,6 +131,42 @@ Transform:
   - {fileID: 1467402442800961910}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2245071799150896021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5216888307741571281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa36a2f7d016aa42a0b05e45a9b924a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootTable: {fileID: 0}
+  roomKind: 0
+  spawnedDoor: {fileID: 0}
+  spawnEnemies: 0
+  possibleEnemies: []
+  enemyAmount:
+    min: 0
+    max: 0
+  enemySpawnBoxes: []
+  chestSpawnBoxes: []
+  trapSpawnBoxes: []
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  chest: {fileID: 0}
+  key: {fileID: 0}
+  shouldSpawnKey: 0
+  randomizedDoor: 0
+  door: {fileID: 2450400677317948059}
+  possibleDoorWalls: []
+  lockedRoomChance: 0
+  minTrapAmount: 0
+  maxTrapAmount: 0
+  possibleTraps: []
 --- !u!1 &6039493095597685796
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,6 +353,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38e2d75d82d669240a388064e5bbad9e, type: 3}
+--- !u!1 &2450400677317948059 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2519073204123487914, guid: 38e2d75d82d669240a388064e5bbad9e, type: 3}
+  m_PrefabInstance: {fileID: 68708298783063089}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2975263906741217313 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3007941755947193360, guid: 38e2d75d82d669240a388064e5bbad9e, type: 3}
