@@ -255,7 +255,6 @@ public class BossController : EnemyEntity
     private IEnumerator DeathSequence()
     {
         isDead = true;
-        StopAllCoroutines();
         if (_animator != null) _animator.SetTrigger("Death");
 
         Collider collider = GetComponent<Collider>();
@@ -263,6 +262,7 @@ public class BossController : EnemyEntity
 
         if (_agent != null) _agent.isStopped = true;
 
+        UIScreenLogic.Instance.WinGame();
         yield return new WaitForSeconds(3f);
         Destroy(gameObject);
     }

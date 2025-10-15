@@ -184,8 +184,12 @@ MonoBehaviour:
   lootTable: {fileID: 11400000, guid: 9f2c06a8c55f4c3459a0a2e6f91e6e10, type: 2}
   roomKind: 0
   spawnedDoor: {fileID: 0}
-  spawnEnemies: 0
-  possibleEnemies: []
+  spawnEnemies: 1
+  possibleEnemies:
+  - {fileID: 6332800990859907687, guid: 110e20892e696fe41a015fecddfa2caa, type: 3}
+  - {fileID: 376097959623440521, guid: 2d3f1fbd5aa222449b8cc1ebb0ba3bd2, type: 3}
+  - {fileID: 7288389050831397181, guid: e07927ceac72d5e4f8ad18783c211eeb, type: 3}
+  - {fileID: 7027034083633487980, guid: 5c573aa58c0321d47ac1e6d24b748ff8, type: 3}
   enemyAmount:
     min: 5
     max: 8
@@ -207,7 +211,7 @@ MonoBehaviour:
     GizmoColor: {r: 0, g: 0, b: 0, a: 0}
     hasToBeRemoved: 0
   - BoxPos: {x: -1.69, y: 0.5, z: 17.6}
-    BoxSize: {x: 18.9, y: 1, z: 1.51}
+    BoxSize: {x: 18.5, y: 1, z: 1.51}
     GizmoColor: {r: 0, g: 0, b: 0, a: 0}
     hasToBeRemoved: 0
   chestSpawnBoxes: []

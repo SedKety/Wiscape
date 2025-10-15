@@ -25,17 +25,6 @@ public class DungeonGeneration : MonoBehaviour
 
         for (int i = 0; i < roomAmount; i++)
         {
-            if(i >= roomAmount - 1)
-            {
-                var R = rooms.Where(r => r.roomType == RoomType.BossRoom).FirstOrDefault();
-                _lastRoomType = R.roomType;
-                doorPos = Instantiate(R.roomGO,
-                    doorPos.position,
-                    Quaternion.identity).
-                    GetComponent<RoomInitialiser>().
-                    GetDoorFramePos();
-                break;
-            } 
 
             var RR = RandomRoom();
             _lastRoomType = RR.roomType;
@@ -45,12 +34,12 @@ public class DungeonGeneration : MonoBehaviour
                 GetComponent<RoomInitialiser>().
                 GetDoorFramePos();
         }
-        var randomRoom = rooms.Where(x => x.roomType == RoomType.End).FirstOrDefault();
+        var randomRoom = rooms.Where(x => x.roomType == RoomType.BossRoom).FirstOrDefault();
         _lastRoomType = randomRoom.roomType;
         var room = Instantiate(randomRoom.roomGO,
             doorPos.position,
             Quaternion.identity);
-        room.transform.Rotate(0, 180, 0);
+
     }
 
     private SpawnableRoom RandomRoom()
