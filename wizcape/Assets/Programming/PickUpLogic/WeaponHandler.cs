@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Runtime.CompilerServices;
-using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 
 public class WeaponHandler : PickUpHandler
