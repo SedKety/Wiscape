@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb162c1ef28fe87449c33018e800c986, type: 3}
+  m_Name: T-Hallway1
+  m_EditorClassIdentifier: 
+  roomGO: {fileID: 5216888307741571281, guid: c4b9b1e36d36f0a40b1bcf8c8841db9c, type: 3}
+  roomType: 2

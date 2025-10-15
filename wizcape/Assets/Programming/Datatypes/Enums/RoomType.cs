@@ -8,4 +8,5 @@ public enum RoomType
     TreasureRoom,
     BossRoom,
     TrappedRoom,
+    Puzzle
 }
