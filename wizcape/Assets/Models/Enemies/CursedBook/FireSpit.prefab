@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457db69de951aff4987161df7f0685b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireBallLifetime: 0
+  fireBallLifetime: 15
   fireballSpeed: 5
   damageInstance: {fileID: 11400000, guid: 2a0937bb7e0d17d4cb7a931c0472c93b, type: 2}
 --- !u!54 &-1216013870194318218
@@ -148,7 +148,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0

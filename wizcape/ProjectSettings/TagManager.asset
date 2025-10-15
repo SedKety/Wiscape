@@ -25,8 +25,8 @@ TagManager:
   - Ball
   - GemSpawnLayer
   - stool
-  - 
-  - 
+  - SkeletonBoss
+  - BoneProjectile
   - 
   - 
   - 

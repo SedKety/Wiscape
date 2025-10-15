@@ -18,5 +18,11 @@ public struct RandomFloatV2
     public float PercentageOfMax => (Last - min) / (max - min) * 100;
 
     [Tooltip("Returns a random float between the set min and max values")]
-    public float GetRandom() => Last = Random.Range(min, max);  
+    public float GetRandom() => Last = Random.Range(min, max); 
+    public RandomFloatV2(float min, float max)
+    {
+        this.min = min;
+        this.max = max;
+        last = 0f;
+    }
 }

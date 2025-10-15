@@ -25,6 +25,18 @@ public class DungeonGeneration : MonoBehaviour
 
         for (int i = 0; i < roomAmount; i++)
         {
+            if(i >= roomAmount - 1)
+            {
+                var R = rooms.Where(r => r.roomType == RoomType.BossRoom).FirstOrDefault();
+                _lastRoomType = R.roomType;
+                doorPos = Instantiate(R.roomGO,
+                    doorPos.position,
+                    Quaternion.identity).
+                    GetComponent<RoomInitialiser>().
+                    GetDoorFramePos();
+                break;
+            } 
+
             var RR = RandomRoom();
             _lastRoomType = RR.roomType;
             doorPos = Instantiate(RR.roomGO,
@@ -46,6 +58,7 @@ public class DungeonGeneration : MonoBehaviour
         //We want interchanging rooms, so never enemy -> enemy. 
         return rooms.Where(x => x.roomType != RoomType.Start &&
         x.roomType != RoomType.End &&
+        x.roomType != RoomType.BossRoom &&
         x.roomType != _lastRoomType).
         ToList().
         RandomItem();

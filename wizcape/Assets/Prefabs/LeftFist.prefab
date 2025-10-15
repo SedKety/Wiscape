@@ -155,7 +155,7 @@ MonoBehaviour:
   overworldWeapon: {fileID: 0}
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 65463
+    m_Bits: 458679
 --- !u!1001 &1606963207300274251
 PrefabInstance:
   m_ObjectHideFlags: 0
