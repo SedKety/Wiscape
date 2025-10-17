@@ -263,6 +263,7 @@ public class BossController : EnemyEntity
         if (_agent != null) _agent.isStopped = true;
 
         UIScreenLogic.Instance.WinGame();
+        Counting.Instance.StopCounter();
         yield return new WaitForSeconds(3f);
         Destroy(gameObject);
     }

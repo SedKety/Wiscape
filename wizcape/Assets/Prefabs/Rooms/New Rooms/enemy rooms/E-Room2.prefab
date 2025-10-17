@@ -590,8 +590,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5786916327386952614}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: 0.0000015497205, z: -0, w: 1}
+  m_LocalPosition: {x: 8.977329, y: 0, z: -10.977427}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -628,7 +628,7 @@ Transform:
   - {fileID: 1240772034336487675}
   - {fileID: 8625974100625853807}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5276621242385648711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -649,20 +649,19 @@ MonoBehaviour:
   - {fileID: 6332800990859907687, guid: 110e20892e696fe41a015fecddfa2caa, type: 3}
   - {fileID: 7288389050831397181, guid: e07927ceac72d5e4f8ad18783c211eeb, type: 3}
   - {fileID: 7027034083633487980, guid: 5c573aa58c0321d47ac1e6d24b748ff8, type: 3}
-  - {fileID: 376097959623440521, guid: 2d3f1fbd5aa222449b8cc1ebb0ba3bd2, type: 3}
   enemyAmount:
     min: 2
     max: 4
   enemySpawnBoxes:
-  - BoxPos: {x: 10.2, y: 0.5, z: -1.28}
+  - BoxPos: {x: 1.29, y: 1, z: 10.1}
     BoxSize: {x: 16.88, y: 1, z: 1}
     GizmoColor: {r: 0, g: 0, b: 0, a: 0}
     hasToBeRemoved: 0
-  - BoxPos: {x: 10.4, y: 0.5, z: 3}
+  - BoxPos: {x: 0.12, y: 1, z: 6.63}
     BoxSize: {x: 16.88, y: 1, z: 1}
     GizmoColor: {r: 0, g: 0, b: 0, a: 0}
     hasToBeRemoved: 0
-  - BoxPos: {x: 10.5, y: 0.5, z: -5.05}
+  - BoxPos: {x: 2.79, y: 1, z: 14}
     BoxSize: {x: 16.88, y: 1, z: 1}
     GizmoColor: {r: 0, g: 0, b: 0, a: 0}
     hasToBeRemoved: 0
@@ -4655,6 +4654,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9b87b5ebacace35429152df0a0c9b60d, type: 3}
       propertyPath: m_Name
       value: e-Room2 V
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9b87b5ebacace35429152df0a0c9b60d, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -211,7 +211,7 @@ MonoBehaviour:
     GizmoColor: {r: 0, g: 0, b: 0, a: 0}
     hasToBeRemoved: 0
   - BoxPos: {x: -1.69, y: 0.5, z: 17.6}
-    BoxSize: {x: 18.5, y: 1, z: 1.51}
+    BoxSize: {x: 13.2, y: 1, z: 1.51}
     GizmoColor: {r: 0, g: 0, b: 0, a: 0}
     hasToBeRemoved: 0
   chestSpawnBoxes: []
