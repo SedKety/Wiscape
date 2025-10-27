@@ -92,10 +92,10 @@ MonoBehaviour:
   fireball: {fileID: 5103988431777956973, guid: dc5cc069232329640893cd96e0716155, type: 3}
   minInterval: 2
   maxInterval: 6
+  fireballSpeed: 10
   waypoints: []
   moveSpeed: 2
   waypointThreshold: 0.1
-  fireballSpeed: 10
 --- !u!4 &4223730614703342831 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dcbee35b312f17346a34e9f3ed4803a5, type: 3}
@@ -153,12 +153,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8565913527372862764, guid: 2e4309327d3371e488e67e462b57becb, type: 3}
+      propertyPath: m_ColorTemperature
+      value: 1700
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4602478459557853108, guid: 2e4309327d3371e488e67e462b57becb, type: 3}
     - {fileID: 8694854119454954903, guid: 2e4309327d3371e488e67e462b57becb, type: 3}
     - {fileID: 8631826806105108721, guid: 2e4309327d3371e488e67e462b57becb, type: 3}
     - {fileID: 3287397845079596263, guid: 2e4309327d3371e488e67e462b57becb, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3694508900525782857, guid: 2e4309327d3371e488e67e462b57becb, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e4309327d3371e488e67e462b57becb, type: 3}

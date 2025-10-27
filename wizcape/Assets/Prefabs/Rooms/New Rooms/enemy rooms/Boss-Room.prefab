@@ -947,6 +947,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3601066008366175490}
     m_Modifications:
+    - target: {fileID: 466525699102702454, guid: 7b91f4b168d55f14d96f5a9566338bae, type: 3}
+      propertyPath: m_UseColorTemperature
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1565210434054811242, guid: 7b91f4b168d55f14d96f5a9566338bae, type: 3}
       propertyPath: meleeRange
       value: 1.5
@@ -1026,6 +1030,10 @@ PrefabInstance:
     - target: {fileID: 6810461087138182761, guid: 7b91f4b168d55f14d96f5a9566338bae, type: 3}
       propertyPath: timeInterval
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340452608339358899, guid: 7b91f4b168d55f14d96f5a9566338bae, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3512,6 +3520,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3601066008366175490}
     m_Modifications:
+    - target: {fileID: 1036106695890263088, guid: 68c1f5eb00dbfb348a5ac9fffc7aa26d, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2896950260135684596, guid: 68c1f5eb00dbfb348a5ac9fffc7aa26d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.70280004
+      objectReference: {fileID: 0}
     - target: {fileID: 3148625745826121054, guid: 68c1f5eb00dbfb348a5ac9fffc7aa26d, type: 3}
       propertyPath: waypoints.Array.size
       value: 2
@@ -3527,6 +3543,14 @@ PrefabInstance:
     - target: {fileID: 3591167915545960021, guid: 68c1f5eb00dbfb348a5ac9fffc7aa26d, type: 3}
       propertyPath: m_Name
       value: vroom vroom (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3837913143810804571, guid: 68c1f5eb00dbfb348a5ac9fffc7aa26d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.2824
+      objectReference: {fileID: 0}
+    - target: {fileID: 3837913143810804571, guid: 68c1f5eb00dbfb348a5ac9fffc7aa26d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.70280004
       objectReference: {fileID: 0}
     - target: {fileID: 4223730614703342831, guid: 68c1f5eb00dbfb348a5ac9fffc7aa26d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3567,6 +3591,26 @@ PrefabInstance:
     - target: {fileID: 4223730614703342831, guid: 68c1f5eb00dbfb348a5ac9fffc7aa26d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547600052685750190, guid: 68c1f5eb00dbfb348a5ac9fffc7aa26d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.70280004
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547600052685750190, guid: 68c1f5eb00dbfb348a5ac9fffc7aa26d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.3005
+      objectReference: {fileID: 0}
+    - target: {fileID: 7741089136923832612, guid: 68c1f5eb00dbfb348a5ac9fffc7aa26d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.2923
+      objectReference: {fileID: 0}
+    - target: {fileID: 7741089136923832612, guid: 68c1f5eb00dbfb348a5ac9fffc7aa26d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.70280004
+      objectReference: {fileID: 0}
+    - target: {fileID: 8011386994296566448, guid: 68c1f5eb00dbfb348a5ac9fffc7aa26d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.385
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
