@@ -13,8 +13,7 @@ public class SpikesBehaviour : MonoBehaviour
     [SerializeField] private float upSpeed;
     [SerializeField] private float downSpeed;
 
-
-
+    [SerializeField] private float timeTillEmergence = 0;
     private void Start()
     {
         StartCoroutine(HandleSpikesMovement());
@@ -22,6 +21,7 @@ public class SpikesBehaviour : MonoBehaviour
 
     private IEnumerator HandleSpikesMovement()
     {
+        yield return new WaitForSeconds(timeTillEmergence);
         while (true)
         {
             yield return new WaitForSeconds(upInterval);
@@ -33,8 +33,6 @@ public class SpikesBehaviour : MonoBehaviour
 
     private IEnumerator HandleSpikesDelay(Vector3 position, float speed)
     {
-        
-
         while (transform.localPosition != position)
         {
             transform.localPosition = Vector3.Lerp(transform.localPosition, position, speed * Time.deltaTime);
