@@ -24,8 +24,17 @@ public class Counting : MonoBehaviour
     {
         // Initialize texts
         counterText.text = "00:00";
-        savedText.text = "Best: 00:00";
-        // Start counting when the scene loads
+
+        if (PlayerPrefs.HasKey("BestTime"))
+        {
+            savedText.text = PlayerPrefs.GetString("BestTime");
+        }
+
+        else
+        {
+            savedText.text = "Best: 00:00";
+        }
+
         isCounting = true;
     }
 

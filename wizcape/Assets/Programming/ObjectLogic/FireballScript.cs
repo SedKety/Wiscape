@@ -19,7 +19,10 @@ public class FireballScript : MonoBehaviour
         {
             if (damageAble.damageLayer == _dl) return; //See if its a fellow enemy
             damageInstance.Execute(other.gameObject, _dl);
-            Destroy(gameObject);
+            
         }
+
+        if (!other.CompareTag("Player") && !other.CompareTag("Weapon"))  Destroy(gameObject);
+
     }
 }

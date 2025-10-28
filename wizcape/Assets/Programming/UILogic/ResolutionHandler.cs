@@ -32,6 +32,7 @@ public class ResolutionHandler : MonoBehaviour
         }
 
         resDropDown.AddOptions(resolutionStringList);
+        resDropDown.value = resDropDown.options.Count - 1;
     }
 
     public void ChangeResolution()
