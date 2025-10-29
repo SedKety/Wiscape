@@ -5,6 +5,7 @@ public class StaffPickUp : PickUpHandler
 {
     [SerializeField] private GameObject spawnBall;
     [SerializeField] private float attackInterval;
+    [SerializeField] private Transform spawnTransform;
     private Transform _cam;
     private bool _hasAttacked;
 
@@ -28,7 +29,7 @@ public class StaffPickUp : PickUpHandler
 
     private void HandleAttack()
     {
-        Instantiate(spawnBall, transform.position, _cam.rotation);
+        Instantiate(spawnBall, spawnTransform.position, _cam.rotation);
     }
 
     

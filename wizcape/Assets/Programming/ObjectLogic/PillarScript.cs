@@ -23,10 +23,19 @@ public class PillarScript : MonoBehaviour
     [Tooltip("Distance threshold to consider a waypoint reached.")]
     [SerializeField] private float waypointThreshold = 0.1f;
 
+    [SerializeField] private bool isStatic;
+    private bool shouldMove = true;
     private int currentWaypointIndex = 0;
     private bool isMoving = false;
     private bool isShooting = false;
 
+    public void Start()
+    {
+        if (isStatic)
+        {
+            StartShooting();
+        }
+    }
     public void StartShooting()
     {
         if (!isShooting)
@@ -34,7 +43,11 @@ public class PillarScript : MonoBehaviour
             isShooting = true;
             isMoving = true;
             StartCoroutine(HandleFireballFiring());
-            StartCoroutine(MoveBetweenWaypoints());
+            if (shouldMove)
+            {
+                StartCoroutine(MoveBetweenWaypoints());
+            }
+            
         }
     }
 
@@ -84,6 +97,7 @@ public class PillarScript : MonoBehaviour
     {
         foreach (Transform firePoint in firePoints)
         {
+            print("spawned fireball");
             GameObject f = Instantiate(fireball, firePoint.position, firePoint.rotation);
             Rigidbody rb = f.GetComponent<Rigidbody>();
             if (rb != null)

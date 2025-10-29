@@ -653,19 +653,23 @@ MonoBehaviour:
     min: 2
     max: 4
   enemySpawnBoxes:
-  - BoxPos: {x: 1.29, y: 1, z: 10.1}
+  - BoxPos: {x: 1.29, y: 0.5, z: 10.1}
     BoxSize: {x: 16.88, y: 1, z: 1}
     GizmoColor: {r: 0, g: 0, b: 0, a: 0}
     hasToBeRemoved: 0
-  - BoxPos: {x: 0.12, y: 1, z: 6.63}
+  - BoxPos: {x: 0.12, y: 0.5, z: 6.63}
     BoxSize: {x: 16.88, y: 1, z: 1}
     GizmoColor: {r: 0, g: 0, b: 0, a: 0}
     hasToBeRemoved: 0
-  - BoxPos: {x: 2.79, y: 1, z: 14}
+  - BoxPos: {x: 2.79, y: 0.5, z: 14}
     BoxSize: {x: 16.88, y: 1, z: 1}
     GizmoColor: {r: 0, g: 0, b: 0, a: 0}
     hasToBeRemoved: 0
-  chestSpawnBoxes: []
+  chestSpawnBoxes:
+  - BoxPos: {x: -7, y: 0.5, z: 15}
+    BoxSize: {x: 1, y: 1, z: 1}
+    GizmoColor: {r: 0, g: 0, b: 0, a: 0}
+    hasToBeRemoved: 0
   trapSpawnBoxes: []
   groundLayer:
     serializedVersion: 2

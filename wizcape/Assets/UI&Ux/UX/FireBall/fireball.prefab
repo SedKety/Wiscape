@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457db69de951aff4987161df7f0685b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireBallLifetime: 20
   fireballSpeed: 5
   damageInstance: {fileID: 11400000, guid: 2a0937bb7e0d17d4cb7a931c0472c93b, type: 2}
 --- !u!1001 &7622396187761150289

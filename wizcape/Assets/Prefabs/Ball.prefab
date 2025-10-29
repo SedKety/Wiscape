@@ -31,8 +31,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.448, y: 0.12, z: 130.1305}
-  m_LocalScale: {x: 0.23133823, y: 0.23133823, z: 0.23133823}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4527827192641332274}
   m_Father: {fileID: 0}
@@ -150,8 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94cd7406096b8da4d99ad9e53c467439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5000
-  destroyTime: 2
+  speed: 1269
+  destroyTime: 3
   staffHit: {fileID: 11400000, guid: 02c76ef6868afc44891ab41781395a87, type: 2}
 --- !u!1001 &5347212937496498800
 PrefabInstance:

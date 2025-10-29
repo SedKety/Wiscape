@@ -68,6 +68,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1030655687530739065}
+  - component: {fileID: 101595663142739367}
   m_Layer: 0
   m_Name: E-room4
   m_TagString: Untagged
@@ -100,6 +101,61 @@ Transform:
   - {fileID: 8857594782743851811}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &101595663142739367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875568053996344076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa36a2f7d016aa42a0b05e45a9b924a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootTable: {fileID: 11400000, guid: 9f2c06a8c55f4c3459a0a2e6f91e6e10, type: 2}
+  roomKind: 0
+  spawnedDoor: {fileID: 0}
+  spawnEnemies: 1
+  possibleEnemies:
+  - {fileID: 6332800990859907687, guid: 110e20892e696fe41a015fecddfa2caa, type: 3}
+  - {fileID: 7027034083633487980, guid: 5c573aa58c0321d47ac1e6d24b748ff8, type: 3}
+  - {fileID: 7288389050831397181, guid: e07927ceac72d5e4f8ad18783c211eeb, type: 3}
+  enemyAmount:
+    min: 6
+    max: 10
+  enemySpawnBoxes:
+  - BoxPos: {x: -2, y: 0.5, z: 9}
+    BoxSize: {x: 8, y: 1, z: 5}
+    GizmoColor: {r: 0, g: 0, b: 0, a: 0}
+    hasToBeRemoved: 0
+  - BoxPos: {x: -6.72, y: 0.5, z: 15.56}
+    BoxSize: {x: 11.08, y: 1, z: 3.24}
+    GizmoColor: {r: 0, g: 0, b: 0, a: 0}
+    hasToBeRemoved: 0
+  - BoxPos: {x: -25, y: 0.5, z: 9.24}
+    BoxSize: {x: 6.73, y: 1, z: 3.82}
+    GizmoColor: {r: 0, g: 0, b: 0, a: 0}
+    hasToBeRemoved: 0
+  - BoxPos: {x: -23.6, y: 0.5, z: 14.96}
+    BoxSize: {x: 6.73, y: 1, z: 3.82}
+    GizmoColor: {r: 0, g: 0, b: 0, a: 0}
+    hasToBeRemoved: 0
+  chestSpawnBoxes: []
+  trapSpawnBoxes: []
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  chest: {fileID: 0}
+  key: {fileID: 0}
+  shouldSpawnKey: 0
+  randomizedDoor: 0
+  door: {fileID: 0}
+  possibleDoorWalls: []
+  lockedRoomChance: 0
+  minTrapAmount: 0
+  maxTrapAmount: 0
+  possibleTraps: []
 --- !u!1 &4406608191761728322
 GameObject:
   m_ObjectHideFlags: 0
