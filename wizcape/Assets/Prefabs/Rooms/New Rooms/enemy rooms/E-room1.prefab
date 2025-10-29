@@ -133,7 +133,11 @@ MonoBehaviour:
     BoxSize: {x: 3.12, y: 1, z: 15.12}
     GizmoColor: {r: 0, g: 0, b: 0, a: 0}
     hasToBeRemoved: 0
-  chestSpawnBoxes: []
+  chestSpawnBoxes:
+  - BoxPos: {x: 7.78, y: 0.5, z: 7.55}
+    BoxSize: {x: 1, y: 1, z: 1}
+    GizmoColor: {r: 0, g: 0, b: 0, a: 0}
+    hasToBeRemoved: 0
   trapSpawnBoxes: []
   groundLayer:
     serializedVersion: 2

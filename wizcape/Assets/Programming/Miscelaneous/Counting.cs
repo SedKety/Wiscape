@@ -10,7 +10,7 @@ public class Counting : MonoBehaviour
     public TextMeshProUGUI savedText;  // Reference to the TMP Text for saved best time
     private float counter = 0f;
     private bool isCounting = false;
-    private float bestTime = float.MaxValue;
+    private float bestTime;
 
     private void Awake()
     {
@@ -28,6 +28,8 @@ public class Counting : MonoBehaviour
         if (PlayerPrefs.HasKey("BestTime"))
         {
             savedText.text = PlayerPrefs.GetString("BestTime");
+            bestTime = PlayerPrefs.GetFloat("BestTimeNumber");
+
         }
 
         else
@@ -60,4 +62,5 @@ public class Counting : MonoBehaviour
     {
         isCounting = false;
     }
+    // can was here 
 }

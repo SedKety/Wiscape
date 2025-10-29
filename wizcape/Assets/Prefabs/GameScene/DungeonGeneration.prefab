@@ -55,6 +55,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b42656ec2d8bc2b49974d734bf434495, type: 2}
   - {fileID: 11400000, guid: 3c0c44ac20888c247a26ce53c10954b3, type: 2}
   - {fileID: 11400000, guid: fdef148b308ade94da105eb33f73ef65, type: 2}
+  - {fileID: 11400000, guid: 8c44108aa9a0fba45ab594976f97eec0, type: 2}
   - {fileID: 11400000, guid: b21a2af00cecf474189c92c001ab3210, type: 2}
   spawnedRooms: []
   roomAmount: 10
