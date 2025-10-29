@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90021aa2c6fb60e40bf7f7b70d8555ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPuzzleDoor: 0
   animator: {fileID: 4450944050339823211}
 --- !u!65 &3780493996520809537
 BoxCollider:
@@ -376,6 +377,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 1411f2cc78dc5b549921824e3faaf0ae, type: 2}
+    - target: {fileID: -4582816011356557747, guid: 4c0ff24d73f6d7040bae4919874171f0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -2062053390777650453, guid: 4c0ff24d73f6d7040bae4919874171f0, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -383,6 +388,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 4c0ff24d73f6d7040bae4919874171f0, type: 3}
       propertyPath: m_Name
       value: door Frame New
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4c0ff24d73f6d7040bae4919874171f0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3585082852648059160, guid: 4c0ff24d73f6d7040bae4919874171f0, type: 3}
       propertyPath: m_LocalPosition.x

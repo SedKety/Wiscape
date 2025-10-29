@@ -91,6 +91,7 @@ MonoBehaviour:
   damageInstance: {fileID: 11400000, guid: c2c9f349b5df9be4880ba879a824c530, type: 2}
   upSpeed: 20
   downSpeed: 5
+  timeTillEmergence: 0
 --- !u!65 &5002766521681241414
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -172,6 +173,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b7125a20d54f06446ac16bb0bf3d9b6e, type: 3}
       propertyPath: m_Name
       value: Spike Trap
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b7125a20d54f06446ac16bb0bf3d9b6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

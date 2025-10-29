@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: waterWay Floor 1x10
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 89ac9e10a87a662438cdbd8a4c5622a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
