@@ -20,6 +20,8 @@ public class MenuInteraction : MonoBehaviour
         SceneManager.LoadScene("Main Scene");
     }
 
+    
+
 
     public void QuitGame()
     {

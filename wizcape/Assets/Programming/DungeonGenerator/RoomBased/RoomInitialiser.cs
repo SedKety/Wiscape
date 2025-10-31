@@ -71,7 +71,12 @@ public class RoomInitialiser : MonoBehaviour
         if(spawnEnemies) 
         {
             SpawnEnemies(); 
-        } 
+        }
+
+        if (shouldSpawnKey)
+        {
+            HandleLockedRoom();
+        }
 
         SpawnTraps();
         if (chestSpawnBoxes.Length <= 0) { return; }
@@ -93,10 +98,7 @@ public class RoomInitialiser : MonoBehaviour
 
         spawnedDoor = Instantiate(door, wall.transform.position, Quaternion.identity).transform;
 
-        if (shouldSpawnKey)
-        {
-            HandleLockedRoom();
-        }
+        
         
         Destroy(wall);
         return spawnedDoor;
@@ -135,8 +137,7 @@ public class RoomInitialiser : MonoBehaviour
 
     private void LockRoom()
     {
-        print(spawnedDoor.parent);
-        spawnedDoor.GetComponentInChildren<LockBehaviour>().LockDoor();
+        door.GetComponentInChildren<LockBehaviour>().LockDoor();
         print("LOCKED");
     }
 

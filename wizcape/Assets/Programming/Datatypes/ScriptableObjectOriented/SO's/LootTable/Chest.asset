@@ -19,3 +19,7 @@ MonoBehaviour:
     itemGO: {fileID: 5248236451462971961, guid: 95dbb764baa46774a993f12a68f8d58d, type: 3}
   - weight: 100
     itemGO: {fileID: 493417775293368516, guid: 8ef56c5b369f6c54ab631a675b4fa5fb, type: 3}
+  - weight: 100
+    itemGO: {fileID: 4434873970946915537, guid: 6d22d1db13d7d4847b7b70c36314e73d, type: 3}
+  - weight: 100
+    itemGO: {fileID: 8034211488945387094, guid: 86c5ae12a05728c43b7c74f48ee5522e, type: 3}

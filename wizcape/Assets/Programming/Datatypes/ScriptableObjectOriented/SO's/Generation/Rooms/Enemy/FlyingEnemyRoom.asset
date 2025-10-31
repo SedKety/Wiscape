@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb162c1ef28fe87449c33018e800c986, type: 3}
   m_Name: FlyingEnemyRoom
   m_EditorClassIdentifier: 
-  roomGO: {fileID: 4183461752998607197, guid: 9e33b027bc6972b4f8f24b1f2cc9643e, type: 3}
+  roomGO: {fileID: 888162665043699457, guid: 1177beda487a66c4ab4c1d1e6ee02973, type: 3}
   roomType: 3

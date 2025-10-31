@@ -28,15 +28,18 @@ public class UIScreenLogic : MonoBehaviour
 
     public void WinGame()
     {
+        
         StartCoroutine(BlackScreenHandling(winScreen));
     }
     public void ResetGame()
     {
+        Time.timeScale = 1;
         StartCoroutine(BlackScreenScenes("Main Scene"));
     }
 
     public void MainMenu()
     {
+        Time.timeScale = 1;
         StartCoroutine(BlackScreenScenes("Menu"));
     }
 
@@ -50,9 +53,11 @@ public class UIScreenLogic : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         yield return StartCoroutine(BlackScreenManager.StartBlackScreen(blackScreen, alphaSpeed));
+        
         uiScreen.SetActive(true);
         yield return new WaitForSeconds(interval);
         yield return StartCoroutine(BlackScreenManager.StopBlackScreen(blackScreen, alphaSpeed));
+        Time.timeScale = 0;
         
     }
 }

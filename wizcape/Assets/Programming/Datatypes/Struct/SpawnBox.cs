@@ -33,10 +33,10 @@ public struct SpawnBox
         );
 
         //Position where the ray will be shot from
-        var rayPos = randomPos + origin + Vector3.up * 5;
+        var rayPos = randomPos + Vector3.up * 5;
 
         //Shoots a ray to find any surface that matches the spawnLayer's type
-        if (Physics.Raycast(rayPos, Vector3.down, out RaycastHit hit, rayPos.y + 10, spawnLayer))
+        if (Physics.Raycast(rayPos, Vector3.down, out RaycastHit hit, Mathf.Infinity, spawnLayer))
         {
             //cant call due to it being a struct, but this. sure, yeah why the fuck not..... stupid ass game engine
             return UnityEngine.Object.Instantiate(item, hit.point, Quaternion.identity);
@@ -44,7 +44,7 @@ public struct SpawnBox
         }
         else
         {
-            Console.WriteLine("No surface with the layer hit");
+            Debug.Log("No surface with the layer hit");
         }
 
         return null;

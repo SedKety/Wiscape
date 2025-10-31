@@ -729,8 +729,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2890317701251045167}
-  - component: {fileID: 7219826616213081613}
   - component: {fileID: 3556221177691454042}
+  - component: {fileID: 7219826616213081613}
   m_Layer: 0
   m_Name: P-Room1
   m_TagString: Untagged
@@ -773,42 +773,6 @@ Transform:
   - {fileID: 6523277066722525238}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7219826616213081613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7985759013174874315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f8a2fc8c6fa0f944a5b0452b53400fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gemLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  pillarPositions:
-  - {fileID: 4195836252938488000}
-  - {fileID: 2747153908691599404}
-  - {fileID: 825676128464455547}
-  pillarsAndGems:
-  - pillar: {fileID: 104175334937895417, guid: 4d2fa95143ef2654e90b14485f208779, type: 3}
-    gem: {fileID: 1255217710475128774, guid: f33119dece1eb8245b4a05a1080f7766, type: 3}
-  - pillar: {fileID: 4374558553934970413, guid: bb17574084ce74b49bec486a46ef2ce3, type: 3}
-    gem: {fileID: 2864135009474916577, guid: 1a090a78d672e474db4ce6148e4ad420, type: 3}
-  - pillar: {fileID: 8271501765772353228, guid: cc288825289bf1c4ba48224c81e08d7d, type: 3}
-    gem: {fileID: 7421455763838841319, guid: b9d4b8abbb467d54c99453033aafcdfe, type: 3}
-  pillars: []
-  gemSpawnLocations:
-  - {fileID: 1906393411124970266}
-  - {fileID: 2666456975434618453}
-  - {fileID: 5310701739534033134}
-  - {fileID: 5589138262000784322}
-  - {fileID: 5754374500889685748}
-  - {fileID: 3610344315402378257}
-  - {fileID: 6408468078344226572}
-  door: {fileID: 7565022284624044716}
 --- !u!114 &3556221177691454042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -849,6 +813,42 @@ MonoBehaviour:
   minTrapAmount: 0
   maxTrapAmount: 0
   possibleTraps: []
+--- !u!114 &7219826616213081613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7985759013174874315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f8a2fc8c6fa0f944a5b0452b53400fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gemLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  pillarPositions:
+  - {fileID: 4195836252938488000}
+  - {fileID: 2747153908691599404}
+  - {fileID: 825676128464455547}
+  pillarsAndGems:
+  - pillar: {fileID: 104175334937895417, guid: 4d2fa95143ef2654e90b14485f208779, type: 3}
+    gem: {fileID: 1255217710475128774, guid: f33119dece1eb8245b4a05a1080f7766, type: 3}
+  - pillar: {fileID: 4374558553934970413, guid: bb17574084ce74b49bec486a46ef2ce3, type: 3}
+    gem: {fileID: 2864135009474916577, guid: 1a090a78d672e474db4ce6148e4ad420, type: 3}
+  - pillar: {fileID: 8271501765772353228, guid: cc288825289bf1c4ba48224c81e08d7d, type: 3}
+    gem: {fileID: 7421455763838841319, guid: b9d4b8abbb467d54c99453033aafcdfe, type: 3}
+  pillars: []
+  gemSpawnLocations:
+  - {fileID: 1906393411124970266}
+  - {fileID: 2666456975434618453}
+  - {fileID: 5310701739534033134}
+  - {fileID: 5589138262000784322}
+  - {fileID: 5754374500889685748}
+  - {fileID: 3610344315402378257}
+  - {fileID: 6408468078344226572}
+  door: {fileID: 7565022284624044716}
 --- !u!1001 &51512987998770430
 PrefabInstance:
   m_ObjectHideFlags: 0

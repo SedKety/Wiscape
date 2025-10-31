@@ -46,13 +46,9 @@ public class ChestBehaviour : MonoBehaviour
     {
         while (_itemClone.position != itemEndPosition.position)
         {
-            
             _itemClone.position = Vector3.Lerp(_itemClone.position, itemEndPosition.position, itemSpeed * Time.deltaTime);
             yield return null;
-            if (_itemClone == null)
-            {
-                break;
-            }
+            if (_itemClone == null) break;
         }
     }
 }
