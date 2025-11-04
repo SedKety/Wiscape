@@ -124,6 +124,28 @@ public abstract class EnemyEntity : EntityBase
         Defuzzify();
     }
 
+    protected virtual bool CanReachPlayer()
+    {
+        if (playerGO == null || _agent == null) return false;
+
+        if (!NavMesh.SamplePosition(playerGO.transform.position, out NavMeshHit hit, 1f, NavMesh.AllAreas))
+        {
+            distanceToPlayer = Distance.OutOfRange;
+            return false;
+        }
+
+        NavMeshPath path = new NavMeshPath();
+        _agent.CalculatePath(hit.position, path);
+         
+        if (path.status != NavMeshPathStatus.PathComplete)
+        {
+            distanceToPlayer = Distance.OutOfRange;
+            return false;
+        }
+
+        return true;
+    }
+
     protected virtual void Fuzzify()
     {
         distanceToPlayer = CalculateDistance();
@@ -132,6 +154,8 @@ public abstract class EnemyEntity : EntityBase
 
     protected virtual Distance CalculateDistance()
     {
+        if (!CanReachPlayer())  return Distance.OutOfRange;
+
         _pDistance = Vector3.Distance(transform.position, playerGO.transform.position);
         Distance d = _pDistance switch
         {

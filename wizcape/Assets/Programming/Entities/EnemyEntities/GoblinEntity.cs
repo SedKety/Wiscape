@@ -8,6 +8,16 @@ public class GoblinEntity : EnemyEntity
     {
         base.Awake();
         _defaultAngularSpeed = _agent.angularSpeed; 
+    } 
+
+    protected override void Update()
+    {
+        base.Update();
+        if (moveAction != MoveActions.Retreat && _agent != null && _agent.angularSpeed != _defaultAngularSpeed)
+        {
+            _agent.angularSpeed = _defaultAngularSpeed;
+            Debug.Log($"[{Time.time}] Restored default angular speed: {_agent.angularSpeed}");
+        }
     }
 
     public override void TakeDamage(int intakeDamage, DamageLayer dl, DamageType dt = DamageType.physical)
@@ -48,16 +58,6 @@ public class GoblinEntity : EnemyEntity
         }
 
         return ma;
-    }
-
-    protected override void Update()
-    {
-        base.Update();
-        if (moveAction != MoveActions.Retreat && _agent != null && _agent.angularSpeed != _defaultAngularSpeed)
-        {
-            _agent.angularSpeed = _defaultAngularSpeed;
-            Debug.Log($"[{Time.time}] Restored default angular speed: {_agent.angularSpeed}");
-        }
     }
 
     protected override void Retreat()
