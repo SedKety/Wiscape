@@ -33,7 +33,7 @@ public struct SpawnBox
         );
 
         //Position where the ray will be shot from
-        var rayPos = randomPos + Vector3.up * 5;
+        var rayPos = origin + randomPos + Vector3.up * 5;
 
         //Shoots a ray to find any surface that matches the spawnLayer's type
         if (Physics.Raycast(rayPos, Vector3.down, out RaycastHit hit, Mathf.Infinity, spawnLayer))

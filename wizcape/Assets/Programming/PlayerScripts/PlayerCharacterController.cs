@@ -139,8 +139,11 @@ public class PlayerCharacterController : MonoBehaviour
         {
             if (hit.transform.TryGetComponent(out LockBehaviour lockBehaviour))
             {
-                if (lockBehaviour.isLocked) return;
-                
+                if (lockBehaviour.isLocked)
+                {
+
+                    return;
+                }
             }
             hit.transform.GetComponent<DoorBehaviour>().UseDoor();
         }

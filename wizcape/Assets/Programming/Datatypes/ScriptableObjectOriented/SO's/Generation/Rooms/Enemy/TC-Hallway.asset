@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb162c1ef28fe87449c33018e800c986, type: 3}
   m_Name: TC-Hallway
   m_EditorClassIdentifier: 
-  roomGO: {fileID: 5216888307741571281, guid: c4b9b1e36d36f0a40b1bcf8c8841db9c, type: 3}
+  roomGO: {fileID: 5216888307741571281, guid: 343b0a1d4209cce438e8305b352d778e, type: 3}
   roomType: 2

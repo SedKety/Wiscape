@@ -63,24 +63,24 @@ MonoBehaviour:
     max: 6
   enemySpawnBoxes:
   - BoxPos: {x: 0.27, y: 0.5, z: 2.18}
-    BoxSize: {x: 5.59, y: 1, z: 2.78}
+    BoxSize: {x: 5.59, y: 0, z: 2.78}
     GizmoColor: {r: 0, g: 0, b: 0, a: 0}
     hasToBeRemoved: 0
   - BoxPos: {x: 0.27, y: 0.5, z: 10.31}
-    BoxSize: {x: 5.59, y: 1, z: 2.78}
+    BoxSize: {x: 5.59, y: 0, z: 2.78}
     GizmoColor: {r: 0, g: 0, b: 0, a: 0}
     hasToBeRemoved: 0
   - BoxPos: {x: 4.04, y: 0.5, z: 17.87}
-    BoxSize: {x: 5.59, y: 1, z: 2.78}
+    BoxSize: {x: 5.59, y: 0, z: 2.78}
     GizmoColor: {r: 0, g: 0, b: 0, a: 0}
     hasToBeRemoved: 0
   - BoxPos: {x: 11.1, y: 0.5, z: 5.79}
-    BoxSize: {x: 3, y: 1, z: 3}
+    BoxSize: {x: 3, y: 0, z: 3}
     GizmoColor: {r: 0, g: 0, b: 0, a: 0}
     hasToBeRemoved: 0
   chestSpawnBoxes:
-  - BoxPos: {x: 14, y: 0.5, z: 13}
-    BoxSize: {x: 1, y: 1, z: 1}
+  - BoxPos: {x: 14, y: 1, z: 13}
+    BoxSize: {x: 1, y: 0, z: 1}
     GizmoColor: {r: 0, g: 0, b: 0, a: 0}
     hasToBeRemoved: 0
   trapSpawnBoxes: []
@@ -91,7 +91,7 @@ MonoBehaviour:
   key: {fileID: 0}
   shouldSpawnKey: 0
   randomizedDoor: 0
-  door: {fileID: 0}
+  door: {fileID: 9152954294007935268}
   possibleDoorWalls: []
   lockedRoomChance: 0
   minTrapAmount: 0
@@ -17331,6 +17331,11 @@ PrefabInstance:
 --- !u!4 &8380640092654070686 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3007941755947193360, guid: 38e2d75d82d669240a388064e5bbad9e, type: 3}
+  m_PrefabInstance: {fileID: 6769007907985358734}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9152954294007935268 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2519073204123487914, guid: 38e2d75d82d669240a388064e5bbad9e, type: 3}
   m_PrefabInstance: {fileID: 6769007907985358734}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6793212621732748498

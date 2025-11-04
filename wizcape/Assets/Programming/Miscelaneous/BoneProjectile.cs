@@ -30,7 +30,6 @@ public class BoneProjectile : MonoBehaviour
         }
         rb.isKinematic = true; // Start kinematic to float in place
         rb.useGravity = false; // Disable gravity to prevent falling
-        Debug.Log($"BoneProjectile: Initialized at {transform.position}, gravity disabled.");
     }
 
     public void SetTarget(Transform playerTransform)
@@ -43,14 +42,12 @@ public class BoneProjectile : MonoBehaviour
     private IEnumerator FloatThenMove()
     {
 
-        Debug.Log($"BoneProjectile: Floating at {transform.position} for {floatDuration} seconds.");
 
         float elapsed = 0f;
         while (elapsed < floatDuration)
         {
             if (target == null)
             {
-                Debug.LogWarning("BoneProjectile: Target lost during floating, destroying.", this);
                 Destroy(gameObject);
                 yield break;
             }
@@ -70,7 +67,6 @@ public class BoneProjectile : MonoBehaviour
     {
         if (target == null)
         {
-            Debug.LogWarning("BoneProjectile: Target lost when starting movement, destroying.", this);
             Destroy(gameObject);
             return;
         }
@@ -79,7 +75,6 @@ public class BoneProjectile : MonoBehaviour
         rb.isKinematic = false;
         Vector3 direction = (target.position - transform.position).normalized;
         rb.linearVelocity = direction * projectileSpeed;
-        Debug.Log($"BoneProjectile: Launching towards player at {target.position} with velocity {rb.linearVelocity} (speed: {projectileSpeed}).");
 
     }
     private void OnTriggerEnter(Collider other)

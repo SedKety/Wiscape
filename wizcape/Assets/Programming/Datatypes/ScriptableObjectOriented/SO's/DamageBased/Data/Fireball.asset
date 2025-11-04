@@ -21,4 +21,4 @@ MonoBehaviour:
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
         effectName: Fireball
-        damageAmount: 10
+        damageAmount: 7

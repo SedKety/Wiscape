@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7945854682833204356}
   - component: {fileID: 6774284826053537893}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SwordWeapon
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ MonoBehaviour:
   overworldWeapon: {fileID: 493417775293368516, guid: 8ef56c5b369f6c54ab631a675b4fa5fb, type: 3}
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 458679
 --- !u!1 &5811390060176620802
 GameObject:
   m_ObjectHideFlags: 0

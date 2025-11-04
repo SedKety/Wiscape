@@ -126,24 +126,24 @@ MonoBehaviour:
     max: 10
   enemySpawnBoxes:
   - BoxPos: {x: -2, y: 0.5, z: 9}
-    BoxSize: {x: 8, y: 1, z: 5}
+    BoxSize: {x: 8, y: 0, z: 5}
     GizmoColor: {r: 0, g: 0, b: 0, a: 0}
     hasToBeRemoved: 0
   - BoxPos: {x: -6.72, y: 0.5, z: 15.56}
-    BoxSize: {x: 11.08, y: 1, z: 3.24}
+    BoxSize: {x: 11.08, y: 0, z: 3.24}
     GizmoColor: {r: 0, g: 0, b: 0, a: 0}
     hasToBeRemoved: 0
   - BoxPos: {x: -25, y: 0.5, z: 9.24}
-    BoxSize: {x: 6.73, y: 1, z: 3.82}
+    BoxSize: {x: 6.73, y: 0, z: 3.82}
     GizmoColor: {r: 0, g: 0, b: 0, a: 0}
     hasToBeRemoved: 0
   - BoxPos: {x: -23.6, y: 0.5, z: 14.96}
-    BoxSize: {x: 6.73, y: 1, z: 3.82}
+    BoxSize: {x: 6.73, y: 0, z: 3.82}
     GizmoColor: {r: 0, g: 0, b: 0, a: 0}
     hasToBeRemoved: 0
   chestSpawnBoxes:
-  - BoxPos: {x: 0.44, y: 0.5, z: 4.23}
-    BoxSize: {x: 1, y: 1, z: 1}
+  - BoxPos: {x: 0.44, y: 1, z: 4.23}
+    BoxSize: {x: 1, y: 0, z: 1}
     GizmoColor: {r: 0, g: 0, b: 0, a: 0}
     hasToBeRemoved: 0
   trapSpawnBoxes: []

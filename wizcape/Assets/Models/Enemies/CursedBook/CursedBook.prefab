@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8710925331809680761}
   - component: {fileID: 5177935011272847956}
   - component: {fileID: 473725761019618255}
+  - component: {fileID: 6444755842947629218}
   m_Layer: 0
   m_Name: CursedBook
   m_TagString: Untagged
@@ -49,6 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
+  _damageLayer: 0
   playerGO: {fileID: 0}
   damageInstance: {fileID: 11400000, guid: 6132bb027d65ef846b1bd8ec229c1cbf, type: 2}
   attackRange: 10
@@ -140,6 +142,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeInterval: 0.5
+--- !u!114 &6444755842947629218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376097959623440521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90f61e8e1882fed488d575c7a73ba18e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: {fileID: 471492894514995593, guid: 8e95706deb2f1034e9dd0670ef375488, type: 3}
+  yPositionAdder: 1
 --- !u!1 &8138139253122032936
 GameObject:
   m_ObjectHideFlags: 0

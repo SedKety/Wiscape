@@ -68,7 +68,7 @@ public class RoomInitialiser : MonoBehaviour
 
     private void Start() 
     { 
-        if(spawnEnemies) 
+        if (spawnEnemies) 
         {
             SpawnEnemies(); 
         }
@@ -88,6 +88,8 @@ public class RoomInitialiser : MonoBehaviour
         {
             GameObject enemy = enemySpawnBoxes.RandomItem()
                 .SpawnItem(possibleEnemies.RandomItem(),transform.position, groundLayer);
+
+            if (enemy == null) continue;
             _spawnedEnemies.Add(enemy);
         }
     }
@@ -97,9 +99,6 @@ public class RoomInitialiser : MonoBehaviour
         var wall = possibleDoorWalls.RandomItem();
 
         spawnedDoor = Instantiate(door, wall.transform.position, Quaternion.identity).transform;
-
-        
-        
         Destroy(wall);
         return spawnedDoor;
     }

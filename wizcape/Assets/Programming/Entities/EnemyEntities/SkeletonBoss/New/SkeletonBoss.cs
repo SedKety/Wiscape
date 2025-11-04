@@ -100,7 +100,6 @@ public class BossController : EnemyEntity
     {
         if (playerGO == null)
         {
-            Debug.LogWarning("BossController: playerGO is null, cannot rotate to face player.", this);
             return;
         }
 
@@ -110,7 +109,6 @@ public class BossController : EnemyEntity
             directionToPlayer.y = 0; // Keep rotation on Y-axis only
             Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
             transform.rotation = targetRotation;
-            Debug.Log($"BossController: Rotating to face player at {playerGO.transform.position}, distanceToPlayer: {distanceToPlayer}");
         }
     }
 
@@ -176,7 +174,6 @@ public class BossController : EnemyEntity
             Vector3 moveDirection = _agent.velocity.normalized;
             moveDirection.y = 0;
             transform.rotation = Quaternion.LookRotation(moveDirection);
-            Debug.Log($"BossController: Patrolling, facing movement direction: {moveDirection}");
         }
     }
 
@@ -187,7 +184,6 @@ public class BossController : EnemyEntity
             Vector3 directionToPlayer = (target.transform.position - transform.position).normalized;
             directionToPlayer.y = 0;
             transform.rotation = Quaternion.LookRotation(directionToPlayer);
-            Debug.Log($"BossController: Striking, facing player at {target.transform.position}");
         }
         base.Strike(target);
         if (_animator != null) _animator.SetTrigger("Attack");
@@ -227,7 +223,6 @@ public class BossController : EnemyEntity
             Vector3 directionToPlayer = (playerGO.transform.position - transform.position).normalized;
             directionToPlayer.y = 0;
             transform.rotation = Quaternion.LookRotation(directionToPlayer);
-            Debug.Log($"BossController: Phase transition, facing player at {playerGO.transform.position}");
         }
 
         yield return new WaitForSeconds(2f);
@@ -240,11 +235,10 @@ public class BossController : EnemyEntity
             if (pillar != null)
             {
                 pillar.StartShooting();
-                Debug.Log($"BossController: Triggered StartShooting on pillar at {pillar.transform.position}.");
             }
             else
             {
-                Debug.LogWarning("BossController: A pillar reference is null in the pillars array.");
+                //Debug.LogWarning("BossController: A pillar reference is null in the pillars array.");
             }
         }
 
@@ -276,7 +270,6 @@ public class BossController : EnemyEntity
 
             if (playerGO == null)
             {
-                Debug.LogWarning("BossController: playerGO is null in AttackLoop, skipping projectile spawn.");
                 continue;
             }
 
@@ -286,7 +279,6 @@ public class BossController : EnemyEntity
             Vector3 directionToPlayer = (playerGO.transform.position - transform.position).normalized;
             directionToPlayer.y = 0;
             transform.rotation = Quaternion.LookRotation(directionToPlayer);
-            Debug.Log($"BossController: Spawning projectiles, facing player at {playerGO.transform.position}");
 
             // Stop movement during bone spawning in Phase 2
             bool wasMoving = false;
@@ -295,7 +287,6 @@ public class BossController : EnemyEntity
                 wasMoving = true;
                 _agent.isStopped = true;
                 if (_animator != null) _animator.SetFloat("MoveSpeed", 0f);
-                Debug.Log("BossController: Stopped movement for bone spawning in Phase 2.");
             }
 
             int numProjectiles = Random.Range(minProjectiles, maxProjectiles + 1);
@@ -312,7 +303,6 @@ public class BossController : EnemyEntity
                 if (bone != null)
                 {
                     bone.SetTarget(playerGO.transform); // Signal BoneProjectile to float then move
-                    Debug.Log($"BossController: Spawned bone at {spawnPos}, targeting player at {playerGO.transform.position}");
                 }
 
                 if (boneCollider != null)
@@ -323,14 +313,12 @@ public class BossController : EnemyEntity
                         if (existingCollider != null)
                         {
                             Physics.IgnoreCollision(boneCollider, existingCollider);
-                            Debug.Log($"BossController: Disabled collision between bone at {spawnPos} and existing bone.");
                         }
                     }
                     // Disable collision with boss
                     if (bossCollider != null)
                     {
                         Physics.IgnoreCollision(boneCollider, bossCollider);
-                        Debug.Log($"BossController: Disabled collision between bone at {spawnPos} and boss.");
                     }
                     newBoneColliders.Add(boneCollider);
                 }
@@ -349,7 +337,6 @@ public class BossController : EnemyEntity
             {
                 _agent.isStopped = false;
                 if (_animator != null) _animator.SetFloat("MoveSpeed", moveSpeed.PercentageOfMax / 100f);
-                Debug.Log("BossController: Resumed movement after bone spawning in Phase 2.");
             }
         }
     }

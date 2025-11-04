@@ -85,10 +85,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.62
+  m_Radius: 0.12
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0.47, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4018694386183839209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,7 +104,7 @@ MonoBehaviour:
   overWorldPickUp: {fileID: 5248236451462971961, guid: 95dbb764baa46774a993f12a68f8d58d, type: 3}
   inventoryPickUp: {fileID: 493417775293368516, guid: e2c4319062d018a4b91da8737dc546b8, type: 3}
   spawnBall: {fileID: 4215642400053282989, guid: b7e7784b1b9bb3f4db3246153d08c430, type: 3}
-  attackInterval: 0.2
+  attackInterval: 0.5
   spawnTransform: {fileID: 8400934808817435619}
 --- !u!1001 &3897773006123992614
 PrefabInstance:

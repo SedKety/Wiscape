@@ -11,21 +11,18 @@ public class LockBehaviour : MonoBehaviour
     public void LockDoor()
     {
         isLocked = true;
-        doorLock.SetActive(true);
     }
     
     public void UnlockDoor()
     {
         if (_hasInteracted) return;
         _hasInteracted = true;
-        animator.SetTrigger("PlayAnimation");
-        StartCoroutine(UnlockDoorDelay());
-    }
-
-    private IEnumerator UnlockDoorDelay()
-    {
-        yield return new WaitForSeconds(1.5f);
         isLocked = false;
-
     }
+
+    public bool IsLocked()
+    {
+        return isLocked;
+    }
+
 }

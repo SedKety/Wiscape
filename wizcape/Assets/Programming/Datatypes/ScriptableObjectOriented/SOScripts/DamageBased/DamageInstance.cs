@@ -10,6 +10,7 @@ public class DamageInstance : ScriptableObject
     {
         foreach (var effect in hitEffects)
         {
+            if (effect == null) return;
             effect.ApplyEffect(target,  dl);
         }
     }

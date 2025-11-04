@@ -9,6 +9,7 @@ public class FireballScript : MonoBehaviour
 
     private void Start()
     {
+        _dl = DamageLayer.Enemy;
         Destroy(gameObject, fireBallLifetime);
     }
 
@@ -17,12 +18,12 @@ public class FireballScript : MonoBehaviour
     {
         if (other.TryGetComponent(out IDamagable damageAble))
         {
-            if (damageAble.damageLayer == _dl) return; //See if its a fellow enemy
+            if (damageAble.damageLayer == _dl) return;
+            print(damageInstance);
             damageInstance.Execute(other.gameObject, _dl);
+            Destroy(gameObject);
             
         }
-
-        if (!other.CompareTag("Player") && !other.CompareTag("Weapon"))  Destroy(gameObject);
 
     }
 }

@@ -175,6 +175,10 @@ PrefabInstance:
       value: Spike Trap
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b7125a20d54f06446ac16bb0bf3d9b6e, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b7125a20d54f06446ac16bb0bf3d9b6e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}

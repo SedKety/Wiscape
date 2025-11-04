@@ -21,4 +21,4 @@ MonoBehaviour:
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
         effectName: DaggerHit
-        damageAmount: 10
+        damageAmount: 13
