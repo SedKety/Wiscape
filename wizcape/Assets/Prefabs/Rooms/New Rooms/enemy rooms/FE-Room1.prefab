@@ -54,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootTable: {fileID: 11400000, guid: 9f2c06a8c55f4c3459a0a2e6f91e6e10, type: 2}
   roomKind: 0
-  spawnedDoor: {fileID: 3732618787528025007}
+  spawnedDoor: {fileID: 0}
   spawnEnemies: 1
   possibleEnemies:
   - {fileID: 376097959623440521, guid: 2d3f1fbd5aa222449b8cc1ebb0ba3bd2, type: 3}
@@ -87,7 +87,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 4096
-  chest: {fileID: 0}
+  chest: {fileID: 446420753543608570, guid: 0dcd3bfff83859b46a91cfe059b91b15, type: 3}
   key: {fileID: 0}
   shouldSpawnKey: 0
   randomizedDoor: 0

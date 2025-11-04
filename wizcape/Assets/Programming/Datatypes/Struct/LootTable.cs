@@ -13,10 +13,10 @@ public class LootTable : ScriptableObject
     {
         SortTable();
         var randomNum = UnityEngine.Random.Range(0, 101);
-        for(int i = 0; i < items.Length; i++)
+        /*for(int i = 0; i < items.Length; i++)
         {
             if(items[i].weight >= randomNum)  return items[i].itemGO;
-        }
+        }*/
         Console.WriteLine("Somehow was unable to retrieve an item");
         return items.RandomItem().itemGO;
     }
