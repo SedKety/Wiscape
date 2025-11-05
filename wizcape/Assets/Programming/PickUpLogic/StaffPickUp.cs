@@ -30,6 +30,7 @@ public class StaffPickUp : PickUpHandler
 
     private void HandleAttack()
     {
+        SoundTriggerScript.Instance.SetSound(staffSound);
         Instantiate(spawnBall, spawnTransform.position, _cam.rotation);
     }
 

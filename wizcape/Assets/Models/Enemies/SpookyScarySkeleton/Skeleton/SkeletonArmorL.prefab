@@ -273,8 +273,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8c578489ee5874c81459da9f3b8905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 150
   _damageLayer: 0
+  painSound: 
   playerGO: {fileID: 0}
   damageInstance: {fileID: 11400000, guid: 759c5094a20716d428980610c2f0192e, type: 2}
   attackRange: 1

@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eaf3121f5fc27eb41be30d06293d4a8a, type: 3}
-  m_Name: Staff
+  m_Name: Sword
   m_EditorClassIdentifier: 
   hitEffects:
-  - rid: 8322829663702614114
+  - rid: 6277675094875308090
   references:
     version: 2
     RefIds:
-    - rid: 8322829663702614114
+    - rid: 6277675094875308090
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
-        effectName: StaffHit
-        damageAmount: 25
+        effectName: SkeletonHit
+        damageAmount: 50

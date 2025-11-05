@@ -11,20 +11,12 @@ public class EntityBase : MonoBehaviour, IDamagable
 
     [SerializeField] protected DamageLayer _damageLayer;
     [SerializeField] protected string painSound;
-    public DamageLayer damageLayer { get => _damageLayer; set => _damageLayer = value; }
+    public DamageLayer damageLayer { get => _damageLayer; set => _damageLayer = value; } // Implementation of the IDamagable interface
 
-    public string soundEffect;
-    // Implementation of the IDamagable interface
 
-    private void Start()
-    {
-        StartCoroutine(RandomizeGrowling());
-    }
+    
 
-    private IEnumerator RandomizeGrowling()
-    {
-        yield return null;
-    }
+ 
     public virtual void TakeDamage(int intakeDamage, DamageLayer dl, DamageType dt = DamageType.physical)
     {
         health -= intakeDamage;

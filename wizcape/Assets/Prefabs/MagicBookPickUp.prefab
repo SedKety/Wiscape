@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5480036676445497758}
   - component: {fileID: 5113579050134814075}
   - component: {fileID: 7378400245763693848}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MagicBookPickUp
   m_TagString: Weapon
   m_Icon: {fileID: 0}
