@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
-using EditorAttributes;
 
 public class BossController : EnemyEntity
 {
@@ -46,12 +44,16 @@ public class BossController : EnemyEntity
     private List<Collider> activeBoneColliders = new List<Collider>(); // Track active bone colliders
     private Collider bossCollider; // Boss's collider for ignoring bone collisions
 
-    protected override void Awake()
+    private bool bossEnabled = false;
+
+    protected override void Start()
     {
-        // Initialize EntityBase health
+        base.Start();
+
+        // StartBossBehavior EntityBase health
         health = initialHealth;
 
-        // Initialize EnemyEntity fields
+        // StartBossBehavior EnemyEntity fields
         attackRange = meleeRange;
         attackDelay = 5f; // Default attack cooldown
         detectionRange = patrolRadius * 2f;
@@ -59,13 +61,16 @@ public class BossController : EnemyEntity
         retreatTime = new RandomFloatV2(2f, 4f);
         randomWanderPointInterval = new RandomFloatV2(3f, 6f);
         moveSpeed = new RandomFloatV2(baseMoveSpeed, baseMoveSpeed);
-
-        base.Awake(); // Initialize NavMeshAgent, animator, etc.
+    }
+    public void StartBossBehavior()
+    {
+        bossEnabled = true;
+        attackCoroutine = StartCoroutine(AttackLoop());
 
         // Disable NavMeshAgent rotation control
         if (_agent != null) _agent.updateRotation = false;
 
-        // Initialize boss-specific components
+        // StartBossBehavior boss-specific components
         audioSource = GetComponent<AudioSource>();
         if (arenaCenter == null) arenaCenter = new GameObject("ArenaCenter").transform;
 
@@ -80,15 +85,10 @@ public class BossController : EnemyEntity
         }
     }
 
-    protected override void Start()
-    {
-        base.Start(); // Set playerGO
-        attackCoroutine = StartCoroutine(AttackLoop());
-    }
-
     protected override void Update()
     {
         if (isDead) return;
+        if(!bossEnabled) return;
 
         // Always face the player when in range, even during attacking
         LookAtPlayer();

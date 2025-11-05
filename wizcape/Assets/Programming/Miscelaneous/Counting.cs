@@ -22,7 +22,7 @@ public class Counting : MonoBehaviour
 
     void Start()
     {
-        // Initialize texts
+        // StartBossBehavior texts
         counterText.text = "00:00";
 
         if (PlayerPrefs.HasKey("BestTime"))
