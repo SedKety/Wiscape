@@ -456,7 +456,8 @@ GameObject:
   - component: {fileID: 3601066008366175490}
   - component: {fileID: 4767552333189860297}
   - component: {fileID: 8412654533126180338}
-  m_Layer: 0
+  - component: {fileID: 2825670606598371662}
+  m_Layer: 17
   m_Name: Boss-Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -544,6 +545,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 20, y: 20, z: 20}
   m_Center: {x: 0, y: 0, z: 15}
+--- !u!114 &2825670606598371662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6265946389918072658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23221836e1fdc3f488f695470f060ebb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skeletonBoss: {fileID: 2238166943340588602}
 --- !u!1 &6780353938723479552
 GameObject:
   m_ObjectHideFlags: 0
@@ -1339,6 +1353,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 896834012177815582}
   m_SourcePrefab: {fileID: 100100000, guid: 7b91f4b168d55f14d96f5a9566338bae, type: 3}
+--- !u!114 &2238166943340588602 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1565210434054811242, guid: 7b91f4b168d55f14d96f5a9566338bae, type: 3}
+  m_PrefabInstance: {fileID: 772136863137005648}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2837998253837362714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e59eef533bda844abd0e82d206f02be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2837998253837362714 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3302746025552488010, guid: 7b91f4b168d55f14d96f5a9566338bae, type: 3}

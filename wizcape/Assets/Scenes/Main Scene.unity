@@ -603,7 +603,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5425234330471512068, guid: 094319c124510544f93502aa43a140e1, type: 3}
       propertyPath: roomAmount
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5425234330471512068, guid: 094319c124510544f93502aa43a140e1, type: 3}
       propertyPath: rooms.Array.size

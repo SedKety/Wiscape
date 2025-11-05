@@ -9,9 +9,11 @@ public class PlayerEntity : EntityBase
     [SerializeField] private Slider hpSlider;
 
 
+
     
     private void Awake()
     {
+        damageLayer = DamageLayer.Friendly;
         if (Instance == null)
         {
             Instance = this;

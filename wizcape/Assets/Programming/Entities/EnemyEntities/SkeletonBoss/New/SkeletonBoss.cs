@@ -193,7 +193,7 @@ public class BossController : EnemyEntity
     public override void TakeDamage(int intakeDamage, DamageLayer dl, DamageType dt = DamageType.physical)
     {
         if (isDead) return;
-
+        if (!bossEnabled) { return; }
         health -= intakeDamage;
         if (audioSource != null && hurtGrunt != null) audioSource.PlayOneShot(hurtGrunt);
         if (_animator != null) _animator.SetTrigger("Hurt");

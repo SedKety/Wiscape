@@ -7,6 +7,7 @@ public class BossRoom : MonoBehaviour
     {
         if (other.gameObject.GetComponent<PlayerEntity>())
         {
+            print("Player engaged in battle");
             skeletonBoss.StartBossBehavior();
         }
     }

@@ -41,8 +41,6 @@ public class BoneProjectile : MonoBehaviour
 
     private IEnumerator FloatThenMove()
     {
-
-
         float elapsed = 0f;
         while (elapsed < floatDuration)
         {
@@ -82,13 +80,15 @@ public class BoneProjectile : MonoBehaviour
         // Apply damage to IDamagable objects
         if (other.gameObject.TryGetComponent(out IDamagable damagable))
         {
+            print($"Damagable, pogsies. layer: {damagable.damageLayer}");
             if (damagable.damageLayer == DamageLayer.Friendly)
             {
                 damageInstance.Execute(other.gameObject, DamageLayer.Enemy);
                 Destroy(gameObject);
             }
         }
+        print($"Collision with: {other.name}");
+        Destroy(gameObject);
 
-      
     }
 }
