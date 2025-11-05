@@ -23,10 +23,7 @@ public class EntityBase : MonoBehaviour, IDamagable
 
     private IEnumerator RandomizeGrowling()
     {
-        while (true)
-        {
-            yield return
-        }
+        yield return null;
     }
     public virtual void TakeDamage(int intakeDamage, DamageLayer dl, DamageType dt = DamageType.physical)
     {
