@@ -1,11 +1,18 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SkeletonEntity : EnemyEntity
 {
     protected override void Update()
     {
         base.Update();
-        _animator.SetTrigger("IsStriking");
+        
+        
+    }
+
+    protected override void Strike(GameObject target)
+    {
+        base.Strike(target);
+        _animator.SetTrigger("Attack");
+
     }
 } 

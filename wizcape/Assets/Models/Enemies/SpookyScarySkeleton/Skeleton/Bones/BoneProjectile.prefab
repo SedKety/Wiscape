@@ -48,9 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ba3bceedf46c8443bef6c1e911fd90a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageInstance: {fileID: 11400000, guid: 759c5094a20716d428980610c2f0192e, type: 2}
+  damageInstance: {fileID: 11400000, guid: 1b1db5ec0ac0cf046a0bc8a4b2a8f55c, type: 2}
   projectileSpeed: 10
-  isFireball: 0
   trailParticles: {fileID: 0}
   explosionParticlesPrefab: {fileID: 0}
   explosionRadius: 3

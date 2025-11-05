@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GoblinEntity : EnemyEntity
@@ -22,8 +23,13 @@ public class GoblinEntity : EnemyEntity
 
     public override void TakeDamage(int intakeDamage, DamageLayer dl, DamageType dt = DamageType.physical)
     {
-        base.TakeDamage(intakeDamage, dl, dt);
-
+       health -= intakeDamage;
+        SoundTriggerScript.Instance.SetSound(painSound);
+        if(health <= 0)
+        {
+            print($"Entity {gameObject.name}, has died");
+            StartCoroutine(PlayAnimation());
+        }
         if (_agent != null)
         {
             _agent.ResetPath(); // Clear current path to stop ongoing movement
@@ -39,6 +45,12 @@ public class GoblinEntity : EnemyEntity
         Debug.Log($"[{Time.time}] Goblin took damage, retreating immediately. Destination: {_agent.destination}");
     }
 
+    private IEnumerator PlayAnimation()
+    {
+        _animator.SetTrigger("Die");
+        yield return new WaitForSeconds(1);
+        Destroy(gameObject);
+    }
     protected override MoveActions CalculateMoveAction()
     {
         MoveActions ma = distanceToPlayer switch

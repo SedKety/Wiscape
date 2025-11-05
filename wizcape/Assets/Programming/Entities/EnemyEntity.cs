@@ -298,6 +298,7 @@ public abstract class EnemyEntity : EntityBase
     {
         _timeSinceLastHit = 0;
         damageInstance.Execute(target, _damageLayer);
+        
     }
 
     protected virtual void MoveInDirection(Vector3 desiredDirection)

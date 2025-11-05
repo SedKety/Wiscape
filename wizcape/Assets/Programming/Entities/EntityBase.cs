@@ -10,7 +10,7 @@ public class EntityBase : MonoBehaviour, IDamagable
     [SerializeField] protected int health; // The hitpoints of the entity
 
     [SerializeField] protected DamageLayer _damageLayer;
-    [SerializeField] private string painSound;
+    [SerializeField] protected string painSound;
     public DamageLayer damageLayer { get => _damageLayer; set => _damageLayer = value; }
 
     public string soundEffect;
