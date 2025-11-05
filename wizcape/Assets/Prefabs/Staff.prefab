@@ -106,6 +106,7 @@ MonoBehaviour:
   spawnBall: {fileID: 4215642400053282989, guid: b7e7784b1b9bb3f4db3246153d08c430, type: 3}
   attackInterval: 0.5
   spawnTransform: {fileID: 8400934808817435619}
+  staffSound: FireBall
 --- !u!1001 &3897773006123992614
 PrefabInstance:
   m_ObjectHideFlags: 0

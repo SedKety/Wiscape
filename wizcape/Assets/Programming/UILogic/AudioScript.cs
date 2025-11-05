@@ -24,14 +24,14 @@ public class AudioScript : MonoBehaviour
     public void SetMusic()
     {
         float volume = musicSlider.value;
-        audioMixer.SetFloat("music", Mathf.Log10(volume) * 20);
+        audioMixer.SetFloat("Music", Mathf.Log10(volume) * 20);
         PlayerPrefs.SetFloat("MusicSave", volume);
     }
 
     public void SetSFX()
     {
         float volume = sfxSlider.value;
-        audioMixer.SetFloat("sound", Mathf.Log10(volume) * 20);
+        audioMixer.SetFloat("Sounds", Mathf.Log10(volume) * 20);
         PlayerPrefs.SetFloat("SoundSave", volume);
     }
 

@@ -6,6 +6,7 @@ public class StaffPickUp : PickUpHandler
     [SerializeField] private GameObject spawnBall;
     [SerializeField] private float attackInterval;
     [SerializeField] private Transform spawnTransform;
+    [SerializeField] private string staffSound;
     private Transform _cam;
     private bool _hasAttacked;
 

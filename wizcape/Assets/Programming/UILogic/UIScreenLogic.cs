@@ -23,12 +23,13 @@ public class UIScreenLogic : MonoBehaviour
 
     public void LoseGame()
     {
+        SoundTriggerScript.Instance.SetSound("Lost");
         StartCoroutine(BlackScreenHandling(loseScreen));
     }
 
     public void WinGame()
     {
-        
+        SoundTriggerScript.Instance.SetSound("Winning");
         StartCoroutine(BlackScreenHandling(winScreen));
     }
     public void ResetGame()

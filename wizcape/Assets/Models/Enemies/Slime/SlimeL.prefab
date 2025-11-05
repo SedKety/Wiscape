@@ -172,9 +172,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 489aa72b9de431545bc29f6b3badb805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 30
+  health: 200
+  _damageLayer: 0
+  painSound: SlimeHit
   playerGO: {fileID: 0}
-  damageInstance: {fileID: 11400000, guid: f20e92313a06864498e803d61431eee3, type: 2}
+  damageInstance: {fileID: 11400000, guid: 59ee02d9786246242818e4cd853e0590, type: 2}
   attackRange: 1
   attackDelay: 1
   detectionRange: 25

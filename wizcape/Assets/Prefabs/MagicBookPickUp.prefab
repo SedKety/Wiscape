@@ -73,6 +73,7 @@ MonoBehaviour:
   spawnBall: {fileID: 8494458856622972587, guid: b6639d6f42cf3ef4d95b76a089de4d4d, type: 3}
   attackInterval: 1
   spawnTransform: {fileID: 7585809336309083177}
+  staffSound: MagicBlast
 --- !u!1 &5700791894865250759
 GameObject:
   m_ObjectHideFlags: 0

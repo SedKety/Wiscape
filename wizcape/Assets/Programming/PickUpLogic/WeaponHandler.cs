@@ -7,6 +7,7 @@ public class WeaponHandler : PickUpHandler
     public Animator attackAnimator;
     public float weaponDelay;
     public bool isAttacking;
+    public string soundEffectName;
     [SerializeField] private DamageInstance handslap;
     [SerializeField] private GameObject overworldWeapon;
     [SerializeField] private LayerMask enemyLayer;
@@ -17,6 +18,7 @@ public class WeaponHandler : PickUpHandler
     {
         if (isAttacking) return;
         attackAnimator.SetTrigger("Attack");
+        SoundTriggerScript.Instance.SetSound(soundEffectName);
         AttackHandling();
         StartCoroutine(AttackDelay());
 

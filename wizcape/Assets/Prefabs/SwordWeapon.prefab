@@ -57,7 +57,7 @@ Transform:
   m_GameObject: {fileID: 3649881440507829487}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 31.86018, y: -1.0046812, z: 125.02583}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -82,6 +82,7 @@ MonoBehaviour:
   attackAnimator: {fileID: 1858230885065153874}
   weaponDelay: 1
   isAttacking: 0
+  soundEffectName: SwordSlash
   handslap: {fileID: 11400000, guid: 759c5094a20716d428980610c2f0192e, type: 2}
   overworldWeapon: {fileID: 493417775293368516, guid: 8ef56c5b369f6c54ab631a675b4fa5fb, type: 3}
   enemyLayer:

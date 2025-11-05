@@ -123,9 +123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94cd7406096b8da4d99ad9e53c467439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1269
+  speed: 400
   destroyTime: 3
-  staffHit: {fileID: 11400000, guid: 02c76ef6868afc44891ab41781395a87, type: 2}
+  staffHit: {fileID: 11400000, guid: b77d1523361191d42aafb2a51aaf48bb, type: 2}
 --- !u!54 &4146276647160498216
 Rigidbody:
   m_ObjectHideFlags: 0

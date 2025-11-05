@@ -73,6 +73,7 @@ MonoBehaviour:
   attackAnimator: {fileID: 4447411281437506368}
   weaponDelay: 1
   isAttacking: 0
+  soundEffectName: SwordSlash
   handslap: {fileID: 11400000, guid: 373955446c0b4aa46adc947eb9275598, type: 2}
   overworldWeapon: {fileID: 8034211488945387094, guid: 86c5ae12a05728c43b7c74f48ee5522e, type: 3}
   enemyLayer:

@@ -51,6 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   _damageLayer: 0
+  painSound: GoblinHit
   playerGO: {fileID: 0}
   damageInstance: {fileID: 11400000, guid: 6132bb027d65ef846b1bd8ec229c1cbf, type: 2}
   attackRange: 10
