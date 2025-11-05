@@ -1,13 +1,12 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Counting : MonoBehaviour
 {
-
     public static Counting Instance;
     public TextMeshProUGUI counterText; // Reference to the TMP Text for live counter
-    public TextMeshProUGUI savedText;  // Reference to the TMP Text for saved best time
+    public TextMeshProUGUI savedText;   // Reference to the TMP Text for saved best time
+
     private float counter = 0f;
     private bool isCounting = false;
     private float bestTime;
@@ -18,23 +17,25 @@ public class Counting : MonoBehaviour
         {
             Instance = this;
         }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Start()
     {
-        // StartBossBehavior texts
         counterText.text = "00:00";
 
         if (PlayerPrefs.HasKey("BestTime"))
         {
             savedText.text = PlayerPrefs.GetString("BestTime");
             bestTime = PlayerPrefs.GetFloat("BestTimeNumber");
-
         }
-
         else
         {
             savedText.text = "Best: 00:00";
+            bestTime = float.MaxValue; // Initialize to max so any time will be better
         }
 
         isCounting = true;
@@ -44,13 +45,23 @@ public class Counting : MonoBehaviour
     {
         if (isCounting)
         {
-            // Increment counter based on time
             counter += Time.deltaTime;
             counterText.text = FormatTime(counter);
         }
     }
 
-    // Format time into MM:SS
+    private void SaveHighscore()
+    {
+        if (counter < bestTime)
+        {
+            bestTime = counter;
+            PlayerPrefs.SetFloat("BestTimeNumber", bestTime);
+            PlayerPrefs.SetString("BestTime", "Best: " + FormatTime(bestTime));
+            PlayerPrefs.Save();
+            savedText.text = PlayerPrefs.GetString("BestTime");
+        }
+    }
+
     private string FormatTime(float time)
     {
         int minutes = Mathf.FloorToInt(time / 60f);
@@ -61,6 +72,6 @@ public class Counting : MonoBehaviour
     public void StopCounter()
     {
         isCounting = false;
+        SaveHighscore();
     }
-    // can was here 
 }

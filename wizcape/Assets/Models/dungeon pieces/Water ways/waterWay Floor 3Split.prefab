@@ -67,6 +67,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f3ac947ecaaf2cf48bf09ac9e9ba353e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2275337275437558106}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f3ac947ecaaf2cf48bf09ac9e9ba353e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5647756781286848288}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f3ac947ecaaf2cf48bf09ac9e9ba353e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7872135588410336223}
   m_SourcePrefab: {fileID: 100100000, guid: f3ac947ecaaf2cf48bf09ac9e9ba353e, type: 3}
 --- !u!1 &2019294940888174792 stripped
 GameObject:
@@ -92,5 +98,47 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0, y: -0.21500006, z: 0.000000059604645}
+  m_Size: {x: 1, y: 1, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &5647756781286848288
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019294940888174792}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5238699, y: 1, z: 1}
+  m_Center: {x: 0.73806506, y: 0, z: 0}
+--- !u!65 &7872135588410336223
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019294940888174792}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 0, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
